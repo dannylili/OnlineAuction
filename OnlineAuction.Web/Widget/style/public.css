@@ -1,0 +1,31 @@
+/*
+*
+*/
+fieldset
+{
+    border: solid 1px #e2e2e2;
+    color:#b9b9b9;
+    display:inline-block;
+    float:left;
+    font-weight:bold;
+    margin:10px 5px 5px 0;
+    min-height:40px;
+    padding:10px;
+    width:auto;
+    background-image: -moz-linear-gradient(top, #ffffff, #efefef);
+    background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #ffffff),color-stop(1, #efefef));
+    -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#ffffff', EndColorStr='#efefef')";   
+}
+fieldset.Solid
+{
+    border:none;
+    background:#EEE;
+    margin-top:15px;
+}
+fieldset > fieldset.Solid
+{
+    border:none;
+    background:#EEE;
+    margin-top:0;
+}
+
