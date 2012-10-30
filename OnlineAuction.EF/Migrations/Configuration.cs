@@ -15,8 +15,12 @@ namespace OnlineAuction.EF.Migrations
         protected override void Seed(OnlineAuctionDbContent context)
         {
             // ((IObjectContextAdapter)context).ObjectContext.CommandTimeout = 600;
-            context.Configuration.LazyLoadingEnabled = true;
-            context.Configuration.AutoDetectChangesEnabled = true;
+            /// each time get data from database instead of get data from chache when set LazyLoadingEnabled is true
+            /// if LazyLoadingEnabled is false,each time get databa from cache rather than from database
+            // context.Configuration.LazyLoadingEnabled = true;
+
+            ///  DB.ChangeTracker.DetectChanges();
+            // context.Configuration.AutoDetectChangesEnabled = true;
             //context.Database.ExecuteSqlCommand("EXEC zMetaUpdateEffectiveLocalizations");
             //context.Database.ExecuteSqlCommand("EXEC zSecurityCalculateEffectivePermissions");
             //context.Database.ExecuteSqlCommand("EXEC zSecurityCalculateEffectivePermissionsDetail");

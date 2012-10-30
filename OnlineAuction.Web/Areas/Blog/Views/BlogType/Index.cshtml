@@ -1,0 +1,55 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    // Html.ViewContext.ViewData.Model
+}
+@using OnlineAuction.Model;
+@*@Model OnlineAuction.Model.BlogType;*@
+@Model List<blogtype>
+@{
+    // var s=ViewData.Select(t=>t.Key.
+}
+<h2>
+    Index</h2>
+@Html.BeginForm()
+{
+<table>
+    <thead>
+        <tr>
+            <th>
+                名称
+            </th>
+            <th>
+                <a>↑作者</a>
+            </th>
+            <th>
+                <a>↓用户</a>
+            </th>
+            <th>
+                <a>操作</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @* @foreach (var blogType in Html.ViewContext.ViewData.Model)*@
+        @foreach (BlogType blogType in Model)
+        {
+            <tr>
+                <td>
+                    @blogType.BlogShortName
+                </td>
+                <td>
+                    @blogType.BlogUsreID
+                </td>
+                <td>
+                    @blogType.BlogUsreID
+                </td>
+                <td>
+                    @Html.ActionLink("编辑", "Eidt", "blogType");
+                    @Html.ActionLink("删除", "Eidt", "blogType");
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+} 

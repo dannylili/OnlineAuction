@@ -44,12 +44,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\EnumBaseEntityStatus.cs" />
-    <Compile Include="Common\OnlineAuctionBaseEntity.cs" />
-    <Compile Include="Poco\Student.cs" />
+    <Compile Include="Enum\SystemStatus.cs" />
+    <Compile Include="Poco\BlogType.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Common\" />
     <Folder Include="Interface\" />
+    <Folder Include="PocoAttribute\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Poco\说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineAuction.Common\OnlineAuction.Common.csproj">
+      <Project>{857820B3-CF4C-4489-BC31-4AABF2EC3813}</Project>
+      <Name>OnlineAuction.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

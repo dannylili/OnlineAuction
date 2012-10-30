@@ -32,11 +32,17 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=4.3.1.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
       <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\EntityFramework.4.3.1\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="OnlineAuction.Common">
+      <HintPath>..\OnlineAuction.Common\bin\Debug\OnlineAuction.Common.dll</HintPath>
     </Reference>
     <Reference Include="OnlineAuction.Model">
       <HintPath>..\OnlineAuction.Model\bin\Debug\OnlineAuction.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Spring.Aop">
+      <HintPath>..\..\..\..\Program Files (x86)\Spring.NET 1.3.2\bin\net\4.0\release\Spring.Aop.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -50,9 +56,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IModel.cs" />
-    <Compile Include="Migrations\201207060123183_Student.cs" />
-    <Compile Include="Migrations\201207060123183_Student.Designer.cs">
-      <DependentUpon>201207060123183_Student.cs</DependentUpon>
+    <Compile Include="Mapping\BlogTypeMap.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Migrations\201210200759496_BlogType.cs" />
+    <Compile Include="Migrations\201210200759496_BlogType.Designer.cs">
+      <DependentUpon>201210200759496_BlogType.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineAuctionDao.cs" />
@@ -60,7 +69,11 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Mapping\" />
+    <EmbeddedResource Include="Configuration\IoC.xml">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Content Include="Mapping\说明.txt" />
+    <Content Include="Migrations\说明.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
