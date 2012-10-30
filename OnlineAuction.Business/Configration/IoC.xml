@@ -1,0 +1,16 @@
+﻿<objects xmlns="http://www.springframework.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+
+  <object id="BaseModel" type="OnlineAuction.Business.Components.BusinessModel">
+    <property name="Model" ref="Model"></property>
+    <property name="GetConnection" ref="OnlineAuctionConnectionString"></property>
+  </object>
+
+  <object id="TenantProvider" type="OnlineAuction.Business.Components.TenantProvider" singleton="false">
+  </object>
+
+  <object id="BlogTypeModel" type="OnlineAuction.Business.Components.BlogTypeModel" parent="BaseModel" singleton="false">
+  </object>
+
+</objects>
+

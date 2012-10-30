@@ -1,0 +1,15 @@
+﻿<objects xmlns="http://www.springframework.net" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.net http://www.springframework.net/xsd/spring-objects.xsd">
+  <!--srpin配置文件中用id还是name的区别-->
+  <!--http://www.blogjava.net/i369/articles/89550.html-->
+  <object id="OnlineAuctionDbContent" type="OnlineAuction.EF.OnlineAuctionDbContent" scope="request">
+    <constructor-arg name="nameOrConnectionString" ref="OnlineAuctionConnectionString">
+    </constructor-arg>
+  </object>
+
+  <object id="Model" type="OnlineAuction.EF.OnlineAuctionDao" scope="request"> 
+    <constructor-arg name="dbContext" ref="OnlineAuctionDbContent"></constructor-arg>
+  </object>
+
+</objects>
+
