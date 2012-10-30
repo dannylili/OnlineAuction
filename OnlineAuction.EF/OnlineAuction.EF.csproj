@@ -72,8 +72,8 @@
     <EmbeddedResource Include="Configuration\IoC.xml">
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <Content Include="Mapping\说明.txt" />
-    <Content Include="Migrations\说明.txt" />
+    <Content Include="Mapping\documentions.txt" />
+    <Content Include="Migrations\documentions.txt.txt" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">

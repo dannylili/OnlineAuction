@@ -56,10 +56,7 @@
     <Folder Include="PocoAttribute\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Poco\说明.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram1.cd" />
+    <Content Include="Poco\documentions.txt.txt" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OnlineAuction.Common\OnlineAuction.Common.csproj">

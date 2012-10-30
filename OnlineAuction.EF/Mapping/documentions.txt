@@ -1,0 +1,4 @@
+﻿http://www.bianceng.cn/Programming/net/201206/34115_3.htm
+http://www.cnblogs.com/mbailing/ EF系列文章介绍
+
+Linq学习： http://www.cnblogs.com/lifepoem/archive/2011/11/25/2262646.html
