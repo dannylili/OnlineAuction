@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.Business", "O
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.Common", "OnlineAuction.Common\OnlineAuction.Common.csproj", "{857820B3-CF4C-4489-BC31-4AABF2EC3813}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.Injection", "OnlineAuction.Injection\OnlineAuction.Injection.csproj", "{349FB9DF-3C53-415E-B978-B2BDD82E62D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +85,16 @@ Global
 		{857820B3-CF4C-4489-BC31-4AABF2EC3813}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{857820B3-CF4C-4489-BC31-4AABF2EC3813}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{857820B3-CF4C-4489-BC31-4AABF2EC3813}.Release|x86.ActiveCfg = Release|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{349FB9DF-3C53-415E-B978-B2BDD82E62D2}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
