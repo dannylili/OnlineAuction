@@ -3,8 +3,8 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>发现精彩生活_百度空间</title>
-    <link rel="shortcut icon" href="http://hi.bdimg.com/static/qbase/img/mod/16_favicon.ico?v=49f19c7f.ico"
-        type="image/x-icon" />
+  <%--  <link rel="shortcut icon" href="http://hi.bdimg.com/static/qbase/img/mod/16_favicon.ico?v=49f19c7f.ico"
+        type="image/x-icon" />--%>
     <script src="Js/detail.js" type="text/javascript"></script>
     <script src="Js/h.js" type="text/javascript"></script>
     <script src="Js/mod_foot.js" type="text/javascript"></script>

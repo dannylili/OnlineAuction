@@ -1,16 +1,43 @@
 ﻿@{
     ViewBag.Title = "_Top";
 }
-<div style="width: 100%; margin: 0 auto; height: 80px; background: url(../../widget/image/styleimage/top2.png);
-    background-repeat-x: repeat; background-repeat-y: no-repeat; background-attachment: initial;
-    background-position-x: 0%; background-position-y: 100%; background-origin: initial;
-    background-clip: initial; background-color: transparent;">
-    <ul>
-        <li style="display: inline-block;">拼车网</li>
-        <li style="display: inline-block;">拼吃网</li>
-        <li style="display: inline-block;">拼游网</li>
-        <li style="display: inline-block;">拼爱网</li>
-        <li style="display: inline-block;">拼聊网</li>
-        <li style="display: inline-block;">拼心网</li>
-    </ul>
+<div class="topToolBar">
+   @* <ul>
+        <li id="“Message”"><a href="#">消息</a></li>
+        <li><a href="#">设置</a></li>
+        <li><a href="#">退出</a></li>
+    </ul>*@
 </div>
+<ul class="menu">
+    <li><a href="#">首页</a></li>
+    <li><a href="#">学子风采</a></li>
+    <li><a href="#">名优教师</a>
+        <ul>
+            <li><a href="#" class="documents">名优教师</a></li>
+            <li><a href="#" class="messages">教师课堂</a></li>
+        </ul>
+    </li>
+    <li><a href="#">课程</a>
+        <ul>
+            <li><a href="#">新开课</a> </li>
+            <li><a href="#" class="messages">课件浏览</a></li>
+            <li><a href="#">免费试听区</a></li>
+            <li><a href="#">今日促销课</a></li>
+            <li><a href="#">按费用选课</a></li>
+        </ul>
+    </li>
+    <li><a href="#">在线学习</a>
+        <ul>
+            <li><a href="#" title="">进入我的课堂</a></li>
+            <li><a href="#" title="">在线选课</a></li>
+        </ul>
+    </li>
+    <li><a href="#">UU答疑</a></li>
+    <li><a href="#">更多</a>
+        <ul>
+            <li><a href="#" title="">资料</a></li>
+            <li><a href="#" title="">工具下载</a></li>
+            <li><a href="#" title="">UU教育搜索平台</a></li>
+        </ul>
+    </li>
+</ul>
