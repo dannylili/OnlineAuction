@@ -244,7 +244,7 @@ namespace OnlineAuction.EF
                 // 添加修改人给每个刚被添加的Entity
 
                 /// 取得哪些字段被修改过 http://www.cnblogs.com/l1b2q31/articles/1721025.html
-                // ObjectStateEntry updatedEntity = ((IObjectContextAdapter)DB).ObjectContext.ObjectStateManager.GetObjectStateEntries(item).Where(t=>t.State== EntityState.Modified && t.GetModifiedProperties().Count()>0);
+                // ObjectStateEntry updatedEntity = ((IObjectContextAdapter)DB).ObjectContext.ObjectStateManager.GetObjectStateEntries(item).Where(t => t.State == EntityState.Modified && t.GetModifiedProperties().Count() > 0);
             }
 
             try
@@ -263,11 +263,11 @@ namespace OnlineAuction.EF
                         errorMessage += string.Format("Entity of {0} in statue {1} has following error {2}", error.Entry.Entity.GetType().Name, error.Entry.State, validationError.PropertyName + "相关错误是：" + validationError.ErrorMessage + "||");
                     }
                 }
-                throw new ArgumentException(errorMessage);
+                // throw new ArgumentException(errorMessage);
             }
             catch (OptimisticConcurrencyException concurrencyException)
             {
-                throw new ArgumentException("并发异常是：" + concurrencyException.Message);
+                // throw new ArgumentException("并发异常是：" + concurrencyException.Message);
             }
         }
 

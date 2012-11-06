@@ -2,5 +2,51 @@
     ViewBag.Title = "Add";
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
-<h2>
-    Add</h2>
+@model OnlineAuction.Model.BlogType
+@using (Html.BeginForm())
+{
+    Html.ValidationSummary();
+    <table style='border: 1px solid black;'>
+        <thead>
+            <tr>
+                <td colspan="4" style="text-align: right; padding-right: 2px;">
+                    <input type="submit" value="insert" />
+                    <input type="button" value="cancel" />
+                    <input type="reset" value="reset" />
+                </td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    博客名称
+                </td>
+                <td>
+                    @Html.TextBoxFor(t => t.BlogShortName)
+                    @Html.ValidationMessageFor(t => t.BlogShortName)
+                </td>
+                <td>
+                    简介
+                </td>
+                <td>
+                    @Html.LabelFor(t => t.BlogBrief)
+                    @Html.ValidationMessageFor(t => t.BlogBrief)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    作者
+                </td>
+                <td>
+                    @Html.TextBoxFor(t => t.BlogUsreID)
+                    @Html.ValidationMessageFor(t => t.BlogUsreID)
+                </td>
+                <td>
+                </td>
+                <td>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+}
+@Html.LabelForModel("王永贵");

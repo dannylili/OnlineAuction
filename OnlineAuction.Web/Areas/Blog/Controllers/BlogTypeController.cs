@@ -1,25 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Linq;
 using System.Web.Mvc;
-using OnlineAuction.Model;
-using OnlineAuction.Business.Components;
 using OnlineAuction.Business.Interfaces;
-using OnlineAuction.Common.Interfaces;
+using OnlineAuction.Model;
 
-using Spring.Context;
-using Spring.Context.Support;
-using OnlineAuction.EF;
 namespace OnlineAuction.Web.Areas.Blog.Controllers
 {
     public class BlogTypeController : Controller
     {
+        #region 属性
+
         protected IBlogTypeModel Model { get; set; }
+
+        #endregion
+
+        #region Ctr
+
         public BlogTypeController()
         {
-            // Model = new BlogTypeModel();
+
         }
+
+        #endregion
+
+        #region HTTP.PUT
 
         public ActionResult Index()
         {
@@ -33,5 +36,20 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             var blogType = new BlogType();
             return View(blogType);
         }
+
+        #endregion
+
+        #region HTTP.POST
+
+        [HttpPost]
+        public ActionResult Add(BlogType entity)
+        {
+            FormCollection form = new FormCollection();
+            ContentResult result = new ContentResult();
+            Model.Save(entity);
+            return result;
+        }
+
+        #endregion
     }
 }

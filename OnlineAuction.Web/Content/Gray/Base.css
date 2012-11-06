@@ -13,7 +13,7 @@
     padding: 0;
     border: none;
     outline: none;
-    margin:0 auto;/*------居中显示---------*/
+    margin: 0 auto; /*------居中显示---------*/
 }
 
 /* Menu */
@@ -137,7 +137,7 @@
 /* Icons */
 .menu a.documents
 {
-    background: url(../img/docs.png) no-repeat 6px center;
+    /*background: url(../img/docs.png) no-repeat 6px center;*/
 }
 .menu a.messages
 {
@@ -163,20 +163,20 @@
     background: -o-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
     background: -ms-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
     background: linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
-    text-align: right; 
+    text-align: right;
 }
 
 .topToolBar ul
 {
-    float:right;
-    display: block; 
-    position:relative;
+    float: right;
+    display: block;
+    position: relative;
 }
 .topToolBar ul li
 {
-    float:left;
-    list-style:none;
-    height:28; 
+    float: left;
+    list-style: none;
+    height: 28;
 }
 .topToolBar ul li a
 {

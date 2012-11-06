@@ -6,14 +6,18 @@ using System.Web.Mvc;
 using System.Web.Routing;
 using System.Net;
 using OnlineAuction.Web.Models;
+using Spring.Web.Mvc;
 
 namespace OnlineAuction.Web
 {
     // Note: For instructions on enabling IIS6 or IIS7 classic mode, 
     // visit http://go.microsoft.com/?LinkId=9394801
 
+    // public class MvcApplication:SpringMvcApplication
     public class MvcApplication : System.Web.HttpApplication
     {
+        #region 一般的方法
+
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
@@ -21,7 +25,8 @@ namespace OnlineAuction.Web
 
         public static void RegisterRoutes(RouteCollection routes)
         {
-            routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
+            routes.IgnoreRoute("{resource}.axd/{*pathInfo}"); 
+            routes.IgnoreRoute("{*favicon}", new { favicon = @"(.*/)?favicon.ico(/.*)?" });
 
             routes.MapRoute(
                 "Default", // Route name
@@ -69,15 +74,20 @@ namespace OnlineAuction.Web
             }
         }
 
-        #region Srping
+        #endregion
 
+        #region 重载SpringMvcApplication类的方法
+
+        ///// <summary>
+        ///// 如果此application继承：SpringMvcApplication
+        ///// public class MvcApplication:SpringMvcApplication
+        ///// 用这个方法可以完成Application_Start中的spring注册功能
+        ///// </summary>
         //protected override void RegisterSpringControllerFactory()
         //{
-        // 必须是public class MvcApplication : System.Web.HttpApplication，SpringMvcApplication
-        //    ControllerBuilder.Current.SetControllerFactory(typeof(ControllerFactory));
+        //    ControllerBuilder.Current.SetControllerFactory(typeof(OnlineControllerFactory));
         //}
 
         #endregion
-
     }
 }

@@ -40,7 +40,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Enum\SystemStatus.cs" />
     <Compile Include="Extension\ExtensionIBaseEntity.cs" />
     <Compile Include="Extension\SystemStatusWrapper.cs" />

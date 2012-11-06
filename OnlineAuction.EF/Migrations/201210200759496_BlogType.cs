@@ -1,7 +1,7 @@
 using System.Data.Entity.Migrations;
 
 namespace OnlineAuction.EF.Migrations
-{ 
+{
     public partial class BlogType : DbMigration
     {
         public override void Up()
@@ -14,7 +14,7 @@ namespace OnlineAuction.EF.Migrations
                         BlogShortName = c.String(nullable: false, maxLength: 200, unicode: false),
                         BlogBrief = c.String(),
                         BlogUsreID = c.Int(nullable: false),
-                        SystemStatus = c.Byte(nullable: false),
+                        SystemStatus = c.Byte(nullable: false, defaultValue: 0),
                     })
                 .PrimaryKey(t => t.ID)
                 .Index(t => t.SystemStatus);

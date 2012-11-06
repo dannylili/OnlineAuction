@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using OnlineAuction.Model.Common;
 using OnlineAuction.Common.Extension;
+using System.ComponentModel.DataAnnotations;
 
 namespace OnlineAuction.Model
 {
@@ -15,9 +16,9 @@ namespace OnlineAuction.Model
 
         public int ID { get; set; }
 
-        /// <summary>
-        /// 名称
-        /// </summary>
+        [Display(Name = "主题")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "填写博客主题")]
+        [StringLength(3000)]
         public string BlogShortName { get; set; }
 
         /// <summary>

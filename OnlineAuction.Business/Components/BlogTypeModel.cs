@@ -15,7 +15,7 @@ namespace OnlineAuction.Business.Components
 
         public void Save(BlogType entityType)
         {
-            throw new NotImplementedException();
+            Model.Save(entityType);
         }
 
         public void Update(BlogType entityType, int? ID = 0)

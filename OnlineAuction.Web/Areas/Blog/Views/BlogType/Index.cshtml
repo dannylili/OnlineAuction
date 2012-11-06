@@ -9,11 +9,13 @@
 @{
     // var s=ViewData.Select(t=>t.Key.
 }
-<h2>
-    Index</h2>
-@Html.BeginForm()
-{
-<table>
+
+@using (@Html.BeginForm())
+{ 
+   @* <div>@Html.Action("Add", "Blogtype")</div>*@
+    // 将会调用Blogtype的Add方法中执行的页面HTML
+    <div>@Html.ActionLink("add", "Add", "Blogtype", new { style = "border:1px solid red;" })</div>
+    <table>
     <thead>
         <tr>
             <th>
@@ -32,6 +34,11 @@
     </thead>
     <tbody>
         @* @foreach (var blogType in Html.ViewContext.ViewData.Model)*@
+        @{
+    var BlogTypes1 = Html.ViewContext.ViewData.Model;
+    var BlogTypes2 = Html.ViewData;
+    var properties = Html.ViewContext.ViewData.ModelMetadata.Properties;
+        }
         @foreach (BlogType blogType in Model)
         {
             <tr>
@@ -51,5 +58,5 @@
             </tr>
         }
     </tbody>
-</table>
-} 
+    </table>
+}

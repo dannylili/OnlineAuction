@@ -11,7 +11,6 @@ namespace OnlineAuction.Web.Controllers
 {
     public class AccountController : Controller
     {
-
         //
         // GET: /Account/LogOn
 
@@ -26,8 +25,8 @@ namespace OnlineAuction.Web.Controllers
         [HttpPost]
         public ActionResult LogOn(LogOnModel model, string returnUrl)
         {
-          
-             return RedirectToAction("Index", "PersonDashborder");
+
+            return RedirectToAction("Index", "PersonDashborder");
         }
 
         //
@@ -192,5 +191,11 @@ namespace OnlineAuction.Web.Controllers
             }
         }
         #endregion
+
+        public ActionResult SendEmialToSysAdmin()
+        {
+            return PartialView();
+        }
+
     }
 }

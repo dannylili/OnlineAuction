@@ -1,0 +1,41 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        body
+        {
+            border: none;
+            padding: 0;
+            margin: 0;
+        }
+        #middle
+        {
+            width: 100%;
+        }
+        
+        #middle > div
+        {
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <div id="top" style="width: 100%; height: 50px;">
+        @Html.Partial("_Top");
+    </div>
+    <div id="middle">
+        <div id="layoutLeft">
+            @Html.Partial("_LayoutLeft");
+        </div>
+        <div id="layoutMain">
+            @RenderBody()
+        </div>
+        <div id="layoutright">
+            @Html.Partial("_LayoutRight");
+        </div>
+        <div style="clear: left;">
+        </div>
+    </div>
+</body>
+</html>

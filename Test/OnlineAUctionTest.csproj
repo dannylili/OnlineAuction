@@ -47,6 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="C#\IfCondition\ConditionIf.cs" />
+    <Compile Include="C#\MemoryTest\Class1.cs" />
     <Compile Include="C#\Nspring\ByCall.cs" />
     <Compile Include="C#\Nspring\TestByCallcs.cs" />
     <Compile Include="Program.cs" />

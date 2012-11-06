@@ -165,6 +165,8 @@ namespace Test
             Console.ReadLine();
         }
 
+
+
         /// <summary>
         ///  static类不能包含protected类型的成员
         /// </summary>
