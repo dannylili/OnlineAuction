@@ -1,0 +1,193 @@
+﻿<!doctype html>
+<html>
+<head>
+<!--http://www.php100.com/html/itnews/it/2012/0903/10986.html-->
+    <meta charset="utf-8">
+    <title>定宽Jquery+AJAX+JSON瀑布流布局(每行代码都有详细注释)</title>
+    <style type="text/css">
+        body, ul, li, h3
+        {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            font: bold 12px "微软雅黑";
+        }
+        /*瀑布流布局样式*/
+        #lxf-box
+        {
+            position: relative;
+            width: 1000px;
+            margin: 0 auto;
+        }
+        #lxf-box li
+        {
+            background: #fff;
+            border: solid 1px #ccc;
+            text-align: center;
+            padding: 10px;
+            float: left;
+        }
+        h3
+        {
+            padding-top: 8px;
+        }
+        img
+        {
+            width: 200px;
+            height: auto;
+            display: block;
+            border: 0;
+        }
+        /*css3动画 注由于是css3制作的所以兼容性不保证 要想兼容性好 请自己做成gif动画加载图*/
+        /*li { -webkit-transition: all .7s ease-out .1s; -moz-transition: all .7s ease-out; -o-transition: all .7s ease-out .1s; transition: all .7s ease-out .1s }*/
+        #loading
+        {
+            display: none;
+            line-height: 30px;
+            background: #000;
+            color: #fff;
+            text-align: center;
+            height: 30px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            opacity: 0.8;
+        }
+    </style>
+    <script src="http://www.iiwnet.com/templets/niu/js/jquery.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <h1 color="red">
+        预览无效果请刷新</h1>
+    <ul id="lxf-box">
+        <li><a href="http://www.iiwnet.com/div_css/342.html">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807346.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/ajax/237.html">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807106.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/js_ad/271.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807569.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/js_texiao/312.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807129.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/js_pic/191.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807166.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/js_pic/318.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807707.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/div_css/341.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807995.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/div_css/350.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807569.png"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/div_css/350.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807454.png"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/div_css/349.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807778.png"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/php_base/336.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807536.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+        <li><a href="http://www.iiwnet.com/div_css/344.html/">
+            <img src="http://www.php100.com/uploadfile/2012/0903/20120903025807179.jpg"></a>
+            <h3>
+                图片标题</h3>
+        </li>
+    </ul>
+    <div id="loading">
+        正在加载……</div>
+    <script>
+        /*
+        原理:1.把所有的li的高度值放到数组里面
+        2.第一行的top都为0
+        3.计算高度值最小的值是哪个li
+        4.把接下来的li放到那个li的下面
+        <a href="http://iiwnet.com/js_web/">网页特效代码</a>:http://iiwnet.com
+        编写时间:2012年6月9日
+        */
+        function iiwnet() {//定义成函数便于调用
+            var wrap = document.getElementById("lxf-box")
+            var margin = 10; //这里设置间距
+            var li = $("li"); //这里是区块名称
+            varli_W = li[0].offsetWidth + margin; //取区块的实际宽度(包含间距,这里使用源生的offsetWidth函数,不适用jQuery的width()函数是因为它不能取得实际宽度,例如元素内有pandding就不行了)
+            var h = []; //记录区块高度的数组
+            li.css("position", "absolute");
+            var n = wrap.offsetWidth / li_W | 0; //容器的宽度除以区块宽度就是一行能放几个区块
+            for (var i = 0; i < li.length; i++) {//有多少个li就循环多少次
+                li_H = li[i].offsetHeight; //获取每个li的高度
+                if (i < n) {//n是一行最多的li,所以小于n就是第一行了
+                    h[i] = li_H; //把每个li放到数组里面
+                    li.eq(i).css("top", 0); //第一行的Li的top值为0
+                    li.eq(i).css("left", i * li_W); //第i个li的左坐标就是i*li的宽度
+                }
+                else {
+                    min_H = Math.min.apply(null, h); //取得数组中的最小值,区块中高度值最小的那个
+                    minKey = getarraykey(h, min_H); //最小的值对应的指针
+                    h[minKey] += li_H + margin; //加上新高度后更新高度值
+                    li.eq(i).css("top", min_H + margin); //先得到高度最小的Li,然后把接下来的li放到它的下面
+                    li.eq(i).css("left", minKey * li_W); //第i个li的左坐标就是i*li的宽度
+                }
+                $("h3").eq(i).text("编号:" + i + ",高度:" + li_H); //把区块的序号和它的高度值写入对应的区块H3标题里面
+                $("li").animate({ opacity: 1 });
+            }
+        }
+        /* 使用for in运算返回数组中某一值的对应项数(比如算出最小的高度值是数组里面的第几个) */
+        function getarraykey(s, v) { for (k in s) { if (s[k] == v) { return k; } } }
+        /*这里一定要用onload,因为图片不加载完就不知道高度值*/
+        window.onload = function () { iiwnet(); };
+        /*浏览器窗口改变时也运行函数*/
+        window.onresize = function () { iiwnet(); };
+        /**********************************************************************/
+        /*无限加载*/
+        var i = 1;
+        function getMore() {
+            $("#loading").show();
+            var json = "http://www.iiwnet.com/images/jstx/img.js";
+            $.getJSON(json, function (data) {
+                $.each(data, function (i) {
+                    var url = data[i].url;
+                    var html = "<li style='opacity:0'><a href='http://www.iiwnet.com/'><img src=" + url + " ></a><h3>图片标题</h3></li>";
+                    $("#lxf-box").append(html);
+                    $("#loading").hide();
+                });
+                iiwnet();
+                i = 1
+            });
+        };
+        /*滚动到底部的时候*/
+        $(window).bind("scroll", function () {
+            if ($(document).scrollTop() + $(window).height() > $(document).height() - 10 && i == 1) {
+                i = 0;
+                getMore();
+            }
+        });
+    </script>
+</body>
+</html>

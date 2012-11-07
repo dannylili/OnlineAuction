@@ -2,6 +2,8 @@
 using System.Web.Mvc;
 using OnlineAuction.Business.Interfaces;
 using OnlineAuction.Model;
+using OnlineAuction.Business.Validation;
+using OnlineAuction.Web.Extensions;
 
 namespace OnlineAuction.Web.Areas.Blog.Controllers
 {
@@ -45,10 +47,19 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
         public ActionResult Add(BlogType entity)
         {
             // FormCollection form = new FormCollection();
-            // ContentResult result = new ContentResult();
-            Model.Save(entity);
-            return (new System.Web.Mvc.JsonResult());
+
+            var result = Model.Save(entity);
+            result.AddMessage("1", "2");
+            result.AddMessageForInfor("firstName", "Wang");
+
+            return result.ToJsonResult<ErrorResult>();
+            // http://blog.163.com/shizhengxian@126/blog/static/422877822012629114446206/
+            // return new System.Web.Mvc.EmptyResult();
+            //ContentResult contentresult = new ContentResult();
+            //contentresult.Content = "Alert(" + result + ")";
+            //return contentresult;
         }
+
         #endregion
     }
 }

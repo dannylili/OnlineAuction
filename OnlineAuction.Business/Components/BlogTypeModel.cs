@@ -5,7 +5,7 @@ using System.Text;
 using OnlineAuction.Business.Interfaces;
 using OnlineAuction.Common.Interfaces;
 using OnlineAuction.Model;
-
+using OnlineAuction.Business.Validation;
 
 namespace OnlineAuction.Business.Components
 {
@@ -13,15 +13,19 @@ namespace OnlineAuction.Business.Components
     {
         #region Implement IBlogTypeModel
 
-        public void Save(BlogType entityType)
+        public ErrorResult Save(BlogType entityType)
         {
             // 做Validation 取得valdiation的结果，将该结果抛出到上层
             Model.Save(entityType);
+            var result = new ErrorResult();
+            result.AddMessage("save", "saveScuccessful");
+            return result;
+            // return (new ErrorResult() { Message = new List<Common.Classes.Message>(), IsValid = true });
         }
 
-        public void Update(BlogType entityType, int? ID = 0)
+        public ErrorResult Update(BlogType entityType, int? ID = 0)
         {
-            throw new NotImplementedException();
+            return (new ErrorResult());
         }
 
         public void Delete(BlogType entityType)

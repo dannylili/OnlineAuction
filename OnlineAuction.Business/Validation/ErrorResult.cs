@@ -21,7 +21,10 @@ namespace OnlineAuction.Business.Validation
             {
                 return Message.Count > 0;
             }
-            set;
+            set
+            {
+                IsValid = value;
+            }
         }
 
         #endregion
@@ -30,15 +33,22 @@ namespace OnlineAuction.Business.Validation
 
         public void AddMessage(string messageKey, string messageValue)
         {
+            if (Message == null)
+            {
+                Message = new List<Message>();
+
+            }
             Message.Add(new Message { MessageKey = messageKey, MessageValue = messageValue, MessageType = Constants.MessageType.messageTypeError });
         }
 
-        public void AddMessage(string messageKey = null, string messageValue = null)
+        public void AddMessageForInfor(string messageKey = null, string messageValue = null)
         {
+            if (Message == null)
+            {
+                Message = new List<Message>();
+            }
             Message.Add(new Message { MessageKey = messageKey, MessageValue = messageValue, MessageType = Constants.MessageType.messageTypeInfor });
         }
-
-
 
         #endregion
     }

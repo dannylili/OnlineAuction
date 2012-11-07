@@ -92,6 +92,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Extensions\HtmlHelperExtensioncs.cs" />
+    <Compile Include="Extensions\JsonExtentions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -184,6 +185,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\modernizr-1.7.js" />
     <Content Include="Scripts\modernizr-1.7.min.js" />
+    <Content Include="TestPage\HTMLPage2.htm" />
     <Content Include="TestPage\Layout.htm" />
     <Content Include="TestPage\Menu3.htm" />
     <Content Include="TestPage\TopMenue.aspx" />

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OnlineAuction.Model;
+using OnlineAuction.Business.Validation;
 
 
 namespace OnlineAuction.Business.Interfaces
@@ -14,7 +15,7 @@ namespace OnlineAuction.Business.Interfaces
         /// </summary>
         /// <typeparam name="EntityType"></typeparam>
         /// <param name="entityType"></param>
-        void Save(BlogType entityType);
+        ErrorResult Save(BlogType entityType);
 
         /// <summary>
         /// 编辑
@@ -22,7 +23,7 @@ namespace OnlineAuction.Business.Interfaces
         /// <typeparam name="EntityType"></typeparam>
         /// <param name="entityType"></param>
         /// <param name="ID"></param>
-        void Update(BlogType entityType, Nullable<int> ID = 0);
+        ErrorResult Update(BlogType entityType, Nullable<int> ID = 0);
 
         /// <summary>
         /// 删除
