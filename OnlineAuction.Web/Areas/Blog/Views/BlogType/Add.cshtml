@@ -2,6 +2,10 @@
     ViewBag.Title = "Add";
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
+<script language="javascript">
+     
+</script>
+
 @model OnlineAuction.Model.BlogType
 @using (Html.BeginForm())
 {
@@ -29,7 +33,7 @@
                     简介
                 </td>
                 <td>
-                    @Html.LabelFor(t => t.BlogBrief)
+                    @Html.TextAreaFor(t => t.BlogBrief)
                     @Html.ValidationMessageFor(t => t.BlogBrief)
                 </td>
             </tr>

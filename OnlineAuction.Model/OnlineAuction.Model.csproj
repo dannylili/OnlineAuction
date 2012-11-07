@@ -49,6 +49,7 @@
     <Compile Include="Poco\BlogType.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Poco\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

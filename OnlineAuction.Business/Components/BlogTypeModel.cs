@@ -15,6 +15,7 @@ namespace OnlineAuction.Business.Components
 
         public void Save(BlogType entityType)
         {
+            // 做Validation 取得valdiation的结果，将该结果抛出到上层
             Model.Save(entityType);
         }
 

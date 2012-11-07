@@ -44,12 +44,11 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
         [HttpPost]
         public ActionResult Add(BlogType entity)
         {
-            FormCollection form = new FormCollection();
-            ContentResult result = new ContentResult();
+            // FormCollection form = new FormCollection();
+            // ContentResult result = new ContentResult();
             Model.Save(entity);
-            return result;
+            return (new System.Web.Mvc.JsonResult());
         }
-
         #endregion
     }
 }

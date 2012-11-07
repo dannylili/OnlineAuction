@@ -40,9 +40,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Message.cs" />
+    <Compile Include="Const\Constants.cs" />
     <Compile Include="Enum\SystemStatus.cs" />
     <Compile Include="Extension\ExtensionIBaseEntity.cs" />
     <Compile Include="Extension\SystemStatusWrapper.cs" />
+    <Compile Include="Interfaces\IErrorResult.cs" />
     <Compile Include="Interfaces\IModel.cs" />
     <Compile Include="Interfaces\IOnlineAuctionBaseEntity.cs">
       <SubType>Code</SubType>

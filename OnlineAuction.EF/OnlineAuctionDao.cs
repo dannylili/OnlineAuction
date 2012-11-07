@@ -11,6 +11,7 @@ using OnlineAuction.EF;
 using OnlineAuction.Common.Interfaces;
 using OnlineAuction.Common.Extension;
 using OnlineAuction.Model.Common;
+using OnlineAuction.Common.Enum;
 
 namespace OnlineAuction.EF
 {
@@ -95,6 +96,7 @@ namespace OnlineAuction.EF
         {
             EntityDetech(entityType);
             var entity = GetDbSet<EntityType>().Find(entityType.ID);
+            // entity.SystemStatus = SystemStatus.Deleted; // 如果是逻辑删除时用这个方法
             DbSet dbset = GetDbSet<EntityType>();
             dbset.Remove(entity);
             SaveChanges();
@@ -237,6 +239,8 @@ namespace OnlineAuction.EF
 
             foreach (var item in addedTrackableEntries.Select(e => e.Entity))
             {
+                DbEntityValidationResult validateResult = DB.Entry(item).GetValidationResult();
+                ((IOnlineAuctionBaseEntity)item).SystemStatus = SystemStatus.Active;
                 // 添加创建人给每个刚被添加的Entity
             }
             foreach (var item in updatedTrackableEntries.Select(e => e.Entity))
@@ -249,7 +253,6 @@ namespace OnlineAuction.EF
 
             try
             {
-                // DbValidationError validateResult = DB.Entry().GetValidationResult();
                 DB.SaveChanges();
             }
             catch (DbEntityValidationException ex)
