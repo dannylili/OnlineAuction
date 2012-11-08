@@ -79,10 +79,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Areas\Administrator\AdministratorAreaRegistration.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogTypeController.cs" />
-    <Compile Include="Areas\CRM\CRMAreaRegistration.cs" />
     <Compile Include="Areas\DashBorder\Controllers\PersonDashborderController.cs" />
     <Compile Include="Areas\DashBorder\DashBorderAreaRegistration.cs" />
     <Compile Include="Areas\OA\OAAreaRegistration.cs" />
@@ -226,14 +224,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\Administrator\Controllers\" />
-    <Folder Include="Areas\Administrator\Models\" />
-    <Folder Include="Areas\Administrator\Views\Shared\" />
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
-    <Folder Include="Areas\CRM\Controllers\" />
-    <Folder Include="Areas\CRM\Models\" />
-    <Folder Include="Areas\CRM\Views\Shared\" />
     <Folder Include="Areas\DashBorder\Models\" />
     <Folder Include="Areas\DashBorder\Views\Shared\" />
     <Folder Include="Areas\OA\Controllers\" />
@@ -259,9 +251,7 @@
     <Content Include="Views\Shared\_Layout_7-6.cshtml" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Areas\Administrator\Views\Web.config" />
     <Content Include="Areas\OA\Views\Web.config" />
-    <Content Include="Areas\CRM\Views\Web.config" />
     <Content Include="Areas\Blog\Views\Web.config" />
     <Content Include="Areas\Blog\Views\Blog\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogType\Add.cshtml" />

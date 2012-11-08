@@ -4,6 +4,7 @@ using OnlineAuction.Business.Interfaces;
 using OnlineAuction.Model;
 using OnlineAuction.Business.Validation;
 using OnlineAuction.Web.Extensions;
+using OnlineAuction.Common.Const;
 
 namespace OnlineAuction.Web.Areas.Blog.Controllers
 {
@@ -47,7 +48,11 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
         public ActionResult Add(BlogType entity)
         {
             // FormCollection form = new FormCollection();
+
             var result = Model.Save(entity);
+            result.AddMessage("add", "add data scucessful");
+            TempData[Constants.ViewStatus.TempDataAddFail] = "Alert(" + result.ToJsonResult<ErrorResult>().ToString() + ")";
+
             if (result.IsValid)
             {
                 /// 添加失败，停留在本页面
@@ -55,9 +60,13 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             }
             else
             {
+                /// 重新跳转到Index页面去
                 return RedirectToAction("Index", "BlogType");
                 // return RedirectToAction("Index");
                 // 层级关系是：action<<controller<<route
+
+                /// 直接进入到view中，但要传入对应页面的数据
+                // return PartialView();
             }
 
             // result.AddMessage("1", "2");

@@ -2,10 +2,15 @@
     ViewBag.Title = "Add";
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
+@using OnlineAuction.Common.Const;
 @using OnlineAuction.Web.Extensions;
 @model OnlineAuction.Model.BlogType
 @using (Html.BeginForm())
 {
+    if (TempData[Constants.ViewStatus.TempDataAddFail] != null)
+    { 
+        @::TempData[Constants.ViewStatus.TempDataAddFail]
+    }
     Html.ValidationSummary();
 
     //var GetTemplateHelp = ViewContext.ViewData.ModelMetadata.Description;
@@ -49,10 +54,10 @@
                 </td>
                 <td>
                     <!-- 测试自定义的StringHelp类用法-->
-                   @* @Html.EditorFor(t => t.BlogShortName);*@
-                   @Html.TextAreaFor(t => t.BlogShortName);
+                     @Html.EditorFor(t => t.BlogShortName);
                 </td>
                 <td>
+                @Html.DisplayFor(t => t.TestDecimal);
                 </td>
             </tr>
         </tbody>

@@ -18,7 +18,6 @@ namespace OnlineAuction.Business.Components
             // 做Validation 取得valdiation的结果，将该结果抛出到上层
             Model.Save(entityType);
             var result = new ErrorResult();
-            result.AddMessage("save", "saveScuccessful");
             return result;
             // return (new ErrorResult() { Message = new List<Common.Classes.Message>(), IsValid = true });
         }

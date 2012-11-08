@@ -22,5 +22,21 @@ namespace OnlineAuction.Common.Const
             /// </summary>
             public const string messageTypeError = "Error";
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public static class ViewStatus
+        {
+            /// <summary>
+            /// 添加成功时
+            /// </summary>
+            public const string TempDataAddSucess = "AddScucess";
+
+            /// <summary>
+            /// 添加失败时
+            /// </summary>
+            public const string TempDataAddFail = "AddFail";
+        }
     }
 }
