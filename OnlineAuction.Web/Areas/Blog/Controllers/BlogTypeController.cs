@@ -47,17 +47,25 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
         public ActionResult Add(BlogType entity)
         {
             // FormCollection form = new FormCollection();
-
             var result = Model.Save(entity);
-            result.AddMessage("1", "2");
-            result.AddMessageForInfor("firstName", "Wang");
+            if (result.IsValid)
+            {
+                /// 添加失败，停留在本页面
+                return PartialView("Add", entity);
+            }
+            else
+            {
+                return RedirectToAction("Index", "BlogType");
+                // return RedirectToAction("Index");
+                // 层级关系是：action<<controller<<route
+            }
 
-            return result.ToJsonResult<ErrorResult>();
+            // result.AddMessage("1", "2");
+            // result.AddMessageForInfor("firstName", "Wang");
+
+            // return result.ToJsonResult<ErrorResult>();
+            // return PartialView(HttpContext.Application);
             // http://blog.163.com/shizhengxian@126/blog/static/422877822012629114446206/
-            // return new System.Web.Mvc.EmptyResult();
-            //ContentResult contentresult = new ContentResult();
-            //contentresult.Content = "Alert(" + result + ")";
-            //return contentresult;
         }
 
         #endregion

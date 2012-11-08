@@ -2,10 +2,16 @@
     ViewBag.Title = "Add";
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
+@using OnlineAuction.Web.Extensions;
 @model OnlineAuction.Model.BlogType
 @using (Html.BeginForm())
 {
     Html.ValidationSummary();
+
+    //var GetTemplateHelp = ViewContext.ViewData.ModelMetadata.Description;
+    //var dd = ViewContext.ViewData.ModelMetadata.Properties.Where(t => t.IsRequired == true);
+    //var isRequired = ViewData.ModelMetadata.IsRequired;
+    //var templateHint = ViewData.ModelMetadata.TemplateHint; // Decimal Integer
     <table style='border: 1px solid black;'>
         <thead>
             <tr>
@@ -42,6 +48,9 @@
                     @Html.ValidationMessageFor(t => t.BlogUsreID)
                 </td>
                 <td>
+                    <!-- 测试自定义的StringHelp类用法-->
+                   @* @Html.EditorFor(t => t.BlogShortName);*@
+                   @Html.TextAreaFor(t => t.BlogShortName);
                 </td>
                 <td>
                 </td>
@@ -49,4 +58,3 @@
         </tbody>
     </table>
 }
-@Html.LabelForModel("王永贵");

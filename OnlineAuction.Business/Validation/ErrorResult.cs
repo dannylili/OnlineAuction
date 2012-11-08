@@ -19,6 +19,10 @@ namespace OnlineAuction.Business.Validation
         {
             get
             {
+                if (Message == null)
+                {
+                    Message = new List<Message>();
+                }
                 return Message.Count > 0;
             }
             set

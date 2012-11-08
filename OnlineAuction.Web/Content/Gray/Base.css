@@ -141,7 +141,7 @@
 }
 .menu a.messages
 {
-    background: url(../img/bubble.png) no-repeat 6px center;
+    /* background: url(../img/bubble.png) no-repeat 6px center;*/
 }
 .menu a.signout
 {

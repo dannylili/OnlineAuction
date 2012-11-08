@@ -1,0 +1,6 @@
+﻿EditTemplates的命名
+参考：http://www.cnblogs.com/idlewater/archive/2011/12/08/2280763.html
+
+@Html.EditorFor可以通过一个模板视图（Template View）编辑和显示一个Model的内容。
+具体语法：Html.EditorFor(m => m.Pager, "Pager")，第一个参数是用来传递Model的lamda表达式，
+第二个参数是 Partial Template View的名字。Partial Template View缺省放在Views->Shared->EditorTemplates，如果想换目录的话请自行查资料，我不知道怎么换，呵呵。如果想换Area的目录，我知道，可以问我。

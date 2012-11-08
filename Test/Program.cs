@@ -30,8 +30,15 @@ namespace Test
             //NameVerifying(lastName:"Yonggui");
             // TestContainsFun();
 
-            StringEqauls();
+            // StringEqauls();
+
+            Message message = new Message();
+            if (message.IsValid)
+            {
+                Console.Write("so far so good if anyone can help me.");
+            }
         }
+
 
         private static void OperatorEquals()
         {
@@ -50,7 +57,7 @@ namespace Test
             {
                 Console.Write(" str is not containt A");
                 Console.ReadLine();
-            } 
+            }
 
         }
 
@@ -165,8 +172,6 @@ namespace Test
             Console.ReadLine();
         }
 
-
-
         /// <summary>
         ///  static类不能包含protected类型的成员
         /// </summary>
@@ -189,6 +194,41 @@ namespace Test
 
     }
 
+
+    public class Message
+    {
+        public List<string> Notice
+        {
+            get
+            {
+                if (Notice == null)
+                {
+                    return Notice = new List<string>();
+                }
+                else
+                {
+                    return Notice;
+                }
+            }
+            set
+            {
+                Notice = value;
+            }
+        }
+
+        public bool IsValid
+        {
+            get
+            {
+                return Notice.Count > 1;
+            }
+            set
+            {
+                IsValid = value;
+            }
+        }
+
+    }
     //public class TestMothodSub : TestMethod
     //{
     //    // var dd=TestMethod.test
