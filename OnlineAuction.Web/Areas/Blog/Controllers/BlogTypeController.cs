@@ -40,11 +40,18 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             return View(blogType);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var entity = Model.Get(id);
+            return View(entity);
+        }
+
         #endregion
 
         #region HTTP.POST
 
         [HttpPost]
+        [ValidateInput(true)]
         public ActionResult Add(BlogType entity)
         {
             // FormCollection form = new FormCollection();
@@ -76,6 +83,23 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             // return PartialView(HttpContext.Application);
             // http://blog.163.com/shizhengxian@126/blog/static/422877822012629114446206/
         }
+
+        [HttpPost]
+        [ValidateInput(true)]
+        public ActionResult Edit(BlogType entity)
+        {
+            var result = Model.Update(entity);
+            if (result.IsValid)
+            {
+                ViewData[Constants.ViewStatus.TempDataAddFail] = result.ToJsonResult<ErrorResult>();
+                return RedirectToAction("Edit");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
 
         #endregion
     }

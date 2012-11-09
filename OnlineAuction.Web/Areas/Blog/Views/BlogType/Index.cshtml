@@ -52,8 +52,8 @@
                     @blogType.BlogUsreID
                 </td>
                 <td>
-                    @Html.ActionLink("编辑", "Eidt", "blogType");
-                    @Html.ActionLink("删除", "Eidt", "blogType");
+                    @Html.ActionLink("编辑", "Edit", "blogType", new { id = @blogType.ID }, null);
+                    @Html.ActionLink("删除", "Delete", "blogType", new { id = @blogType.ID }, null);
                 </td>
             </tr>
         }

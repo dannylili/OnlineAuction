@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Classes\Message.cs" />
     <Compile Include="Const\Constants.cs" />
+    <Compile Include="Const\Injection.cs" />
     <Compile Include="Enum\SystemStatus.cs" />
     <Compile Include="Extension\ExtensionIBaseEntity.cs" />
     <Compile Include="Extension\SystemStatusWrapper.cs" />

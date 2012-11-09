@@ -21,9 +21,9 @@ namespace OnlineAuction.Business.Components
             return result;
             // return (new ErrorResult() { Message = new List<Common.Classes.Message>(), IsValid = true });
         }
-
         public ErrorResult Update(BlogType entityType, int? ID = 0)
         {
+             Model.Update(entityType);
             return (new ErrorResult());
         }
 
@@ -39,7 +39,8 @@ namespace OnlineAuction.Business.Components
 
         public BlogType Get(int Id)
         {
-            throw new NotImplementedException();
+            var blogType = Model.Get<BlogType>(Id);
+            return blogType;
         }
 
         public IQueryable<BlogType> ListIsActiveAll()

@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Edit";
+}
+@using OnlineAuction.Model;
+@model BlogType; 
+<h2>
+    Edit</h2>
+@using(Html.BeginForm())
+{
+    Html.AntiForgeryToken();
+    Html.ValidationSummary();
+    <table>
+        <tr>
+            <td>
+                博客名称
+            </td>
+            <td>
+                简介
+            </td>
+            <td>
+                用户
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.TextAreaFor(t=>t.BlogShortName)
+                @Html.ValidationMessageFor(t=>t.BlogShortName)
+            </td>
+            <td>
+                @Html.TextAreaFor(t=>t.BlogBrief)
+                @Html.ValidationMessageFor(t=>t.BlogBrief)
+            </td>
+            <td>
+                @Html.TextAreaFor(t=>t.BlogUsreID)
+                @Html.ValidationMessageFor(t=>t.BlogUsreID)
+            </td>
+        </tr>
+    </table> 
+}
