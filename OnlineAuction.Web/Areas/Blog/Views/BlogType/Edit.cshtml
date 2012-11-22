@@ -35,5 +35,16 @@
                 @Html.ValidationMessageFor(t=>t.BlogUsreID)
             </td>
         </tr>
+        <tr>
+            <td>
+                @Html.ActionLink("Edit","Edit")
+            </td>
+            <td>
+                @Html.ActionLink("Cancel",null,null,new {onclick="javascript:window.location.href=location.href"})
+            </td>
+            <td>
+                @Html.TextBox("sdfasd",null,null)
+            </td>
+        </tr>
     </table> 
 }

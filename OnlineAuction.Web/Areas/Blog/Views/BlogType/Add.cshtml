@@ -3,25 +3,25 @@
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
 @using OnlineAuction.Common.Const;
-@using OnlineAuction.Web.Extensions;
 @model OnlineAuction.Model.BlogType
 @using (Html.BeginForm())
 {
-    if (TempData[Constants.ViewStatus.TempDataAddFail] != null)
+@* if (TempData[Constants.ViewStatus.TempDataAddFail] != null)
     { 
-        @::TempData[Constants.ViewStatus.TempDataAddFail]
-    }
-    Html.ValidationSummary();
+    @::TempData[Constants.ViewStatus.TempDataAddFail];
+    }*@
+    Html.ValidationSummary("", new { id = "div_error" });
 
     //var GetTemplateHelp = ViewContext.ViewData.ModelMetadata.Description;
     //var dd = ViewContext.ViewData.ModelMetadata.Properties.Where(t => t.IsRequired == true);
     //var isRequired = ViewData.ModelMetadata.IsRequired;
     //var templateHint = ViewData.ModelMetadata.TemplateHint; // Decimal Integer
+    
     <table style='border: 1px solid black;'>
         <thead>
             <tr>
                 <td colspan="4" style="text-align: right; padding-right: 2px;">
-                    <input type="submit" value="insert" />
+                    <input type="submit" value="insert" class="BtSave" />
                     <input type="button" value="cancel" />
                     <input type="reset" value="reset" />
                 </td>
@@ -34,7 +34,7 @@
                 </td>
                 <td>
                     @Html.TextBoxFor(t => t.BlogShortName)
-                    @Html.ValidationMessageFor(t => t.BlogShortName)
+                    @* @Html.ValidationMessageFor(t => t.BlogShortName)*@
                 </td>
                 <td>
                     简介
@@ -54,10 +54,10 @@
                 </td>
                 <td>
                     <!-- 测试自定义的StringHelp类用法-->
-                     @Html.EditorFor(t => t.BlogShortName);
+                    @*  @Html.EditorFor(t => t.BlogShortName);*@
                 </td>
                 <td>
-                @Html.DisplayFor(t => t.TestDecimal);
+                    @* @Html.DisplayFor(t => t.TestDecimal);*@
                 </td>
             </tr>
         </tbody>

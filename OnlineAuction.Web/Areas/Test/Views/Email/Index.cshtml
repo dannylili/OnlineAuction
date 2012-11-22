@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Index</h2>
+@Html.BeginForm("EmailClientCall", "Email", FormMethod.Post)
+{
+@Html.ActionLink("Email", "SendEmail");
+@Html.ActionLink("Email2", "SendEmail2");
+@Html.ActionLink("发送邮件","EmailSend");
+
+<input type="submit" value="Call email client" />
+} 

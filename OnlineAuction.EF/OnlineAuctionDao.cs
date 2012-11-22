@@ -153,8 +153,7 @@ namespace OnlineAuction.EF
         /// <returns></returns>
         public EntityType Get<EntityType>(int Id) where EntityType : class, IOnlineAuctionBaseEntity
         {
-            var dbset=GetDbSet<EntityType>();
-            return dbset.Find((IOnlineAuctionBaseEntity)EntityType.ID);
+            return GetDbSet<EntityType>().Find(Id);           
         }
 
         /// <summary>

@@ -37,7 +37,5 @@ namespace OnlineAuction.Model
 
         #endregion
 
-        public decimal? TestDecimal { get; set; }
-
     }
 }

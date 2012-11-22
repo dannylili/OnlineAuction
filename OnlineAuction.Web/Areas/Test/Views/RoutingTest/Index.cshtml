@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "Index";
+    var formTags = new Dictionary<string, object>
+                       {
+                           {"id", Guid.NewGuid().ToString()},
+                           {"data-context", ViewBag.Context ??null},
+                           {"data-formmethod", (ViewBag.FormMethodOverride ?? String.Empty).ToString().ToLower()},
+                           {"data-entity", ViewBag.EntityToken},
+                           {"data-bltoken", "data-bltoken"},
+                           {"data-rules", "test-roles"}
+                       };
+}
+<h2>
+    Index</h2>
+@using (Html.BeginForm((string)ViewBag.FormActionOverride, (string)ViewBag.FormControllerOverride, ViewContext.RouteData.Values, FormMethod.Post, formTags))
+{
+    <input type="submit" value="Test" />
+    // ViewContext.RouteData.Values将按照key对应的值生成url，例如，Sales/SalesOrderDetail/Buy/list/dd
+    /// <form action="/Promys7/Sales/BtaAccount/Print/1?dest=email&amp;method=client&amp;mailTo=Magan%20Boone%20%3C%3E&amp;docToken=BTA0000001" 
+    /// data-bltoken="" data-context="" data-entity="" data-formmethod="get" data-rules="" id="9e80a296-d7ce-4bad-a2da-e6916fadd8ac" method="post">
+}

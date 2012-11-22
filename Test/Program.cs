@@ -32,11 +32,13 @@ namespace Test
 
             // StringEqauls();
 
-            Message message = new Message();
-            if (message.IsValid)
-            {
-                Console.Write("so far so good if anyone can help me.");
-            }
+            //Message message = new Message();
+            //if (message.IsValid)
+            //{
+            //    Console.Write("so far so good if anyone can help me.");
+            //}
+
+
         }
 
 

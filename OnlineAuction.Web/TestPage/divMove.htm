@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>移动div</title>
+    <SCRIPT>
+        var mouseObj = null;
+        var pX
+        var pY
+        document.onmousemove = divMove;
+        document.onmouseup = divUp;
+
+        function m(c_Obj) {
+            mouseObj = document.all(c_Obj);
+            pX = mouseObj.style.pixelLeft - event.x;
+            pY = mouseObj.style.pixelTop - event.y;
+        }
+
+        function divMove() {
+            if (mouseObj) {
+                mouseObj.style.left = pX + event.x;
+                mouseObj.style.top = pY + event.y;
+                event.returnValue = false;
+            }
+        }
+
+        function divUp() {
+            if (mouseObj)
+            { mouseObj = null; }
+        }  
+  
+</SCRIPT>  
+  
+<STYLE>  
+.up {  
+BORDER-RIGHT: #711200 1px solid; PADDING-RIGHT: 1px; BORDER-TOP: white 1px solid; PADDING-LEFT: 1px; FONT-SIZE: 9pt; PADDING-BOTTOM: 1px; BORDER-LEFT: white 1px solid; COLOR: #ff0000; PADDING-TOP: 1px; BORDER-BOTTOM: #711200 1px solid; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #eadfd0  
+}  
+.down {  
+BORDER-RIGHT: #ffffff 1px solid; BORDER-TOP: #711200 1px solid; FONT-SIZE: 9pt; BORDER-LEFT: #711200 1px solid; CURSOR: hand; COLOR: #ffffff; BORDER-BOTTOM: #ffffff 1px solid; FONT-FAMILY: Tahoma; BACKGROUND-COLOR: #336699  
+}  
+  
+</STYLE>  
+</head>
+<body> 
+  
+<DIV class=up id=hello onmousedown='m("hello")'  
+style="; LEFT: expression((document.body.clientWidth-80)/2); WIDTH: 80px; POSITION: absolute; ; TOP: expression((document.body.clientHeight-120)/2); HEIGHT: 120px">  
+<DIV class=down>-+酷-网-站+-</DIV>  
+<DIV style="PADDING-LEFT: 5pt"><A href="http://www.sina.com/"   
+target=_blank>新浪网</A></DIV>  
+</DIV>  
+</body>
+</html>

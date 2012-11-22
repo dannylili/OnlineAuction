@@ -1,0 +1,188 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>代码运行_层移动</title>
+    <script language="javascript">
+        //运行代码
+        function runEx(cod1) {
+            cod = document.getElementById(cod1)
+            var code = cod.value;
+            if (code != "") {
+                var newwin = window.open('', '', '');
+                newwin.opener = null
+                newwin.document.write(code);
+                newwin.document.close();
+            }
+        }
+        //复制代码
+        function doCopy(ID) {
+            if (document.all) {
+                textRange = document.getElementById(ID).createTextRange();
+                textRange.execCommand("Copy");
+            }
+            else {
+                alert("此功能只能在IE上有效")
+            }
+        }
+    </script>
+</head>
+<body>
+    <textarea rows="8" cols="65" id="CodeText10248" class="UBBText">&lt;HEAD&gt;
+&lt;TITLE&gt;方框移动&lt;/TITLE&gt;
+&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=GBK&quot;&gt;
+&lt;style language=&quot;javascript&quot;&gt;
+&lt;!--
+body, td{
+font-size: 9pt;
+}
+.hidden{display:none;}
+.show{display:block;}
+--&gt;
+&lt;/style&gt;
+&lt;/HEAD&gt;
+&lt;BODY&gt;
+&lt;SCRIPT LANGUAGE=&quot;JavaScript&quot;&gt;
+&lt;!--
+var speed=10;//速度
+var ci = 10;//运动次数
+var left=0;//方框左位置
+var top=0;//方框上位置
+var width=0;//方框宽
+var height=0;//方框高
+var aimleft=0;//目标左位置
+var aimtop=0;//目标上位置
+var aimwidth=0;//目标宽
+var aimheight=0;//目标高
+var lb=0;//左步长
+var tb=0;//上步长
+var wb=0;//宽步长
+var hb=0;//高步长
+var fk = null;
+var aim = null;
+var aim1 = null;
+function initObj(oid){
+if (!fk){fk = document.getElementById('fk');}
+if (!aim){aim = document.getElementById('aim');}
+if (!aim1)aim1 = document.getElementById('aim1');
+// while (fk.hasChildNodes())fk.removeChild(fk.firstChild);
+if (oid)
+append(fk,document.getElementById(oid),true);
+}
+function append(o,oc,cloned){
+while (o.hasChildNodes())o.removeChild(o.firstChild);
+if (cloned)oc = oc.cloneNode(true);
+oc.className = 'show';
+o.appendChild(oc);
+}
+/*
+* 取得对象位置、大小
+* 取得目标对象位置、大小
+*/
+function setSource(obj,oid){
+initObj(oid);
+left      = getOffset(obj).Left;
+top       = getOffset(obj).Top;
+width     = obj.offsetWidth;
+height    = obj.offsetHeight;
+aimleft   = getOffset(aim).Left;
+aimtop    = getOffset(aim).Top;
+aimwidth = aim.offsetWidth;
+aimheight = aim.offsetHeight;
+fk.style.display='';
+clearInterval(MyMar);
+}
+/**
+* 设置方向步长、宽高步长
+*/
+function setStep(){
+lb = (aimleft-left)/ci;
+tb = (aimtop-top)/ci;
+wb = (aimwidth-width)/ci;
+hb = (aimheight-height)/ci;
+}
+/**
+* 移动
+*/
+function move(){
+setStep();
+left+=lb;
+top+=tb;
+width+=wb;
+height+=hb;
+if(left&lt;aimleft-2 || top&lt;aimtop-2 || width&lt;aimwidth-2 || height&lt;aimheight-2){
+fk.style.left = left+&quot;px&quot;;
+fk.style.top = top+&quot;px&quot;;
+fk.style.width = width+&quot;px&quot;;
+fk.style.height = height+&quot;px&quot;;
+}else{
+if (fk)
+   while(fk.hasChildNodes()){append(aim1,fk.firstChild);}
+hiddenFK();
+clearInterval(MyMar)
+}
+}
+function hiddenFK(){
+initObj();
+fk.style.display='none';
+}
+/**
+* 取得某元素在页面中相对页面左上顶点的位置
+*/
+function getOffset(obj){
+var offsetleft = obj.offsetLeft;
+var offsettop = obj.offsetTop;
+while (obj.offsetParent != document.body)
+{
+obj = obj.offsetParent;
+offsetleft += obj.offsetLeft;
+offsettop += obj.offsetTop;
+}
+return {Left : offsetleft, Top : offsettop};
+}
+var MyMar=setInterval(move,speed);
+//--&gt;
+&lt;/SCRIPT&gt;
+&lt;div id=&quot;fk&quot; style=&quot;position: absolute; width: 46px; height: 20px; border: 1px solid #000000 ; display: none&quot;&gt;&lt;/div&gt;
+&lt;TABLE style=&quot;border: 1px solid #666666&quot; cellspacing=1 bgcolor=#ff1111 cellpadding=4 border=0&gt;
+&lt;TR bgcolor=#ffffff&gt;
+&lt;TD onClick=&quot;setSource(this,'t1');MyMar=setInterval(move,speed)&quot;&gt;笔记本&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t2');{MyMar=setInterval(move,speed)}&quot;&gt;小家电&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t3');{MyMar=setInterval(move,speed)}&quot;&gt;电冰箱&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t4');{MyMar=setInterval(move,speed)}&quot;&gt;波比娃娃&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t5');{MyMar=setInterval(move,speed)}&quot;&gt;小家电&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t6');{MyMar=setInterval(move,speed)}&quot;&gt;小家电&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;TABLE id=&quot;aim&quot; style=&quot;border: 1px solid #666666 ; width: 227px; height: 300px;&quot;&gt;
+&lt;TR&gt;
+&lt;TD id='aim1' valign=&quot;top&quot;&gt;&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;TABLE style=&quot;border: 1px solid #666666&quot; cellspacing=1 bgcolor=#ff1111 cellpadding=4 border=0&gt;
+&lt;TR bgcolor=#ffffff&gt;
+&lt;TD onClick=&quot;setSource(this,'t1');MyMar=setInterval(move,speed)&quot;&gt;笔记本&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t2');{MyMar=setInterval(move,speed)}&quot;&gt;小家电&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t3');{MyMar=setInterval(move,speed)}&quot;&gt;电冰箱&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t4');{MyMar=setInterval(move,speed)}&quot;&gt;波比娃娃&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t5');{MyMar=setInterval(move,speed)}&quot;&gt;小家电&lt;/TD&gt;
+&lt;TD onClick=&quot;setSource(this,'t6');{MyMar=setInterval(move,speed)}&quot;&gt;小家电&lt;/TD&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;div id=&quot;t1&quot; class=&quot;hidden&quot;&gt;第1个div&lt;/div&gt;
+&lt;div id=&quot;t2&quot; class=&quot;hidden&quot;&gt;第2个div&lt;/div&gt;
+&lt;div id=&quot;t3&quot; class=&quot;hidden&quot;&gt;第3个div&lt;/div&gt;
+&lt;div id=&quot;t4&quot; class=&quot;hidden&quot;&gt;第4个div&lt;/div&gt;
+&lt;div id=&quot;t5&quot; class=&quot;hidden&quot;&gt;第5个div&lt;/div&gt;
+&lt;div id=&quot;t6&quot; class=&quot;hidden&quot;&gt;第6个div&lt;/div&gt;
+&lt;/BODY&gt;</textarea><br />
+    <input onclick="runEx('CodeText10248')" type="button" value="运行此代码" />
+    <input onclick="doCopy('CodeText10248')" type="button" value="复制此代码" /><br />
+</body>
+</html>
