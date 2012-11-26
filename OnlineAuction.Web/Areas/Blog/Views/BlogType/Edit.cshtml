@@ -1,11 +1,11 @@
 ﻿@{
     ViewBag.Title = "Edit";
+    Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
-@using OnlineAuction.Model;
-@model BlogType; 
+@model OnlineAuction.Model.BlogType
 <h2>
     Edit</h2>
-@using(Html.BeginForm())
+@using (Html.BeginForm())
 {
     Html.AntiForgeryToken();
     Html.ValidationSummary();
@@ -23,27 +23,28 @@
         </tr>
         <tr>
             <td>
-                @Html.TextAreaFor(t=>t.BlogShortName)
-                @Html.ValidationMessageFor(t=>t.BlogShortName)
+                @Html.TextAreaFor(t => t.BlogShortName)
+                @* @Html.ValidationMessageFor(t=>t.BlogShortName)*@
             </td>
             <td>
-                @Html.TextAreaFor(t=>t.BlogBrief)
-                @Html.ValidationMessageFor(t=>t.BlogBrief)
+                @Html.TextAreaFor(t => t.BlogBrief)
+                @* @Html.ValidationMessageFor(t=>t.BlogBrief)*@
             </td>
             <td>
-                @Html.TextAreaFor(t=>t.BlogUsreID)
-                @Html.ValidationMessageFor(t=>t.BlogUsreID)
+                @Html.TextAreaFor(t => t.BlogUsreID)
+                @*@Html.ValidationMessageFor(t=>t.BlogUsreID)*@
             </td>
         </tr>
         <tr>
             <td>
-                @Html.ActionLink("Edit","Edit")
+                @*@Html.ActionLink("Edit","Edit","BlogType",new {@class="BtSave"})*@
+                <input value="Edit" type="submit" class="BtSave" />
             </td>
             <td>
-                @Html.ActionLink("Cancel",null,null,new {onclick="javascript:window.location.href=location.href"})
+                @Html.ActionLink("Cancel", null, null, new { onclick = "javascript:window.location.href=location.href" })
             </td>
             <td>
-                @Html.TextBox("sdfasd",null,null)
+                @Html.TextBox("sdfasd", null, null)
             </td>
         </tr>
     </table> 

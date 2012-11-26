@@ -38,7 +38,17 @@ namespace Test
             //    Console.Write("so far so good if anyone can help me.");
             //}
 
+            // StringArryToIntArry();
 
+            int[] intArry = { };
+            intArry[0] = 12;
+
+        }
+
+        private static void StringArryToIntArry()
+        {
+            var strContainQuote = "1,2,3,4,5,6";
+            var ids = strContainQuote.Split(',').Select(t => int.Parse(t)).ToArray();
         }
 
 

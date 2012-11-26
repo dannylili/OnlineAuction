@@ -172,7 +172,7 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
-    <Content Include="系统帮助.htm" />
+    <Content Include="SysHelp.htm" />
     <Content Include="Menu1Test\Js\detail.js" />
     <Content Include="Menu1Test\Js\h.js" />
     <Content Include="Menu1Test\Js\mod_foot.js" />
@@ -193,6 +193,7 @@
     <Content Include="TestPage\divMove.htm" />
     <Content Include="TestPage\DivMove2.htm" />
     <Content Include="TestPage\HTMLPage2.htm" />
+    <Content Include="TestPage\JqueryExp1.htm" />
     <Content Include="TestPage\Layout.htm" />
     <Content Include="TestPage\Menu3.htm" />
     <Content Include="TestPage\TopMenue.aspx" />

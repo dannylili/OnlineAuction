@@ -57,7 +57,7 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             // FormCollection form = new FormCollection();
 
             var result = Model.Save(entity);
-            result.AddMessage("add", "add data scucessful");
+            // result.AddMessage("add", "add data scucessful");
             TempData[Constants.ViewStatus.TempDataAddFail] = "Alert(" + result.ToJsonResult<ErrorResult>().ToString() + ")";
 
             if (result.IsValid)

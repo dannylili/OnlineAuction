@@ -72,7 +72,6 @@
                 var element = $(this);
                 element.click(Save);
             });
-
         }
 
         function Save() {
@@ -80,6 +79,8 @@
             if (messageBody.html() != "") {
                 messageBody.html("");
             }
+
+            window.alert(window.location);
 
             $(":text[class*='valid']").each(function (i, n) {
                 var element = $(n);
@@ -99,6 +100,7 @@
                     });
                 }
             });
+
         }
 
     </script>
@@ -107,13 +109,13 @@
     <div id="top" style="width: 100%; height: auto;">
         @Html.Partial("_Top");
     </div>
-    <div id="middle" style="width: 1200px; max-width: 1000px; min-height: 50px; height: auto;
+    <div id="middle" style="width: 1300px; max-width: 1000px; min-height: 50px; height: auto;
         margin: 0 auto; display: table; padding: 0px; border: 1px solid blue; position: relative;">
         sadfasd
-        <div id="layoutLeft" style="width: 200px; position: relative;">
+        <div id="layoutLeft" style="width: 150px; position: relative;">
             @Html.Partial("_LayoutLeft");
         </div>
-        <div id="layoutMain" style="width: 700px; position: relative;">
+        <div id="layoutMain" style="width: 850px; position: relative;">
             @RenderBody()
             <div id="error">
             </div>

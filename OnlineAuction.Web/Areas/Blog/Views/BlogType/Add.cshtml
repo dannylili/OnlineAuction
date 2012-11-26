@@ -4,7 +4,11 @@
 }
 @using OnlineAuction.Common.Const;
 @model OnlineAuction.Model.BlogType
-@using (Html.BeginForm())
+@*@using (Html.BeginForm())*@
+@{ 
+    Console.Write((string)ViewBag.FormActionOverride);
+}
+@using (Html.BeginForm((string)ViewBag.FormActionOverride, (string)ViewBag.FormControllerOverride, ViewContext.RouteData.Values, FormMethod.Post))
 {
 @* if (TempData[Constants.ViewStatus.TempDataAddFail] != null)
     { 
@@ -22,7 +26,7 @@
             <tr>
                 <td colspan="4" style="text-align: right; padding-right: 2px;">
                     <input type="submit" value="insert" class="BtSave" />
-                    <input type="button" value="cancel" />
+                    <input type="button" value="cancel" onclick="javascript:window.history.go(-1)" />
                     <input type="reset" value="reset" />
                 </td>
             </tr>
@@ -62,4 +66,9 @@
             </tr>
         </tbody>
     </table>
+    
+    <!--根据Model自己生成界面-->
+    <div style="background-color: Silver;">
+        @*  @Html.EditorForModel(Model);*@
+    </div>
 }
