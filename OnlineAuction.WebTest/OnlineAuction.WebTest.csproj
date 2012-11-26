@@ -88,6 +88,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Exp\DOM\ReplaceElement.htm" />
     <Content Include="JquyerUI\Message\ErrorAlert.htm" />
     <Content Include="JquyerUI\Message\ImageShrink.htm" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />

@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>替换网页元素</title>
+    <script language="javascript" type="text/javascript">
+
+        function CopyAttributes(src, dest) {
+            var i;
+            dest.id = src.id;
+            dest.name = src.name;
+        }
+
+        function UpdateSearchField(ddlValue, searEl) {
+
+            var src = document.getElementById(searEl);
+
+            if (ddlValue == "Author") {
+                var dest = document.createElement("INPUT");
+                dest.type = "text";
+                dest.setAttribute("background-color", "Red");
+                // dest.setAttribute("class", "required");
+                // dest.setAttribute("onchange", "changeEventName");
+                CopyAttributes(src, dest);
+            }
+            if (ddlValue == "Catalog") {
+                var dest = document.createElement("select");
+                var options = new Array("Society", "History", "Math");
+                CopyAttributes(src, dest);
+
+                for (i = 0; i < options.length; i++) {
+                    var optionForSelect = document.createElement("option");
+
+                    /// set test  /
+                    optionForSelect.appendChild(document.createTextNode(options[i]));
+
+                    /// set value  /
+                    optionForSelect.setAttribute("value", options[i]);
+                    dest.appendChild(optionForSelect);
+                }
+
+            }
+            if (ddlValue == "Content") {
+                var dest = document.createElement("textarea");
+                dest.cols = "20";
+                dest.rows = "20";
+                CopyAttributes(src, dest);
+            }
+
+            src.parentNode.replaceChild(dest, src);
+        }
+
+    </script>
+</head>
+<body>
+    <!-- http://blog.csdn.net/mydeman/article/details/2684836#-->
+    <form onsubmit="return false;" action="">
+    <select id="Select1" onchange="UpdateSearchField(this.value,'mainText')" name="searchType">
+        <option value="Author">Author</option>
+        <option value="Catalog" selected="selected">Content</option>
+        <option value="Content">Content</option>
+    </select>
+    <input type="text" id="mainText" name="mainText" />
+    </form>
+</body>
+</html>
