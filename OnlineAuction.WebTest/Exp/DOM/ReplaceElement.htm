@@ -1,7 +1,7 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <title>替换网页元素</title>
+    <title>替换网页指定位置的元素</title>
     <script language="javascript" type="text/javascript">
 
         function CopyAttributes(src, dest) {
@@ -20,12 +20,22 @@
                 dest.setAttribute("background-color", "Red");
                 // dest.setAttribute("class", "required");
                 // dest.setAttribute("onchange", "changeEventName");
+                // dest.addEventListener("Onchange", function () { alert("值发生了变化"); });
+                // dest.attachEvent("click", function () { alert("You 点击了 Me") }); // referenc http://blog.csdn.net/ca3355/article/details/6899971  http://www.jb51.net/article/18220.htm
+                dest.addEventListener("click", function () { alert("You 点击了 Me"); }, false);
                 CopyAttributes(src, dest);
             }
             if (ddlValue == "Catalog") {
                 var dest = document.createElement("select");
+
+                /**Array的用法很多，例如join【join:将数组转为string】【contact：连接两个数组】【push：放入到最后一个】**/
                 var options = new Array("Society", "History", "Math");
+                // var options = ["Society", "History", "Math"];
                 CopyAttributes(src, dest);
+
+                dest.onchange = function () {
+                    alert("you select valus is:<li>" + this.value);
+                }
 
                 for (i = 0; i < options.length; i++) {
                     var optionForSelect = document.createElement("option");
@@ -56,7 +66,7 @@
     <form onsubmit="return false;" action="">
     <select id="Select1" onchange="UpdateSearchField(this.value,'mainText')" name="searchType">
         <option value="Author">Author</option>
-        <option value="Catalog" selected="selected">Content</option>
+        <option value="Catalog" selected="selected">Catalog</option>
         <option value="Content">Content</option>
     </select>
     <input type="text" id="mainText" name="mainText" />

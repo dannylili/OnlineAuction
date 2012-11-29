@@ -23,7 +23,7 @@
         </tr>
         <tr>
             <td>
-                @Html.TextAreaFor(t => t.BlogShortName)
+                @Html.TextBoxFor(t => t.BlogShortName)
                 @* @Html.ValidationMessageFor(t=>t.BlogShortName)*@
             </td>
             <td>
@@ -42,9 +42,7 @@
             </td>
             <td>
                 @Html.ActionLink("Cancel", null, null, new { onclick = "javascript:window.location.href=location.href" })
-            </td>
-            <td>
-                @Html.TextBox("sdfasd", null, null)
+                @Html.HiddenFor(t => t.SystemStatus.Value);
             </td>
         </tr>
     </table> 

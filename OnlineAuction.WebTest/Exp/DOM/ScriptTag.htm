@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>理解&lt;script&gt;标记中的for和event关键字</title>
+    <script language="javascript" type="text/javascript" for="document" event="onfocus">
+    if(event.srcElement.type=="INPUT"){
+    var el=event.srcElement;
+    alert(el);
+    }
+
+    </script>
+</head>
+<body>
+    <form onsubmit="return false;" action="">
+    </form>
+    <p>
+        <input id="Button1" type="button" value="button" /><input id="Reset1" type="reset"
+            value="reset" /><input id="Submit1" type="submit" value="submit" /><input id="Text1"
+                type="text" /><input id="Text2" type="text" /><input id="Text3" type="text" /><input
+                    id="File1" type="file" /><input id="Password1" type="password" /><input id="Checkbox1"
+                        type="checkbox" /><input id="Radio1" checked="checked" name="R1" type="radio" value="V1" /><input
+                            id="Hidden1" type="hidden" /><textarea id="TextArea1" cols="20" name="S1" rows="2"></textarea><table
+                                style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                    <td>
+                                        &nbsp;
+                                    </td>
+                                </tr>
+                            </table>
+        <img alt="" src="" /><select id="Select1" name="D1">
+            <option></option>
+        </select></p>
+</body>
+</html>

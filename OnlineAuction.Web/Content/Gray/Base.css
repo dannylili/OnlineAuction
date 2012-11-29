@@ -41,6 +41,11 @@
     height: 40px;
 }
 
+.menu li ul
+{
+    z-index: 1000;
+}
+
 /* Links */
 
 .menu li a

@@ -172,6 +172,7 @@
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
     <Content Include="Global.asax" />
+    <Content Include="Index.htm" />
     <Content Include="SysHelp.htm" />
     <Content Include="Menu1Test\Js\detail.js" />
     <Content Include="Menu1Test\Js\h.js" />
