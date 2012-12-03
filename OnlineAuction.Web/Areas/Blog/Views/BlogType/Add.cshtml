@@ -25,7 +25,7 @@
         <thead>
             <tr>
                 <td colspan="4" style="text-align: right; padding-right: 2px;">
-                    <input type="submit" value="insert" class="BtSave" />
+                    <input type="submit" value="insert" class="Btn BtSave" />
                     <input type="button" value="cancel" onclick="javascript:window.history.go(-1)" />
                     <input type="reset" value="reset" />
                 </td>
@@ -54,7 +54,7 @@
                 </td>
                 <td>
                     @Html.TextBoxFor(t => t.BlogUsreID)
-                    @Html.ValidationMessageFor(t => t.BlogUsreID)
+                    @*@Html.ValidationMessageFor(t => t.BlogUsreID)*@
                 </td>
                 <td>
                     <!-- 测试自定义的StringHelp类用法-->

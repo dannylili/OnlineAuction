@@ -233,3 +233,41 @@
 {
     display: none;
 }
+
+/* _layout.cshtml中基本的配置页面
+*************************************************************/
+#middle
+{
+    width: 100%;
+}
+
+#middle > div
+{
+    float: left;
+    padding: 0px;
+    margin: 0px;
+}
+.valid
+{
+    /*background: #4c4e5a;             background: -webkit-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: -moz-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: -o-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: -ms-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);*/
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.Btn
+{
+    background-color: Gray;
+}
+
+.BtSave
+{
+}
+
+.BtnDelete
+{
+}
+
+.BtnPrint
+{
+}
