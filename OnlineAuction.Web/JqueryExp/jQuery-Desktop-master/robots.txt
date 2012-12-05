@@ -1,0 +1,7 @@
+User-agent: *
+Disallow:
+
+User-agent: AboutUsBot
+Disallow: /
+
+http://www.cnblogs.com/chu888chu888/archive/2011/12/18/2292057.html

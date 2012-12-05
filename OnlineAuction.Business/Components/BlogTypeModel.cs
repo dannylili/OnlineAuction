@@ -23,7 +23,7 @@ namespace OnlineAuction.Business.Components
         }
         public ErrorResult Update(BlogType entityType, int? ID = 0)
         {
-             Model.Update(entityType);
+            Model.Update(entityType);
             return (new ErrorResult());
         }
 
@@ -34,7 +34,7 @@ namespace OnlineAuction.Business.Components
 
         public void Delete(int rowKeyValue)
         {
-            throw new NotImplementedException();
+            Model.Delete<BlogType>(rowKeyValue);
         }
 
         public BlogType Get(int Id)

@@ -43,6 +43,25 @@
                 var element = $(this);
                 element.click(Save);
             });
+
+            // 关闭自动填充效果
+            $("text textarea").each(function () {
+                $(this).attr("completed", "off");
+            });
+
+            // 为每个autocomplete属性的对象添加搜说功能
+            $("input[data-autocomplete-source]").each(function () {
+                var target = $(this);
+                target.autocomplete({ source: target.attr("data-autocomplete-source") });
+
+
+                /*------------------------------
+                *http://blogs.msdn.com/b/ukadc/archive/2012/04/24/asp-net-mvc-amp-jquery-ui-autocomplete.aspx
+                * http://www.google.com.hk/search?hl=zh-CN&newwindow=1&safe=strict&tbo=d&q=mvc3.0+use+jquery+data-autocomplete-source&btnG=Google+%E6%90%9C%E7%B4%A2
+                -----------------------------------------------*/
+
+                /*-----------------------------------------------------------------------------*/
+            });
         }
 
         function Save() {
@@ -116,6 +135,9 @@
     <div style="left: 2px; position: absolute;" id="DivMessage">
         <ul id="Uimessage" style="width: 100%; left: 1px;">
         </ul>
+    </div>
+    <div id="ajaxPanel">
+        <img src="@Url.Content("~/Content/Gray/Image/ajax-loader.gif")" />
     </div>
 </body>
 </html>

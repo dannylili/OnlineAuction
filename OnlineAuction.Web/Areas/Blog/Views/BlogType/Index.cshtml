@@ -3,6 +3,12 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     // Html.ViewContext.ViewData.Model
 }
+<script type="text/javascript">
+    function DeleteAlert() {
+        alert("Do you sure delte this record.");
+        return false;
+    }
+</script>
 @using OnlineAuction.Model;
 @Model OnlineAuction.Model.BlogType;
 @Model List<blogtype>
@@ -23,6 +29,22 @@
             </th>
             <th>
                 <a>↑作者</a>
+            </th>
+            <th>
+                <a>↓用户</a>
+            </th>
+            <th>
+                <a>操作</a>
+            </th>
+        </tr>
+        <tr>
+            <th>
+                <label for="somevalue">Some value:</label>
+                <input type="text" id="somevalue" name="somevalue"/>
+                <input type="text" name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType")" />
+            </th>
+            <th>
+                 <input name="txtBlogAuthor" />
             </th>
             <th>
                 <a>↓用户</a>
@@ -53,7 +75,8 @@
                 </td>
                 <td>
                     @Html.ActionLink("编辑", "Edit", "blogType", new { id = @blogType.ID }, null);
-                    @Html.ActionLink("删除", "Delete", "blogType", new { id = @blogType.ID }, null);
+                    @Html.ActionLink("删除", "Delete", "blogType", new { id = @blogType.ID }, new { @class = "Btn BtnDelete" });
+                    @Ajax.ActionLink("Ajax删除方法", "Delete", new { id = @blogType.ID }, new AjaxOptions { UpdateTargetId = "ajaxPanel" });
                 </td>
             </tr>
         }

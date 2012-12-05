@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.Injection", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.WebTest", "OnlineAuction.WebTest\OnlineAuction.WebTest.csproj", "{A23D1291-4864-4CF6-BF71-FA063BC15700}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnlineAuction.Web.OnlineLog", "OnlineAuction.Web.OnlineLog\OnlineAuction.Web.OnlineLog.csproj", "{CFBADA9D-A3D7-4E17-8F03-D91275199739}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -107,6 +109,16 @@ Global
 		{A23D1291-4864-4CF6-BF71-FA063BC15700}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{A23D1291-4864-4CF6-BF71-FA063BC15700}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{A23D1291-4864-4CF6-BF71-FA063BC15700}.Release|x86.ActiveCfg = Release|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CFBADA9D-A3D7-4E17-8F03-D91275199739}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

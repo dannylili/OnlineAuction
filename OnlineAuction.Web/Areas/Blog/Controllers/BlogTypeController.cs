@@ -100,7 +100,36 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             }
         }
 
+        public ActionResult AuoteSearch(string query)
+        {
+            var listType = from types in Model.ListIsActiveAll().ToList()
+                           // where types.BlogShortName.Contains(query)
+                           select new
+                           {
+                               value = types.BlogShortName,
+                               label = types.BlogShortName
+                           };
+
+            return Json(new JsonResult { Data = listType, JsonRequestBehavior = JsonRequestBehavior.AllowGet });
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Model.Delete(id);
+            ContentResult result = new ContentResult();
+
+            // 如果是ajax的ActionLink调用了此方法,则result就显示在了 UpdateTargetId="ajaxPanel"的html元素中
+            result.Content = "test method";
+            return result;
+            // return new JsonResult();
+        }
+
+        public ActionResult DetelteBlog(int id)
+        {
+            return JavaScript("alert('delte success!')");
+        }
 
         #endregion
     }
 }
+
