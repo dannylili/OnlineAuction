@@ -86,21 +86,34 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
 
         [HttpPost]
         [ValidateInput(true)]
-        // public ActionResult Edit(BlogType entity)
-        public ActionResult EditUPdate(int testID)
+        public ActionResult Edit(BlogType entity)
         {
+            var result = Model.Update(entity);
+            if (result.IsValid)
+            {
+                ViewData[Constants.ViewStatus.TempDataAddFail] = result.ToJsonResult<ErrorResult>();
+                return RedirectToAction("Edit");
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }  
+        }
 
-            //var result = Model.Update(entity);
-            //if (result.IsValid)
-            //{
-            //    ViewData[Constants.ViewStatus.TempDataAddFail] = result.ToJsonResult<ErrorResult>();
-            //    return RedirectToAction("Edit");
-            //}
-            //else
-            //{
-            //    return RedirectToAction("Index");
-            //}
-            return new JsonResult();
+        [OutputCache]
+        [HttpPost]
+        public ActionResult AjaxTest()
+        {
+            if((Request["X-Requested-With"] == "XMLHttpRequest") ||((Request.Headers != null) &&(Request.Headers["X-Requested-With"] == "XMLHttpRequest")))
+            {
+                
+            }
+
+            var id = Request["testID"];
+            ContentResult test = new ContentResult();
+            test.Content = "test data";
+            // return new JsonResult();
+            return test;
         }
 
         public ActionResult AuoteSearch(string query)

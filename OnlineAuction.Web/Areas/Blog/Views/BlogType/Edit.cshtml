@@ -2,20 +2,32 @@
     ViewBag.Title = "Edit";
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
+@*
 <script src="../../../../Scripts/jquery-1.5.1.js" type="text/javascript"></script>
-<script type="text/javascript" src="../../../../Scripts/jquery-1.5.1-vsdoc.js"></script>
+<script type="text/javascript" src="../../../../Scripts/jquery-1.5.1-vsdoc.js"></script>*@
 <script type="text/javascript">
 
     // 测试异步操作时，控制页面的laod.png图片显示
-    ajaxPanel
     function Edit() {
-        $("#ajaxPanel").css("display", "block");
+        alert("ajax request start");
+        // $("#ajaxPanel").css("display", "block");
         $.ajax({
             type: "POST",
-            url: 'Blog/BlogType/EditUPdate',
+            url: '/Blog/BlogType/AjaxTest',
             data: "testID=62",
-            success: function () {
-            alert("EXECUTE")
+            beforeSend: function () {
+                alert("beforeSend");
+                $("#ajaxPanel").show();
+            },
+            complete: function () {
+                alert("complete");
+                $("#ajaxPanel").hide();
+            },
+            error: function () {
+                alert("error" + window.error);
+            },
+            success: function (data) {
+                alert("exec success and return data is:" + data);
                 $("#ajaxPanel").css("display", "none");
                 // $(this).addClass("done");
             }
