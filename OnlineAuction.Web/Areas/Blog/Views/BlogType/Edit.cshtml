@@ -2,6 +2,27 @@
     ViewBag.Title = "Edit";
     Layout = "../../../../Views/Shared/_Layout.cshtml";
 }
+<script src="../../../../Scripts/jquery-1.5.1.js" type="text/javascript"></script>
+<script type="text/javascript" src="../../../../Scripts/jquery-1.5.1-vsdoc.js"></script>
+<script type="text/javascript">
+
+    // 测试异步操作时，控制页面的laod.png图片显示
+    ajaxPanel
+    function Edit() {
+        $("#ajaxPanel").css("display", "block");
+        $.ajax({
+            type: "POST",
+            url: 'Blog/BlogType/EditUPdate',
+            data: "testID=62",
+            success: function () {
+            alert("EXECUTE")
+                $("#ajaxPanel").css("display", "none");
+                // $(this).addClass("done");
+            }
+        });
+    }
+
+</script>
 @model OnlineAuction.Model.BlogType
 <h2>
     Edit</h2>
@@ -43,6 +64,7 @@
             <td>
                 @Html.ActionLink("Cancel", null, null, new { onclick = "javascript:window.location.href=location.href" })
                 @Html.HiddenFor(t => t.SystemStatus.Value);
+                <input type="button" onclick="Edit()" value="编辑" />
             </td>
         </tr>
     </table> 

@@ -40,7 +40,7 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             return View(blogType);
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id,int? testID=null)
         {
             var entity = Model.Get(id);
             return View(entity);
@@ -86,18 +86,21 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
 
         [HttpPost]
         [ValidateInput(true)]
-        public ActionResult Edit(BlogType entity)
+        // public ActionResult Edit(BlogType entity)
+        public ActionResult EditUPdate(int testID)
         {
-            var result = Model.Update(entity);
-            if (result.IsValid)
-            {
-                ViewData[Constants.ViewStatus.TempDataAddFail] = result.ToJsonResult<ErrorResult>();
-                return RedirectToAction("Edit");
-            }
-            else
-            {
-                return RedirectToAction("Index");
-            }
+
+            //var result = Model.Update(entity);
+            //if (result.IsValid)
+            //{
+            //    ViewData[Constants.ViewStatus.TempDataAddFail] = result.ToJsonResult<ErrorResult>();
+            //    return RedirectToAction("Edit");
+            //}
+            //else
+            //{
+            //    return RedirectToAction("Index");
+            //}
+            return new JsonResult();
         }
 
         public ActionResult AuoteSearch(string query)
@@ -116,10 +119,11 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
         public ActionResult Delete(int id)
         {
             Model.Delete(id);
-            ContentResult result = new ContentResult();
+
 
             // 如果是ajax的ActionLink调用了此方法,则result就显示在了 UpdateTargetId="ajaxPanel"的html元素中
-            result.Content = "test method";
+            ContentResult result = new ContentResult();
+            result.Content = "<font color='red'>test method</font>";
             return result;
             // return new JsonResult();
         }

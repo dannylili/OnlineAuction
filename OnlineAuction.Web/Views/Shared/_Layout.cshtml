@@ -20,6 +20,7 @@
         $(document).ready(function () {
             try {
                 Initial();
+                AddAnimate();
             } catch (e) {
                 console.log(e.toString());
             }
@@ -87,7 +88,7 @@
 
                     // 显示验证消息框
                     $("#DivMessage").dialog({
-                        modal: false,
+                        modal: true,
                         position: ['right', 'top'],
                         show: true,
                         draggable: true
@@ -109,35 +110,51 @@
 
             alert(windowError);
             return true
-        }  
+        }
 
+        function AddAnimate() {
+            // fadeTo方法通过设置匹配元素的透明度opacity淡出
+            //            $("#bodyMain").animate({
+            //                width: ['toggle', 'swing']
+            //            },2000);
+
+            $("#bodyMain").css("opacity", 0.1).fadeTo(4000, 1.0);
+
+            //            $("#ajaxLoader-new").load = function () {
+            //                if (this.complete) {
+            //                    alert("加载完毕");
+            //                }
+            //            } 
+        }
     </script>
 </head>
 <body>
-    <div id="top" style="width: 100%; height: auto;">
-        @Html.Partial("_Top");
-    </div>
-    <div id="middle" style="width: 1300px; max-width: 1000px; min-height: 50px; height: auto;
-        margin: 0 auto; display: table; padding: 0px; border: 1px solid blue; position: relative;">
-        sadfasd
-        <div id="layoutLeft" style="width: 150px; position: relative;">
-            @Html.Partial("_LayoutLeft");
+    <div id="bodyMain">
+        <div id="top" style="width: 100%; height: auto;">
+            @Html.Partial("_Top");
         </div>
-        <div id="layoutMain" style="width: 850px; position: relative;">
-            @RenderBody()
-            <div id="error">
+        <div id="middle" style="width: 1300px; max-width: 1000px; min-height: 50px; height: auto;
+            margin: 0 auto; display: table; padding: 0px; border: 1px solid blue; position: relative;">
+            sadfasd
+            <div id="layoutLeft" style="width: 150px; position: relative;">
+                @Html.Partial("_LayoutLeft");
+            </div>
+            <div id="layoutMain" style="width: 850px; position: relative;">
+                @RenderBody()
+                <div id="error">
+                </div>
+            </div>
+            <div id="layoutright" style="width: 300px; position: relative;">
+                @Html.Partial("_LayoutRight");
             </div>
         </div>
-        <div id="layoutright" style="width: 300px; position: relative;">
-            @Html.Partial("_LayoutRight");
+        <div style="left: 2px; position: absolute;" id="DivMessage">
+            <ul id="Uimessage" style="width: 100%; left: 1px;">
+            </ul>
         </div>
-    </div>
-    <div style="left: 2px; position: absolute;" id="DivMessage">
-        <ul id="Uimessage" style="width: 100%; left: 1px;">
-        </ul>
-    </div>
-    <div id="ajaxPanel">
-        <img src="@Url.Content("~/Content/Gray/Image/ajax-loader.gif")" />
+        <div id="ajaxPanel" style="display: none;">
+            <img id="ajaxLoader" src="@Url.Content("~/Content/Gray/Image/ajax-loader.gif")" />
+        </div>
     </div>
 </body>
 </html>

@@ -92,6 +92,9 @@
     <Content Include="Exp\DOM\DynamicTableRow.htm" />
     <Content Include="Exp\DOM\ScriptTag.htm" />
     <Content Include="Exp\DOM\ReplaceElement.htm" />
+    <Content Include="Exp\Jquery\animate.htm" />
+    <Content Include="Exp\Jquery\SideDown.htm" />
+    <Content Include="Exp\Jquery\slideDown.html" />
     <Content Include="JquyerUI\Message\ErrorAlert.htm" />
     <Content Include="JquyerUI\Message\ImageShrink.htm" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />

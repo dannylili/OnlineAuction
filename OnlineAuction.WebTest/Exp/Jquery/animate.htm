@@ -1,0 +1,136 @@
+﻿<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../../Scripts/jquery-1.5.1.js" type="text/javascript"></script>
+    <script src="../../Scripts/jquery-1.5.1-vsdoc.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#Test").fadeOut(2000);
+        });  
+    </script>
+</head>
+<body>
+    <div id="Test" style="border: 1px solid red; width: 100%; height: 100%;">
+        家长质疑吃黄金大米儿童名单及食用次数前后矛盾 [在美烹调后入境 湖南25名儿童曾食用] [试验隐瞒家长] [拟每户补偿8万] [3名责任人撤职] [新华社评黄金大米事件：骗孩子毁道德伤科研]
+        太原公安局长被停职 网传其子涉醉驾殴打交警 日本就朝鲜火箭发射向自卫队下达摧毁措施命令 部级高官被实名举报 涉事商人否认与其利益往来 媒体盘点十八大后被宣布免职或调查官员
+        媒体称李春城落马显示反腐不再只拍苍蝇不打老虎 福布斯2012权势人物榜:奥巴马第1习近平第9 习近平征经济工作意见：增长必须是无水分增长 北京交管局长为协助调查
+        儿子与秘书涉嫌倒卖车牌 “钉子坟”坟主否认百万迁坟费:绝不拿尸骨挣钱 网传人大代表澳门赌输7千万 回应称去购物度假 安徽访民离京车上疑遭“黑保安”殴打 公安介入
+        10岁小学生回击外国同桌"占领中国论" 被要求写检查 网传河南大桥靠木头支撑 经查系抗战时日本所建 农民工桥下躺20天死亡续:少林寺方丈接其子上学 全国工商联十一大今日召开
+        会议议程确定 少年坐牢5年后称判刑时未满16岁 户籍信息录错 浙江瑞安两黑老大争地盘 一人被砍只剩一手一脚 男子嫖娼后拒付百元嫖资 打斗时发现对方是男性
+    </div>
+</body>
+</html>-->
+<!--<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  p { font-size:150%; cursor:pointer; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+  <p>
+  If you click on this paragraph
+  you'll see it just fade away.
+  </p>
+<script>
+    $("p").click(function () {
+        $("p").fadeOut("slow");
+    });
+  </script>
+
+</body>
+</html>-->
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+  span { cursor:pointer; }
+  span.hilite { background:yellow; }
+  div { display:inline; color:red; }
+  </style>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+  <h3>Find the modifiers - <div></div></h3>
+  <p>
+  If you <span>really</span> want to go outside
+  <span>in the cold</span> then make sure to wear
+  your <span>warm</span> jacket given to you by
+  your <span>favorite</span> teacher.
+  </p>
+<script>
+
+    $("span").click(function () {
+        $(this).fadeOut(1000, function () {
+            $("div").text("'" + $(this).text() + "' has faded!");
+            $(this).remove();
+        });
+    });
+    $("span").hover(function () {
+        $(this).addClass("hilite");
+    }, function () {
+        $(this).removeClass("hilite");
+    });
+
+  </script>
+
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        p
+        {
+            width: 80px;
+            margin: 0;
+            padding: 5px;
+        }
+        div
+        {
+            width: 40px;
+            height: 40px;
+            position: absolute;
+        }
+        div#one
+        {
+            top: 0;
+            left: 0;
+            background: #f00;
+        }
+        div#two
+        {
+            top: 20px;
+            left: 20px;
+            background: #0f0;
+        }
+        div#three
+        {
+            top: 40px;
+            left: 40px;
+            background: #00f;
+            opacity: 0.6;
+        }
+    </style>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <p>
+        And this is the library that John built...</p>
+    <div id="one">
+    </div>
+    <div id="two">
+    </div>
+    <div id="three">
+    </div>
+    <script type="text/javascript">
+
+        $("div").click(function () {
+            $(this).fadeTo("fast", 0.9);
+        });
+    </script>
+</body>
+</html>

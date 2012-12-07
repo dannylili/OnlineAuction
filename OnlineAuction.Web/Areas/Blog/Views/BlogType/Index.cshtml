@@ -4,6 +4,7 @@
     // Html.ViewContext.ViewData.Model
 }
 <script type="text/javascript">
+
     function DeleteAlert() {
         alert("Do you sure delte this record.");
         return false;
@@ -74,9 +75,9 @@
                     @blogType.BlogUsreID
                 </td>
                 <td>
-                    @Html.ActionLink("编辑", "Edit", "blogType", new { id = @blogType.ID }, null);
-                    @Html.ActionLink("删除", "Delete", "blogType", new { id = @blogType.ID }, new { @class = "Btn BtnDelete" });
-                    @Ajax.ActionLink("Ajax删除方法", "Delete", new { id = @blogType.ID }, new AjaxOptions { UpdateTargetId = "ajaxPanel" });
+                   @Html.ActionLink("编辑", "Edit", "blogType", new { id = @blogType.ID }, null)
+                    @Html.ActionLink("删除", "Delete", "blogType", new { id = @blogType.ID }, new { @class = "Btn BtnDelete" })
+                   @Ajax.ActionLink("Ajax删除方法", "Delete", new { id = @blogType.ID }, new AjaxOptions { UpdateTargetId = "ajaxPanel", Confirm = "确认删除吗？" })
                 </td>
             </tr>
         }
