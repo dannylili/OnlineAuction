@@ -61,6 +61,9 @@
                     @*  @Html.EditorFor(t => t.BlogShortName);*@
                 </td>
                 <td>
+                    测试 Autocomplete
+                    @Html.TextBoxFor(t => t.BlogShortName, new { data_autocomplete_url = Url.Action("Autocomplete") })
+                    <input type="text" id=“txtBlogType” name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType", new { queryParam = "test" })" />
                     @* @Html.DisplayFor(t => t.TestDecimal);*@
                 </td>
             </tr>

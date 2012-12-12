@@ -77,6 +77,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
+    <Content Include="shuoming.aspx" />
+    <Content Include="shuoming.htm" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account\ChangePassword.aspx.cs">
@@ -106,6 +108,13 @@
     </Compile>
     <Compile Include="Account\Register.aspx.designer.cs">
       <DependentUpon>Register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="shuoming.aspx.cs">
+      <DependentUpon>shuoming.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="shuoming.aspx.designer.cs">
+      <DependentUpon>shuoming.aspx</DependentUpon>
     </Compile>
     <Content Include="App_Code\ImageCut.cs" />
     <Compile Include="Default.aspx.cs">

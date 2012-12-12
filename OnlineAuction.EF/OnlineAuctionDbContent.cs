@@ -56,6 +56,8 @@ namespace OnlineAuction.EF
 
         // DbSet<Student> Student { get; set; }
         DbSet<BlogType> BlogType { get; set; }
+        DbSet<PersonAddress> PersonAddress { get; set; }
+        DbSet<Person> Person { get; set; }
 
         #endregion
 
@@ -77,7 +79,9 @@ namespace OnlineAuction.EF
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             // modelBuilder.Configurations.Add(new StudentMap());
-             modelBuilder.Configurations.Add(new BlogTypeMap());
+            modelBuilder.Configurations.Add(new BlogTypeMap());
+            modelBuilder.Configurations.Add(new PersonAddressMap());
+            modelBuilder.Configurations.Add(new PersonMap());
 
 
             // modelBuilder.Ignore(new StudentMap());
@@ -108,7 +112,7 @@ namespace OnlineAuction.EF
             this.Configuration.LazyLoadingEnabled = true;
 
             /// 自动检测变化（POCO和database是否一致）
-            this.Configuration.AutoDetectChangesEnabled = true;
+            // this.Configuration.AutoDetectChangesEnabled = true;
         }
 
         #endregion

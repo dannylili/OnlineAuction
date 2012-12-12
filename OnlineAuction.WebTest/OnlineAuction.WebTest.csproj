@@ -88,6 +88,7 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Exp\Css3\Sanjiao.htm" />
     <Content Include="Exp\DOM\BrowerWindowObj.htm" />
     <Content Include="Exp\DOM\DynamicTableRow.htm" />
     <Content Include="Exp\DOM\ScriptTag.htm" />

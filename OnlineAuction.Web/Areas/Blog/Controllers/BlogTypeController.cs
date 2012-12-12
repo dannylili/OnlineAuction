@@ -5,6 +5,7 @@ using OnlineAuction.Model;
 using OnlineAuction.Business.Validation;
 using OnlineAuction.Web.Extensions;
 using OnlineAuction.Common.Const;
+using System;
 
 namespace OnlineAuction.Web.Areas.Blog.Controllers
 {
@@ -40,7 +41,7 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             return View(blogType);
         }
 
-        public ActionResult Edit(int id,int? testID=null)
+        public ActionResult Edit(int id, int? testID = null)
         {
             var entity = Model.Get(id);
             return View(entity);
@@ -88,7 +89,15 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
         [ValidateInput(true)]
         public ActionResult Edit(BlogType entity)
         {
-            var result = Model.Update(entity);
+            ErrorResult result = new ErrorResult();
+            var verifyData = Model.ListIsActiveAll().Where(t => t.ID != entity.ID && t.BlogShortName == entity.BlogShortName);
+            if (verifyData.Any())
+            {
+                result.AddMessage("blogShortName is replase", entity.BlogShortName);
+                return result.ToJsonResult<ErrorResult>();
+            }
+            // var result = Model.Update(entity);
+            result = Model.Update(entity);
             if (result.IsValid)
             {
                 ViewData[Constants.ViewStatus.TempDataAddFail] = result.ToJsonResult<ErrorResult>();
@@ -97,16 +106,16 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             else
             {
                 return RedirectToAction("Index");
-            }  
+            }
         }
 
         [OutputCache]
         [HttpPost]
         public ActionResult AjaxTest()
         {
-            if((Request["X-Requested-With"] == "XMLHttpRequest") ||((Request.Headers != null) &&(Request.Headers["X-Requested-With"] == "XMLHttpRequest")))
+            if ((Request["X-Requested-With"] == "XMLHttpRequest") || ((Request.Headers != null) && (Request.Headers["X-Requested-With"] == "XMLHttpRequest")))
             {
-                
+
             }
 
             var id = Request["testID"];
@@ -116,17 +125,26 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             return test;
         }
 
-        public ActionResult AuoteSearch(string query)
+        /// <summary>
+        /// 根据条件自动过滤
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public ActionResult AuoteSearch(string queryParam)
         {
             var listType = from types in Model.ListIsActiveAll().ToList()
-                           // where types.BlogShortName.Contains(query)
+                           where types.BlogShortName.Contains(queryParam)
                            select new
                            {
                                value = types.BlogShortName,
-                               label = types.BlogShortName
                            };
+            string[] test = listType.Select(t => t.value).ToArray<string>();
 
-            return Json(new JsonResult { Data = listType, JsonRequestBehavior = JsonRequestBehavior.AllowGet });
+            //  注意调用
+            var testResult = Json(new JsonResult { Data = test, JsonRequestBehavior = JsonRequestBehavior.AllowGet });
+
+            /// new JsonResult()和Json的结果不一样
+            return Json(test, JsonRequestBehavior.AllowGet);
         }
 
         public ActionResult Delete(int id)
@@ -147,6 +165,18 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
         }
 
         #endregion
+
+        /// <summary>
+        ///  在添加页面测试Autocomplete
+        /// </summary>
+        /// <param name="term"></param>
+        /// <returns></returns>
+        public ActionResult Autocomplete(string term)
+        {
+            var items = new[] { "Apple", "Pear", "Banana", "Pineapple", "Peach" };
+            var filteredItems = items.Where(item => item.IndexOf(term, StringComparison.InvariantCultureIgnoreCase) >= 0);
+            return Json(filteredItems, JsonRequestBehavior.AllowGet);
+        }
     }
 }
 

@@ -9,6 +9,19 @@
         alert("Do you sure delte this record.");
         return false;
     }
+
+    //    $(document).ready(function () {
+
+    //        /// 在index的grid中添加自动搜索功能
+    //        function GetAuotSearch() {
+    //            $(".ui-autocomplete-input").each(function () {
+    //                var element = $(this);
+    //                // alert(element);
+    //            });
+    //        }
+
+    //    });
+  
 </script>
 @using OnlineAuction.Model;
 @Model OnlineAuction.Model.BlogType;
@@ -22,26 +35,28 @@
    @* <div>@Html.Action("Add", "Blogtype")</div>*@
     // 将会调用Blogtype的Add方法中执行的页面HTML
     <div>@Html.ActionLink("add", "Add", "Blogtype", new { style = "border:1px solid red;display:block;" })</div>
-    <table>
-    <thead>
+    <table style=" border-collapse:collapse;" border="1">
+    <thead style=" background-color:#ccc;">
         <tr>
             <th>
                 名称
+                @*<input type="text" id=“txtBlogType” name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType")" />*@
+                <input type="text" id=“txtBlogType” name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType", new { queryParam = "test" })" />
             </th>
             <th>
                 <a>↑作者</a>
+                 <input name="txtBlogAuthor" />
             </th>
             <th>
                 <a>↓用户</a>
+                <input name="txtUser" />
             </th>
             <th>
                 <a>操作</a>
             </th>
         </tr>
-        <tr>
-            <th>
-                <label for="somevalue">Some value:</label>
-                <input type="text" id="somevalue" name="somevalue"/>
+      @*  <tr>
+            <th> 
                 <input type="text" name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType")" />
             </th>
             <th>
@@ -53,7 +68,7 @@
             <th>
                 <a>操作</a>
             </th>
-        </tr>
+        </tr>*@
     </thead>
     <tbody>
         @* @foreach (var blogType in Html.ViewContext.ViewData.Model)*@

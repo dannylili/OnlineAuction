@@ -227,6 +227,7 @@
     <Content Include="JqueryExp\jQuery-Desktop-master\robots.txt" />
     <Content Include="JqueryExp\JqueryExtend..htm" />
     <Content Include="JqueryExp\JqueryBroser.htm" />
+    <Content Include="Scripts\autocomplete.js" />
     <Content Include="SysHelp.htm" />
     <Content Include="Menu1Test\Js\detail.js" />
     <Content Include="Menu1Test\Js\h.js" />
@@ -316,7 +317,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\OA\Views\Web.config" />
-    <Content Include="Areas\Blog\Views\Web.config" />
+    <Content Include="Areas\Blog\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Areas\Blog\Views\Blog\Index.cshtml" />
     <Content Include="Areas\Blog\Views\BlogType\Add.cshtml" />
     <Content Include="Areas\DashBorder\Views\Web.config" />
