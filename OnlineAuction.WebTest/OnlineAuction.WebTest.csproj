@@ -94,6 +94,7 @@
     <Content Include="Exp\DOM\ScriptTag.htm" />
     <Content Include="Exp\DOM\ReplaceElement.htm" />
     <Content Include="Exp\Jquery\animate.htm" />
+    <Content Include="Exp\Jquery\LeftMenu.htm" />
     <Content Include="Exp\Jquery\SideDown.htm" />
     <Content Include="Exp\Jquery\slideDown.html" />
     <Content Include="JquyerUI\Message\ErrorAlert.htm" />

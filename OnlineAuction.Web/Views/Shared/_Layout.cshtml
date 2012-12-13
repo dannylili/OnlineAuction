@@ -18,6 +18,8 @@
     <script src="@Url.Content("~/Scripts/autocomplete.js")" type="text/javascript"></script>
     <script language="javascript" type="text/jscript">
 
+        document.onreadystatechange = PageLoad();
+
         $(document).ready(function () {
             try {
                 Initial();
@@ -120,12 +122,30 @@
             //            },2000);
 
             $("#bodyMain").css("opacity", 0.1).fadeTo(4000, 1.0);
+        }
 
-            //            $("#ajaxLoader-new").load = function () {
-            //                if (this.complete) {
-            //                    alert("加载完毕");
-            //                }
-            //            } 
+        function PageLoad() {
+
+            var doucumentLoadStatus = document.readyState;  // http://www.2cto.com/kf/201110/108441.html  // 页面onload=页面所有的元素，script，css加载完毕时出发的事件
+
+            if (doucumentLoadStatus == "loading") {
+                alert("loading");
+                $("#ajaxPanel").css.add("display", "block");
+            }
+
+            if (doucumentLoadStatus == "complete") {
+                $("#ajaxPanel").css.add("display", "none");
+            }
+
+            if (doucumentLoadStatus == "interactive") {
+                alert("interactive");
+                $("#ajaxPanel").css.add("display", "none");
+            }
+
+            if (doucumentLoadStatus == "loaded") {
+                alert("loaded");
+                $("#ajaxPanel").css.add("display", "none");
+            }
         }
     </script>
 </head>
@@ -154,7 +174,7 @@
             </ul>
         </div>
         <div id="ajaxPanel" style="display: none;">
-            <img id="ajaxLoader" src="@Url.Content("~/Content/Gray/Image/ajax-loader.gif")" />
+            <img id="ajaxLoader" src="@Url.Content("~/Content/Gray/Image/ajax-loader.gif")"  title=""/>
         </div>
     </div>
 </body>

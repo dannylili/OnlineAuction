@@ -1,11 +1,11 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Mvc;
 using OnlineAuction.Business.Interfaces;
-using OnlineAuction.Model;
 using OnlineAuction.Business.Validation;
-using OnlineAuction.Web.Extensions;
 using OnlineAuction.Common.Const;
-using System;
+using OnlineAuction.Model;
+using OnlineAuction.Web.Extensions;
 
 namespace OnlineAuction.Web.Areas.Blog.Controllers
 {
@@ -176,6 +176,19 @@ namespace OnlineAuction.Web.Areas.Blog.Controllers
             var items = new[] { "Apple", "Pear", "Banana", "Pineapple", "Peach" };
             var filteredItems = items.Where(item => item.IndexOf(term, StringComparison.InvariantCultureIgnoreCase) >= 0);
             return Json(filteredItems, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpGet]
+        // public ActionResult GetList(string key = null, string value = null)
+        // public string GetList(string key = null, string value = null)
+        public JsonResult GetList(string key = null, string value = null)
+        {
+            //return "excute successful";
+            // return new RedirectResult("http://www.baidu.com/");
+
+            var list = Model.ListIsActiveAll().ToString(); // 这样返回的结果是sql语句。如果是toList()则返回一个难以处理的值
+            return Json(list, JsonRequestBehavior.AllowGet);
+
         }
     }
 }

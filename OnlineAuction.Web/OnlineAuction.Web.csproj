@@ -79,6 +79,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Areas\Adminstrator\AdminstratorAreaRegistration.cs" />
+    <Compile Include="Areas\Adminstrator\Controllers\PersonController.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />
     <Compile Include="Areas\Blog\Controllers\BlogTypeController.cs" />
     <Compile Include="Areas\DashBorder\Controllers\PersonDashborderController.cs" />
@@ -93,10 +95,10 @@
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
-    <Compile Include="Scripts\Extensions\HelperString.cs" />
-    <Compile Include="Scripts\Extensions\HtmlHelperExtension.cs" />
-    <Compile Include="Scripts\Extensions\HtmlHelperExtensioncs.cs" />
-    <Compile Include="Scripts\Extensions\JsonExtentions.cs" />
+    <Compile Include="Extensions\HelperString.cs" />
+    <Compile Include="Extensions\HtmlHelperExtension.cs" />
+    <Compile Include="Extensions\HtmlHelperExtensioncs.cs" />
+    <Compile Include="Extensions\JsonExtentions.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -115,7 +117,7 @@
       <DependentUpon>WebForm2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountModels.cs" />
-    <Compile Include="Scripts\Extensions\MvcExtend.cs" />
+    <Compile Include="Extensions\MvcExtend.cs" />
     <Compile Include="Models\ControllerFactory.cs" />
     <Compile Include="Models\Form\FormField.cs" />
     <Compile Include="Models\WebHelper.cs" />
@@ -287,6 +289,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\Adminstrator\Models\" />
+    <Folder Include="Areas\Adminstrator\Views\Shared\" />
     <Folder Include="Areas\Blog\Models\" />
     <Folder Include="Areas\Blog\Views\Shared\" />
     <Folder Include="Areas\DashBorder\Models\" />
@@ -381,6 +385,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Shared\EditTemplates\Object.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Adminstrator\Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Adminstrator\Views\Person\Index.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

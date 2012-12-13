@@ -59,11 +59,15 @@
     <Compile Include="Mapping\BlogTypeMap.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Mapping\Person.cs" />
-    <Compile Include="Mapping\PersonAddress.cs" />
+    <Compile Include="Mapping\UserMap.cs" />
+    <Compile Include="Mapping\PersonMap.cs" />
     <Compile Include="Migrations\201210200759496_BlogType.cs" />
     <Compile Include="Migrations\201210200759496_BlogType.Designer.cs">
       <DependentUpon>201210200759496_BlogType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201212130844009_Person.cs" />
+    <Compile Include="Migrations\201212130844009_Person.Designer.cs">
+      <DependentUpon>201212130844009_Person.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineAuctionDao.cs" />

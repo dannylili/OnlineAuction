@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Data.Entity;
-using OnlineAuction.Model;
-using OnlineAuction.EF;
+﻿using System.Data.Entity;
 using OnlineAuction.EF.Mapping;
-using System.Data.Entity.Infrastructure;
+using OnlineAuction.Model;
 
 namespace OnlineAuction.EF
 {
@@ -56,8 +50,8 @@ namespace OnlineAuction.EF
 
         // DbSet<Student> Student { get; set; }
         DbSet<BlogType> BlogType { get; set; }
-        DbSet<PersonAddress> PersonAddress { get; set; }
         DbSet<Person> Person { get; set; }
+        DbSet<User> User { get; set; }
 
         #endregion
 
@@ -80,8 +74,8 @@ namespace OnlineAuction.EF
         {
             // modelBuilder.Configurations.Add(new StudentMap());
             modelBuilder.Configurations.Add(new BlogTypeMap());
-            modelBuilder.Configurations.Add(new PersonAddressMap());
             modelBuilder.Configurations.Add(new PersonMap());
+            modelBuilder.Configurations.Add(new UserMap());
 
 
             // modelBuilder.Ignore(new StudentMap());

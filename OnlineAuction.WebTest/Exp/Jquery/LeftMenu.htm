@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+            // var navigateopacity = $(".left").css("opacity");
+
+            $(".left dd:last-child").click(function () {
+
+                var navigateBarWidth = $(".left dd:last-child").css("width");
+                var navigateWidth = $(".left").css("width");
+                alert(navigateWidth > navigateBarWidth);
+
+                if (navigateWidth > navigateBarWidth) {
+                    alert("navigateBarWidth:" + navigateBarWidth);
+                    $(".left").animate({
+                        width: navigateBarWidth
+                    }, 1000);
+                }
+                else {
+                    alert("else");
+                    $(".left").animate({
+                        width: "500px"
+                    }, 1000);
+                }
+            });
+        });
+
+
+    </script>
+    <style type="text/css">
+        .element
+        {
+            float: left;
+            border: 1px solid red;
+        }
+        .left
+        {
+            width: 35%;
+            width: 500px;
+        }
+        .left dd
+        {
+            float: left;
+        }
+        .left dd:first-child
+        {
+            width: 100px;
+            border: 1px solid green;
+        }
+        .left dd:last-child
+        {
+            border: 1px solid black;
+            background-color: #E6E4E4;
+        }
+        .right
+        {
+            width: auto;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100%;">
+        <div id="left" class="left element">
+            <dd>
+                菜单</dd>
+            <dd>
+                点击</dd>
+        </div>
+        <div id="right" class="right element">
+            asdfsdaf
+        </div>
+    </div>
+</body>
+</html>

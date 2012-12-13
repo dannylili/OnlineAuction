@@ -11,7 +11,7 @@ namespace OnlineAuction.Business.Components
 {
     public class BlogTypeModel : BusinessModel, IBlogTypeModel
     {
-        #region Implement IBlogTypeModel
+        #region 实现接口
 
         public ErrorResult Save(BlogType entityType)
         {
@@ -21,6 +21,7 @@ namespace OnlineAuction.Business.Components
             return result;
             // return (new ErrorResult() { Message = new List<Common.Classes.Message>(), IsValid = true });
         }
+
         public ErrorResult Update(BlogType entityType, int? ID = 0)
         {
             Model.Update(entityType);

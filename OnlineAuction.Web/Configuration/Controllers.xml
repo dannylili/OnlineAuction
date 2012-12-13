@@ -5,4 +5,8 @@
     <property name="Model" ref="BlogTypeModel"/>
   </object>
 
+  <object id="PersonController" type="OnlineAuction.Web.Areas.Adminstrator.Controllers.PersonController, OnlineAuction.Web" singleton="false">
+    <property name="Model" ref="PersonModel"/>
+  </object>
+
 </objects>

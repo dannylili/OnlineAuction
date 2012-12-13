@@ -52,10 +52,12 @@
   <ItemGroup>
     <Compile Include="BusinessRulesEngine\Common\IExpression.cs" />
     <Compile Include="Components\BlogTypeModel.cs" />
+    <Compile Include="Components\PersonModel.cs" />
     <Compile Include="Components\TenantProvider.cs" />
     <Compile Include="Extension\ExtensionIqueryable.cs" />
     <Compile Include="Components\BusinessModel.cs" />
     <Compile Include="Interfaces\IBlogTypeModel.cs" />
+    <Compile Include="Interfaces\IPersonModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Validation\ErrorResult.cs" />
   </ItemGroup>

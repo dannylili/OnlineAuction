@@ -50,7 +50,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Poco\Person.cs" />
-    <Compile Include="Poco\PersonAddress.cs" />
     <Compile Include="Poco\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,9 +5,21 @@
 }
 <script type="text/javascript">
 
-    function DeleteAlert() {
-        alert("Do you sure delte this record.");
-        return false;
+    function GetList(fieldkey, value) {
+        debugger
+        alert("fieldkey:" + fieldkey + "\n value:" + value);
+        $.ajax({
+            type: "GET",
+            url: "/BlogType/GetList",
+            data: "key=" + fieldkey + "&value=" + value,
+            success: function (msg) {
+                // if return result is string 
+                // alert("Data Saved: " + msg); 
+                 
+                // if return result is jsonresult
+                $("#result").html(msg);
+            }
+        });
     }
 
     //    $(document).ready(function () {
@@ -41,7 +53,7 @@
             <th>
                 名称
                 @*<input type="text" id=“txtBlogType” name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType")" />*@
-                <input type="text" id=“txtBlogType” name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType", new { queryParam = "test" })" />
+                <input type="text" id=“txtBlogType” name="txtBlogType" data-autocomplete-source="@Url.Action("AuoteSearch", "BlogType", new { queryParam = "test" })"  onchange="GetList('BlogShortName',this.value)" />
             </th>
             <th>
                 <a>↑作者</a>
@@ -98,4 +110,5 @@
         }
     </tbody>
     </table>
+    <div id="result"></div>
 }

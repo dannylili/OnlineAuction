@@ -12,7 +12,7 @@
           <SQLDebugging>False</SQLDebugging>
           <ExternalProgram>
           </ExternalProgram>
-          <StartExternalURL>http://localhost:58746/Blog/blogtype/index</StartExternalURL>
+          <StartExternalURL>http://localhost:58746/Adminstrator/Person/index</StartExternalURL>
           <StartCmdLineArguments>
           </StartCmdLineArguments>
           <StartWorkingDirectory>

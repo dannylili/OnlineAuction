@@ -12,5 +12,8 @@
   <object id="BlogTypeModel" type="OnlineAuction.Business.Components.BlogTypeModel" parent="BaseModel" singleton="false">
   </object>
 
+  <object id="PersonModel" type="OnlineAuction.Business.Components.PersonModel" parent="BaseModel" singleton="false">
+  </object>
+
 </objects>
 
