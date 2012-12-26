@@ -23,7 +23,7 @@ namespace OnlineAuction.Model
         [Required(AllowEmptyStrings = false, ErrorMessage = "填写名称")]
         [MaxLength(10, ErrorMessage = "{0}不能大于10个字符")]
         [MinLength(2, ErrorMessage = "{0}不能少于2个字符")]
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         [Description("年龄")]
         public Nullable<int> Age { get; set; }

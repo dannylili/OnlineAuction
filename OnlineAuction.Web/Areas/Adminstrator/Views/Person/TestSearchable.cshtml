@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "TestSearchable";
+}
+@using OnlineAuction.Web.Extensions;
+@using OnlineAuction.Model;
+@model OnlineAuction.Model.Person
+<h2>
+    TestSearchable</h2>
+<div>
+    Test content is good for every one who want to get time review documentions and
+    realy desiner requirement palan schdule</div>
+<div>
+    @{
+        var personLink = Html.SearchFor<User, int?>(typeof(Person).Name, t => t.PersonID);    
+    }
+     @personLink
+</div>

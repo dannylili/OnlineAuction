@@ -5,7 +5,56 @@
     margin: 0;
 }
 
-/* ------------------------------------------------top menue begin------------------------------------------------*/
+/*------------------------------------------------ 最上面的页头固定面板----------------------------------------*/
+.topToolBar
+{
+    height: 28px;
+    margin: 0px;
+    padding-right: 5px;
+    border-bottom: 1px solid black;
+    background: #4c4e5a;
+    background: -webkit-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
+    background: -moz-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
+    background: -o-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
+    background: -ms-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
+    background: linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
+    text-align: right;
+}
+
+.topToolBar ul
+{
+    float: right;
+    display: block;
+    position: relative;
+}
+.topToolBar ul li
+{
+    float: left;
+    list-style: none;
+    height: 28;
+}
+.topToolBar ul li a
+{
+    display: block;
+    padding: 0 14px;
+    margin: 1px 0;
+    line-height: 28px;
+    text-decoration: none;
+    border-left: 1px solid #393942;
+    border-right: 1px solid #4f5058;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+    color: #f3f3f3;
+    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
+    -webkit-transition: color .2s ease-in-out;
+    -moz-transition: color .2s ease-in-out;
+    -o-transition: color .2s ease-in-out;
+    -ms-transition: color .2s ease-in-out;
+    transition: color .2s ease-in-out;
+}
+
+/* -----------------------------------------------页头菜单------------------------------------------------*/
 /* Reset */
 .menu, .menu ul, .menu li, .menu a
 {
@@ -153,60 +202,7 @@
     background: url(../img/arrow.png) no-repeat 6px center;
 }
 
-/*------------------------------------------------ top menue begin------------------------------------------------*/
-
-/*------------------------------------------------ top navigation bar start----------------------------------------*/
-.topToolBar
-{
-    height: 28px;
-    margin: 0px;
-    padding-right: 5px;
-    border-bottom: 1px solid black;
-    background: #4c4e5a;
-    background: -webkit-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
-    background: -moz-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
-    background: -o-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
-    background: -ms-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
-    background: linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);
-    text-align: right;
-}
-
-.topToolBar ul
-{
-    float: right;
-    display: block;
-    position: relative;
-}
-.topToolBar ul li
-{
-    float: left;
-    list-style: none;
-    height: 28;
-}
-.topToolBar ul li a
-{
-    display: block;
-    padding: 0 14px;
-    margin: 1px 0;
-    line-height: 28px;
-    text-decoration: none;
-    border-left: 1px solid #393942;
-    border-right: 1px solid #4f5058;
-    font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    color: #f3f3f3;
-    text-shadow: 1px 1px 1px rgba(0,0,0,.6);
-    -webkit-transition: color .2s ease-in-out;
-    -moz-transition: color .2s ease-in-out;
-    -o-transition: color .2s ease-in-out;
-    -ms-transition: color .2s ease-in-out;
-    transition: color .2s ease-in-out;
-}
-
-
-/* Styles for validation helpers
------------------------------------------------------------*/
+/* --------------------------------Styles for validation helpers[@hmlt.TextFor/TeaxtAreaFor]时给控件添加的样式 ---------------------------------*/
 .field-validation-error
 {
     color: #ff0000;
@@ -249,7 +245,7 @@
 }
 .valid
 {
-    /*background: #4c4e5a;             background: -webkit-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: -moz-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: -o-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: -ms-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);             background: linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);*/
+    /*background: #4c4e5a;                 background: -webkit-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);               background: -moz-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);               background: -o-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);               background: -ms-linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);           background: linear-gradient(top, #E0E0E0 0%,#F7F7F7 100%);*/
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
@@ -272,9 +268,58 @@
 {
 }
 
+/*删除按钮或a用的样式*/
 .BtnDelete
 {
 }
+
+select
+{
+    font-size: 11px;
+    color: #000;
+    background-color: #FAFAFA;
+    height: 22px;
+    padding: 2px;
+    outline: none;
+    border: solid 1px #DCDCDC;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    vertical-align: top;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+[text]
+{
+    font-size: 11px;
+    color: #000;
+    background-color: #FAFAFA;
+    height: 22px;
+    padding: 2px;
+    outline: none;
+    border: solid 1px #DCDCDC;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    vertical-align: top;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+/******
+*
+*公共样式 当获取焦点后的样式
+*
+*******/
+
+input:focus, input.Mandatory:focus, select:focus, select.Mandatory:focus, textarea:focus, textarea.Mandatory:focus
+{
+    /*background: #f7f8c2;*/
+    background: #f2f2f2;
+    border-style: dotted;
+    border-color: #666;
+}
+
 
 /*------------------------最外边div的设置-------------------------*/
 #bodyMain-123

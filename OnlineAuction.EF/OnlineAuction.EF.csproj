@@ -65,9 +65,9 @@
     <Compile Include="Migrations\201210200759496_BlogType.Designer.cs">
       <DependentUpon>201210200759496_BlogType.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201212130844009_Person.cs" />
-    <Compile Include="Migrations\201212130844009_Person.Designer.cs">
-      <DependentUpon>201212130844009_Person.cs</DependentUpon>
+    <Compile Include="Migrations\201212210813484_Person.cs" />
+    <Compile Include="Migrations\201212210813484_Person.Designer.cs">
+      <DependentUpon>201212210813484_Person.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OnlineAuctionDao.cs" />

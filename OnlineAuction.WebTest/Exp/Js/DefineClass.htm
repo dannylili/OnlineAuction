@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Js define class test</title>
+    <script language="javascript" type="text/javascript">
+
+        function Page(Path) {
+
+            /// 定义私有属性，只能对每个对象实例调用自己的属性（适合有构造函数的对象）
+            var title = document.title;
+            var pathUrl = Path; 
+        }
+
+        /// 定义实例属性
+        Page.prototype.DefaultPath = window.location;
+        Page.prototype.pathUrl = "我先检查Page有没有定义pathUrl，如果有调用类的私有属性，否则调用实力属性";
+
+         window.onload = function () {
+         alert();
+         Page PageInstance=new Page("http://www.baidu.com/");
+         // alert(PageInstance.DefaultPath);
+        }
+
+    </script>
+<body>
+</body>
+</html>

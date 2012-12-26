@@ -88,15 +88,28 @@
     <Content Include="Content\themes\base\jquery.ui.slider.css" />
     <Content Include="Content\themes\base\jquery.ui.tabs.css" />
     <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Exp\Css3\css3-1.htm" />
+    <Content Include="Exp\Css3\divMove.htm" />
+    <Content Include="Exp\Css3\DivMove2.htm" />
+    <Content Include="Exp\Css3\HTMLPage1.htm" />
+    <Content Include="Exp\Css3\HTMLPage2.htm" />
+    <Content Include="Exp\Css3\JqueryExp1.htm" />
+    <Content Include="Exp\Css3\Layout.htm" />
+    <Content Include="Exp\Css3\Menu3.htm" />
     <Content Include="Exp\Css3\Sanjiao.htm" />
+    <Content Include="Exp\Css3\TopMenue.aspx" />
+    <Content Include="Exp\Css3\WebForm1.aspx" />
+    <Content Include="Exp\Css3\XiaoSanjiao.htm" />
     <Content Include="Exp\DOM\BrowerWindowObj.htm" />
     <Content Include="Exp\DOM\DynamicTableRow.htm" />
     <Content Include="Exp\DOM\ScriptTag.htm" />
     <Content Include="Exp\DOM\ReplaceElement.htm" />
     <Content Include="Exp\Jquery\animate.htm" />
+    <Content Include="Exp\Jquery\DropDownList.htm" />
     <Content Include="Exp\Jquery\LeftMenu.htm" />
     <Content Include="Exp\Jquery\SideDown.htm" />
     <Content Include="Exp\Jquery\slideDown.html" />
+    <Content Include="Exp\Js\DefineClass.htm" />
     <Content Include="JquyerUI\Message\ErrorAlert.htm" />
     <Content Include="JquyerUI\Message\ImageShrink.htm" />
     <Content Include="Scripts\jquery-1.5.1-vsdoc.js" />
@@ -174,6 +187,20 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exp\Css3\TopMenue.aspx.cs">
+      <DependentUpon>TopMenue.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exp\Css3\TopMenue.aspx.designer.cs">
+      <DependentUpon>TopMenue.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Exp\Css3\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exp\Css3\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

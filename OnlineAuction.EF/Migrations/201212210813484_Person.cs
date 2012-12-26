@@ -1,7 +1,7 @@
 namespace OnlineAuction.EF.Migrations
 {
     using System.Data.Entity.Migrations;
-
+    
     public partial class Person : DbMigration
     {
         public override void Up()
@@ -11,14 +11,14 @@ namespace OnlineAuction.EF.Migrations
                 c => new
                     {
                         ID = c.Int(nullable: false, identity: true),
-                        Name = c.Int(nullable: false),
+                        Name = c.String(),
                         Age = c.Int(),
                         Sex = c.Int(),
                         Nickname = c.String(),
                         SystemStatus = c.Byte(nullable: false),
                     })
                 .PrimaryKey(t => t.ID);
-
+            
             CreateTable(
                 "Users",
                 c => new
@@ -34,9 +34,9 @@ namespace OnlineAuction.EF.Migrations
                 .PrimaryKey(t => t.ID)
                 .ForeignKey("People", t => t.PersonID)
                 .Index(t => t.PersonID);
-
+            
         }
-
+        
         public override void Down()
         {
             DropIndex("Users", new[] { "PersonID" });

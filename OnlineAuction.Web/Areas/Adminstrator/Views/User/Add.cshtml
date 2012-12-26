@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using OnlineAuction.Web.Extensions;
+@using OnlineAuction.Model;
+@model OnlineAuction.Model.User
+<h2>
+    Add</h2>
+<table style="">
+    <tr>
+        <td>
+            <span>用户类型</span>
+        </td>
+        <td>
+            @Html.DropDownList("UserTypeList")
+        </td>
+        <td>
+            用户名称
+        </td>
+        <td>
+            @Html.TextBoxFor(t => t.EntryName)
+            <!--测试Searchable功能-->
+            测试Searchable功能
+            @{
+                var person = Html.SearchFor<User, int?>(typeof(Person).Name, t => t.PersonID);
+            }
+            @person
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <span>密码</span>
+        </td>
+        <td>
+            @Html.PasswordFor(t => t.EntryVeryPwd)
+        </td>
+        <td>
+            邮箱
+        </td>
+        <td>
+            @Html.TextBoxFor(t => t.Email)
+        </td>
+    </tr>
+</table>
+<div>
+</div>

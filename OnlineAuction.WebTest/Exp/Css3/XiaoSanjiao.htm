@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <style type="text/css">
+        .main-nav ul li:hover > span
+        {
+            display: inline;
+        }
+        .main-nav
+        {
+            background: rgba(0, 0, 0, 0.005);
+            width: 1000px;
+            height: 58px;
+            border-bottom: solid 1px #F1F1F1;
+            border-top: solid 1px #F1F1F1;
+            margin: 0 0 30px 12px;
+        }
+        .main-nav ul
+        {
+            width: 600px;
+            height: 58px;
+            float: left;
+            display: inline;
+        }
+        ul
+        {
+            list-style: none;
+            color: #353535;
+            line-height: 24px;
+            margin-bottom: 10px;
+        }
+        .triangle
+        {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #C30;
+            position: relative;
+            z-index: 9999;
+            top: -34px;
+            left: 53px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-nav ">
+        <ul>
+            <li><a href="#">#</a> <span class="triangle"></span></li>
+        </ul>
+    </div>
+</body>
+</html>

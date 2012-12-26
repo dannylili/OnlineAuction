@@ -9,4 +9,8 @@
     <property name="Model" ref="PersonModel"/>
   </object>
 
+  <object id="UserController" type="OnlineAuction.Web.Areas.Adminstrator.Controllers.UserController, OnlineAuction.Web" singleton="false">
+    <property name="Model" ref="UserModel"/>
+  </object>
+
 </objects>
