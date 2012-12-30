@@ -1,0 +1,44 @@
+﻿body
+{
+}
+
+.tab
+{
+    cursor: pointer;
+    color: white;
+    font-size: 11px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 24px solid #3D3D3D;
+    border-right: 24px solid transparent;
+    height: 1px;
+    padding: 0;
+    margin-right: -12px;
+    margin-top: -1px;
+    filter: alpha(opacity=35);
+    opacity: 0.35;
+    width: 55px;
+}
+
+.tabBar
+{
+    border-bottom: 2px solid #3D3D3D;
+    cursor: default;
+    outline: none;
+    margin-right: -24px;
+    padding: 2px 0 0;
+    line-height: 0;
+}
+.tabBar  li
+{
+    list-style-type:none;
+    float:left;
+ }
+
+.tab-text
+{
+    margin: 0 11px 0 15px;
+    line-height: 24px;
+    position: relative;
+} 
+

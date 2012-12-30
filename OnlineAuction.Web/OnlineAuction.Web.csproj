@@ -80,6 +80,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Areas\Adminstrator\AdminstratorAreaRegistration.cs" />
+    <Compile Include="Areas\Adminstrator\Controllers\List.cs" />
     <Compile Include="Areas\Adminstrator\Controllers\PersonController.cs" />
     <Compile Include="Areas\Adminstrator\Controllers\UserController.cs" />
     <Compile Include="Areas\Blog\BlogAreaRegistration.cs" />

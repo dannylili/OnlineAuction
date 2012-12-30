@@ -14,14 +14,18 @@
 
     jQuery(document).ready(function () {
         jQuery("#list").jqGrid({
+            // jqgrid要求的数据位json：格式参考 http://blog.csdn.net/longtenggdf/article/details/4656798 {"total":1,"page":1,"records":10,"rows":[{"id":1,"cell":["字段1","字段2",.....]},{[id":2,"cell":["字段1","字段2",.....]}]}
             url: '/Person/GridData/',
             datatype: 'json',
             mtype: 'GET',
-            colNames: ['Id', 'Votes', 'Title'],
+            colNames: ["ID", "Name", "Age", "Sex", "Nickname"],
+            // colNames: ['Id', 'Votes', 'Title'], /* dataFiled(字段名称) */ 
             colModel: [
-          { name: 'Id', index: 'Id', width: 40, align: 'left' },
-          { name: 'Votes', index: 'Votes', width: 40, align: 'left' },
-          { name: 'Title', index: 'Title', width: 200, align: 'left'}],
+            { name: 'ID', index: 'ID', width: 40, align: 'left' },
+            { name: 'Name', index: 'Name', width: 40, align: 'left' },
+            { name: 'Age', index: 'Age', width: 200, align: 'left' },
+            { name: "Sex", index: 'Sex', width: 200, align: 'left' },
+            { name: 'Nickname', index: 'Nickname', width: 200, align: 'left'}],
             pager: jQuery('#pager'),
             rowNum: 10,
             rowList: [5, 10, 20, 50],

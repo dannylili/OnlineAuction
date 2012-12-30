@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Collections;
 using System.Web.Mvc;
 using OnlineAuction.Business.Interfaces;
 using OnlineAuction.Business.ViewModel;
@@ -30,38 +31,43 @@ namespace OnlineAuction.Web.Areas.Adminstrator.Controllers
                 total = 1, // we'll implement later 
                 page = page,
                 records = 3, // implement later 
-                rows = new[]{
-                              new {id = 1, cell = new[] {"1", "-7", "Is this a good question?"}},
-                              new {id = 2, cell = new[] {"2", "15", "Is this a blatant ripoff?"}},
-                              new {id = 3, cell = new[] {"3", "23", "Why is the sky blue?"}}
-                            }
+                //rows = new[]{
+                //              new {id = 1, cell = new[] {"1", "-7", "Is this a good question?"}},
+                //              new {id = 2, cell = new[] {"2", "15", "Is this a blatant ripoff?"}},
+                //              new {id = 3, cell = new[] {"3", "23", "Why is the sky blue?"}}
+                //            }
             };
 
-            object[] row = new object[] { };
-            var persondata = Model.ListIsActiveAll();
-            var grid = new Grid();
-            List<GridRowCell> cells = new List<GridRowCell>();
-            var cell = new GridRowCell();
+            IList list = new List<object>();
 
-            foreach (var item in persondata)
-            {
-                cell = new GridRowCell
-                {
-                    Name = item.Name,
-                    Width = 20,
-                    Align = "left"
-                };
-                cells.Add(cell);
-            }
-            List<GridRow> rowList = new List<GridRow>();
-            GridRow gridRow = new GridRow() { GridRowCell = cells };
-            rowList.Add(gridRow);
-            grid.GridRow = rowList;
+            var test1 = new { id = "2", name = "name1" };
+            var test2 = new { id = "2", name = "name2" };
+            var test3 = new { id = "3", name = "name3" };
+            var test4 = new { id = "4", name = "name4" };
+            list.Add(test1); list.Add(test2); list.Add(test3);list.Add(test4);
 
-            JavaScriptSerializer JsSerializer = new JavaScriptSerializer();
-            var obj=JsSerializer.Serialize(grid);
-            // return Json(jsonData, JsonRequestBehavior.AllowGet);
-            return Json(grid, JsonRequestBehavior.AllowGet);
+            JavaScriptSerializer jsSeri = new JavaScriptSerializer();
+            var test = jsSeri.Serialize(list);
+
+            //var persondata = Model.ListIsActiveAll();
+            //foreach (var item in persondata)
+            //{
+            //    var rows = new[] 
+            //    {
+            //        id = item.ID,
+            //        cell = new[]
+            //        {
+            //            item.ID,
+            //            item.Name,
+            //            item.Sex,
+            //            item.Nickname
+            //        },
+            //    };
+            //    list.Add(test);
+            //}
+
+            // return Json(grid, JsonRequestBehavior.AllowGet);
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
 
         public virtual ActionResult TestSearchable()

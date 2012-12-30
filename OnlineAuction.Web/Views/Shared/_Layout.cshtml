@@ -52,6 +52,7 @@
                 $(this).attr("completed", "off");
             });
 
+            $(this).removeClass(
             // 为每个autocomplete属性的对象添加搜说功能
             $("input[data-autocomplete-source]").each(function () {
                 var target = $(this);

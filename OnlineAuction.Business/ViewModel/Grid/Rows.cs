@@ -2,16 +2,16 @@
 
 namespace OnlineAuction.Business.ViewModel
 {
-    public class GridRow
+    public class Rows
     {
         /// <summary>
         /// 行的唯一标识
         /// </summary>
-        public int RowID { get; set; }
+        public int ID { get; set; }
 
         /// <summary>
         /// 单元格
         /// </summary>
-        public List<GridRowCell> GridRowCell { get; set; }
+        public List<Cell> Cell { get; set; }
     }
 }

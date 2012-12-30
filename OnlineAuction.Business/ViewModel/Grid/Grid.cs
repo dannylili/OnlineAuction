@@ -9,12 +9,12 @@ namespace OnlineAuction.Business.ViewModel
         /// <summary>
         /// 行的唯一标识
         /// </summary>
-        public int RowID { get; set; }
+        // public int RowID { get; set; }
 
         /// <summary>
         /// 行
         /// </summary>
-        public List<GridRow> GridRow { get; set; }
+        public List<Rows> Rows { get; set; }
 
         #endregion
 
@@ -41,7 +41,7 @@ namespace OnlineAuction.Business.ViewModel
 
         #endregion
 
-        #region 增删改查
+        #region Grid的操作区域 增删改查
 
         #endregion
     }
