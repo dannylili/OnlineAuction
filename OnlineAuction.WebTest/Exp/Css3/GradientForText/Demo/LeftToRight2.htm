@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+    <title>颜色渐变的文字 http://www.mb5u.com/jscode/45735/ </title>
+    <script language="javascript">
+        function Delta(sHex1, sHex2, iNum) {
+            //计算每个字的变化量
+            var iHex1 = parseInt("0x" + sHex1);
+            var iHex2 = parseInt("0x" + sHex2);
+            return (iHex2 - iHex1) / (iNum - 1);
+        }
+        function Colorful(sText, sColor1, sColor2) {
+            if (sText.length <= 1) {
+                //如果只有一个字符，渐变无从谈起，直接输出并返回
+                document.write("<font style='color:#" + sColor1 + ";'>" + sText + "</font>");
+                return;
+            }
+            //RGB三色分离，分别获取变化的小量delta
+            var fDeltaR = Delta(sColor1.substring(0, 2), sColor2.substring(0, 2), sText.length);
+            var fDeltaG = Delta(sColor1.substring(2, 4), sColor2.substring(2, 4), sText.length);
+            var fDeltaB = Delta(sColor1.substring(4, 6), sColor2.substring(4, 6), sText.length);
+            var sColorR = parseInt("0x" + sColor1.substring(0, 2));
+            var sColorG = parseInt("0x" + sColor1.substring(2, 4));
+            var sColorB = parseInt("0x" + sColor1.substring(4, 6));
+            for (var i = 0; i < sText.length; i++) {
+                document.write("<font style='color:rgb(" + Math.round(sColorR) + "," + Math.round(sColorG) + "," + Math.round(sColorB) + ");'>" + sText.substring(i, i + 1) + "</font>");
+                /*每输出一个字符，颜色的三个分量都相应的变化
+                当字符输出完成时，正好由sColor1变成sColor2*/
+                sColorR += fDeltaR;
+                sColorG += fDeltaG;
+                sColorB += fDeltaB;
+            }
+        }
+        Colorful("模板无忧（mb5u.com）提供各类网页模板、视频教程、JavaScript/CSS特效代码以及常用软件下载等，做有质量的学习型源码下载站。", "FF3300", "3366FF");
+    </script>
+</head>
+<body>
+</body>
+</html>

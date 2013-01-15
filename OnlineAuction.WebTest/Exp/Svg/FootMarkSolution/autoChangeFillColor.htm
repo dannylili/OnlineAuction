@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>http://www.w3school.com.cn/svg/svg_grad_linear.asp</title>
+    <script src="../../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript">
+
+        // 全局类
+        var ColorDirection = {
+            /// indication value is 1 or 2, if value is 1 then color direction from top to bottom, if it is 2 then  color direction from left to right
+            indication: 0,
+            flag: true
+        };
+
+        $(function () {
+
+            /// indication value is 1 or 2, if value is 1 then color direction from top to bottom, if it is 2 then  color direction from left to right
+            var indication = 0;
+            var colorElement = $("#testdiv").find("svg").find("linearGradient");
+            var colorElement = $("#testdiv svg").find("linearGradient");
+            $(".top_to_bottom").click(function () {
+                ColorDirection.indication = 1;
+            });
+
+            $(".left_to_right").click(function () {
+                ColorDirection.indication = 2;
+            });
+
+            $(".ok").click(function () {
+                if (ColorDirection.indication == 1) {
+                    colorElement.attr("x1", "0%");
+                    colorElement.attr("y1", "0%");
+                    colorElement.attr("x2", "0%");
+                    colorElement.attr("y2", "100%");
+                }
+
+                if (ColorDirection.indication == 2) {
+
+                    colorElement.attr("x1", "0%");
+                    colorElement.attr("y1", "0%");
+                    colorElement.attr("x2", "100%");
+                    colorElement.attr("y2", "0%");
+                }
+                colorElement.find("stop").eq(0).css("stop-color", "rgb(255,0,0)")
+                colorElement.find("stop").eq(1).css("stop-color", "rgb(0,255,0)");
+            });
+
+            $(".cancel").click(function () {
+                ColorDirection.indication = 0;
+            });
+        });  
+    </script>
+</head>
+<body>
+    <div class="logodesign">
+        <div class="gradient_color">
+            <div class="text_title">
+                Gradient Color</div>
+            <div class="start_color">
+                <span>Start color</span>
+                <div class="start_color_view">
+                    <input type="text" id="txtStartColor" />
+                </div>
+            </div>
+            <div class="end_color start_color">
+                <span>End color</span>
+                <div class="start_color_view">
+                    <input type="text" id="txtEndColor" />
+                </div>
+            </div>
+            <div class="direction">
+                <span>Direction:</span>
+                <div class="top_to_bottom">
+                    Top To Bottom</div>
+                <div class="left_to_right">
+                    Left To Rigth
+                </div>
+            </div>
+            <div class="line">
+            </div>
+            <div class="button2">
+                <div class="ok">
+                    OK</div>
+                <div class="cancel">
+                    Cancel</div>
+            </div>
+        </div>
+    </div>
+    <div id="testdiv">
+        <svg id="SgvFirst" version="1.1" xmlns="http://www.w3.org/2000/svg">  
+        <text  id="text1" font-size="32"  x="2" y="60" style="fill:url(#orange_red)">
+            Hello, World! will go for same express
+    </text> 
+     <linearGradient id="orange_red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(71,0,71);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(0,0,180);stop-opacity:1"/></linearGradient>
+     <!--<linearGradient id="orange_red1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1"/></linearGradient>-->
+ </svg>
+    </div>
+</body>
+</html>

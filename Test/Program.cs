@@ -40,8 +40,10 @@ namespace Test
 
             // StringArryToIntArry();
 
-            int[] intArry = { };
-            intArry[0] = 12;
+            // int[] intArry = { };
+            // intArry[0] = 12;
+
+            var data = DateTime.Now.ToString("YYMMHHMMSS");
 
         }
 

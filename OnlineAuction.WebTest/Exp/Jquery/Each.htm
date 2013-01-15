@@ -1,0 +1,64 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+//        $(function () {
+//            $("button").click(function () {
+//                $("div").each(function (index, domEle) {
+//                    // domEle == this 
+//                    $(domEle).css("backgroundColor", "yellow");
+//                    if ($(this).is("#stop")) {
+//                        $("span").text("Stopped at div index #" + index);
+//                        return false;
+//                    }
+//                });
+//            });
+//        });
+
+
+
+                $(function () {
+                    $("button").first().click(function () {
+                        TestEach();
+                    });
+                });
+
+                function TestEach() {
+                    $("div").each(function (index, domEle) {
+                        alert("index" + index + "\ndomEle:" + domEle);
+                        $(domEle).css("backgroundColor", "yellow");
+                        if ($(this).is("#stop")) {
+                            $("span").text("Stopped at div index #" + index);
+                        }
+                        // $(domEle).is("#stop"){}
+                        $(domEle).hasClass("className");
+                    });
+                }
+        
+    </script>
+</head>
+<body>
+    <button>
+        Change colors</button>
+    <span></span>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div id="stop">
+        Stop here</div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div class="className">
+    </div>
+</body>
+</html>

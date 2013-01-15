@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>http://www.solucior.com/15-Zoom_with_CSS3.html</title>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>-->
+    <script src="../../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="../WebPageZoom/zoomooz-master/zoomooz-master/jquery.zoomooz.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $.zoomooz.setup({ root: $("#container"), targetsize: 1.0 });
+            // $.zoomooz.setup({ root: $("#container"), targetsize: 0.8 });
+
+            $("#btnFD").click(function (evt) {
+                evt.stopPropagation();
+                $("#Item1").zoomTo({ targetsize: 0.3 });
+            });
+
+            $("#btnSX").click(function (evt) {
+                evt.stopPropagation();
+                $("#Item1").zoomTo({ targetsize: 0.5 });
+                // $("#container").removeClass("container");
+                // $("#container").addClass("container");
+            });
+        });
+    </script>
+    <style type="text/css">
+        #outContainer
+        {
+            margin: 0 auto;
+        }
+        
+        #container
+        {
+            /* margin: 0;
+            padding: 0;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border: 1px solid red;*/
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            height: 200px;
+            position: relative;
+            border:1px solid red;
+        }
+        
+        #container > div
+        {
+            float: left;
+        }
+        
+        .zoomElem
+        {
+            background-color: #ccf;
+            position:static; /*bottom: 40px;
+             right: 40px;*/
+            width: 50px;
+            height: 50px;
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div id="contentOpera">
+        <div>
+            <button id="btnFD">
+                放大
+            </button>
+            <button id="btnSX">
+                缩小
+            </button>
+            <button>
+                面板放大
+            </button>
+            <button>
+                面板缩小
+            </button>
+        </div>
+    </div>
+    <div id="outContainer">
+        <div id="container">
+            <div id="Item1" class="zoomElem">
+                Item1</div>
+            <div id="Item2" class="zoomElem">
+                Item2</div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="jquery.tooltip.pack.js" type="text/javascript"></script>
+    <link href="jquery.tooltip.css" rel="stylesheet" type="text/css" />
+    <script src="jquery.tooltip.js" type="text/javascript"></script>
+    <script src="jquery.tooltip.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+
+
+
+            $('.tooltip').tooltipster({
+                animation: 'slide', 			// Default: fade
+                arrow: true, 			// Default: true
+                arrowColor: '', 			// Default: tooltip's background color
+                delay: 200, 				// Default: 200
+                fixedWidth: 400, 			// Default: 0
+                followMouse: true, 				// Default: false
+                offsetX: 0, 				// Default: 0
+                offsetY: 0, 				// Default: 0
+                overrideText: '', 			// Default: ''
+                position: 'bottom-right', 			// Default: top
+                speed: 500, 				// Default: 100
+                timer: 1000, 			// Default: 0
+                tooltipTheme: '.my-custom-theme'		// Default: '.tooltip-message'
+            });
+        });
+    </script>
+    <style>
+        .my-custom-theme
+        {
+            position: absolute;
+            text-align: center;
+            z-index: 9999999;
+            pointer-events: none;
+            width: auto; /* Start styling here... */
+        }
+    </style>
+</head>
+<body>
+    <img src="my-image.png" class="tooltip" title="This is my image's tooltip message!" />
+    <a href="http://calebjacob.com" class="ketchup tooltip" title="This is my link's tooltip message!">
+        Link</a>
+    <div class="tooltip" title="This is my div's tooltip message!">
+        <p>
+            This div has a tooltip when you hover over it!</p>
+    </div>
+    <a href="#" class="tooltip" title="<img src='my-image.png' width='100' height='100' /> Here is an image and <b>bold text!</b>">
+        Link</a>
+</body>
+</html>

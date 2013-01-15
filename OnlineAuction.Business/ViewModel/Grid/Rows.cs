@@ -12,6 +12,6 @@ namespace OnlineAuction.Business.ViewModel
         /// <summary>
         /// 单元格
         /// </summary>
-        public List<Cell> Cell { get; set; }
+        //public List<Cell> Cell { get; set; }
     }
 }

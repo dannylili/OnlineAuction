@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace OnlineAuction.Business.ViewModel.Grid
+namespace OnlineAuction.Business.ViewModel
 {
     public class ColNames
     {

@@ -1,0 +1,239 @@
+<html>
+<head>
+    <script src="../Scripts/zoom.js" type="text/javascript"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+    <title>给地图加个放大镜</title>
+    <script>
+
+        var shrinkfactor = 5
+
+        // left and top position of the thumbnailimage 
+        // (distance to the left and top browser-margin, pixels) 
+        var thumbleft = 30
+        var thumbtop = 30
+
+        // left and top position of the zoomed image 
+        // (distance to the left and top browser-margin, pixels) 
+        var largeleft = 300
+        var largetop = 30
+
+        // width and height of the enlarged image's sector (visible part, pixels) 
+        var clipwidth = 240
+        var clipheight = 160 
+    </script>
+    <script>
+
+        var isNav, isIE
+        var offsetX, offsetY
+        var selectedObj
+
+        var largewidth = 0
+        var largeheight = 0
+
+        var thumbwidth = Math.floor(largewidth / shrinkfactor)
+        var thumbheight = Math.floor(largeheight / shrinkfactor)
+
+        var dragimgwidth = Math.floor(clipwidth / shrinkfactor)
+        var dragimgheight = Math.floor(clipheight / shrinkfactor)
+        var dragimgleft = thumbleft + 3
+        var dragimgtop = thumbtop + 3
+
+        var difleft = largeleft - thumbleft
+        var diftop = largetop - thumbtop
+
+        var clippoints
+
+        var cliptop = 0
+        var clipbottom = cliptop + clipheight
+        var clipleft = 0
+        var clipright = clipleft + clipwidth
+
+
+        if (parseInt(navigator.appVersion) >= 4) {
+            if (navigator.appName == "Netscape") {
+                isNav = true
+            } else {
+                isIE = true
+            }
+        }
+
+        function setZIndex(obj, zOrder) {
+            obj.zIndex = zOrder
+        }
+
+        function shiftTo(obj, x, y) {
+            if (isNav) {
+                if (x <= document.thumb.left) { x = document.thumb.left }
+                if (x >= (document.thumb.left + thumbwidth - dragimgwidth - 2)) { x = document.thumb.left + thumbwidth - dragimgwidth - 2 }
+                if (y <= document.thumb.top) { y = document.thumb.top }
+                if (y >= (document.thumb.top + thumbheight - dragimgheight - 2)) { y = document.thumb.top + thumbheight - dragimgheight - 2 }
+                obj.moveTo(x, y)
+            } else {
+                if (x <= document.all.thumb.style.posLeft) { x = document.all.thumb.style.posLeft }
+                if (x >= (document.all.thumb.style.posLeft + thumbwidth - dragimgwidth - 2)) { x = document.all.thumb.style.posLeft + thumbwidth - dragimgwidth - 2 }
+                if (y <= document.all.thumb.style.posTop) { y = document.all.thumb.style.posTop }
+                if (y >= (document.all.thumb.style.posTop + thumbheight - dragimgheight - 2)) { y = document.all.thumb.style.posTop + thumbheight - dragimgheight - 2 }
+                obj.pixelLeft = x
+                obj.pixelTop = y
+            }
+            cliptop = (y - thumbtop) * shrinkfactor
+            clipbottom = cliptop + clipheight
+            clipleft = (x - thumbleft) * shrinkfactor
+            clipright = clipleft + clipwidth
+
+
+            if (document.all) {
+                clippoints = "rect(" + cliptop + " " + clipright + " " + clipbottom + " " + clipleft + ")"
+                document.all.large.style.posTop = largetop - cliptop
+                document.all.large.style.posLeft = largeleft - clipleft
+                document.all.large.style.clip = clippoints
+            }
+            if (document.layers) {
+                document.large.top = largetop - cliptop
+                document.large.left = largeleft - clipleft
+                document.large.clip.left = clipleft
+                document.large.clip.right = clipright
+                document.large.clip.top = cliptop
+                document.large.clip.bottom = clipbottom
+            }
+        }
+
+        function setSelectedElem(evt) {
+            if (isNav) {
+                var testObj
+                var clickX = evt.pageX
+                var clickY = evt.pageY
+                for (var i = document.layers.length - 1; i >= 0; i--) {
+                    testObj = document.layers[i]
+                    if ((clickX > testObj.left) &&
+(clickX < testObj.left + testObj.clip.width) &&
+(clickY > testObj.top) &&
+(clickY < testObj.top + testObj.clip.height && document.layers[i].id == "dragimg")) {
+                        selectedObj = testObj
+                        setZIndex(selectedObj, 100)
+                        return
+                    }
+                }
+            } else {
+                var imgObj = window.event.srcElement
+                if (imgObj.parentElement.id.indexOf("dragimg") != -1) {
+                    selectedObj = imgObj.parentElement.style
+                    setZIndex(selectedObj, 100)
+                    return
+                }
+            }
+            selectedObj = null
+            return
+        }
+
+        function dragIt(evt) {
+            if (selectedObj) {
+                if (isNav) {
+                    shiftTo(selectedObj, (evt.pageX - offsetX), (evt.pageY - offsetY))
+                } else {
+                    shiftTo(selectedObj, (window.event.clientX - offsetX), (window.event.clientY - offsetY))
+                    return false
+                }
+            }
+        }
+
+        function engage(evt) {
+            setSelectedElem(evt)
+            if (selectedObj) {
+                if (isNav) {
+                    offsetX = evt.pageX - selectedObj.left
+                    offsetY = evt.pageY - selectedObj.top
+                } else {
+                    offsetX = window.event.offsetX
+                    offsetY = window.event.offsetY
+                }
+            }
+            return false
+        }
+
+
+        function release(evt) {
+            if (selectedObj) {
+                setZIndex(selectedObj, 0)
+                selectedObj = null
+            }
+        }
+
+        function setNavEventCapture() {
+            if (isNav) {
+                document.captureEvents(Event.MOUSEDOWN | Event.MOUSEMOVE | Event.MOUSEUP)
+            }
+        }
+
+        function init() {
+            if (document.layers) {
+                var imageurl = document.large.document.largepic.src
+                largewidth = document.large.document.width
+                largeheight = document.large.document.height
+                thumbwidth = Math.floor(largewidth / shrinkfactor)
+                thumbheight = Math.floor(largeheight / shrinkfactor)
+                document.thumb.document.write("<IMG NAME='thumbpic' SRC='" + imageurl + "' width=" + thumbwidth + " height=" + thumbheight + ">")
+                document.thumb.document.close()
+                document.dragimg.document.write("<IMG NAME='dragimgpic' border=2 SRC='dragimg.gif' width=" + dragimgwidth + " height=" + dragimgheight + ">")
+                document.dragimg.document.close()
+                document.large.left = largeleft
+                document.large.top = largetop
+
+                document.thumb.left = thumbleft
+                document.thumb.top = thumbtop
+
+                document.dragimg.left = dragimgleft
+                document.dragimg.top = dragimgtop
+
+                document.large.clip.left = clipleft
+                document.large.clip.right = clipright
+                document.large.clip.top = cliptop
+                document.large.clip.bottom = clipbottom
+                document.large.visibility = "visible"
+
+                setNavEventCapture()
+            }
+            if (document.all) {
+                var imageurl = document.largepic.src
+                largewidth = document.all.large.offsetWidth
+                largeheight = document.all.large.offsetHeight
+                thumbwidth = Math.floor(largewidth / shrinkfactor)
+                thumbheight = Math.floor(largeheight / shrinkfactor)
+                thumb.innerHTML = "<IMG NAME='thumbpic' SRC='" + imageurl + "' width=" + thumbwidth + " height=" + thumbheight + ">"
+                dragimg.innerHTML = "<IMG NAME='dragimgpic' border=2 SRC='http://www.jscode.cn/Uploadfile/200651515151450.GIF' width=" + dragimgwidth + " height=" + dragimgheight + ">"
+
+                document.all.large.style.posLeft = largeleft
+                document.all.large.style.posTop = largetop
+
+                document.all.thumb.style.posLeft = thumbleft
+                document.all.thumb.style.posTop = thumbtop
+
+                document.all.dragimg.style.posLeft = dragimgleft
+                document.all.dragimg.style.posTop = dragimgtop
+                clippoints = "rect(" + cliptop + " " + clipright + " " + clipbottom + " " + clipleft + ")"
+                document.all.large.style.clip = clippoints
+                document.all.large.style.visibility = "visible"
+            }
+
+            document.onmousedown = engage
+            document.onmousemove = dragIt
+            document.onmouseup = release
+        }
+
+        window.onload = init 
+    </script>
+</head>
+<body>
+    <p>
+        用鼠标移动下面的方框，效果不错吧</p>
+    <center>
+        <div style="position: absolute; visibility: hidden;" id="large">
+            <img name="largepic" src="http://www.jscode.cn/Uploadfile/2006515151036789.JPG">
+        </div>
+        <div style="position: absolute;" id="thumb">
+        </div>
+        <div style="position: absolute;" id="dragimg">
+        </div>
+    </center>
+</body>
+</html>

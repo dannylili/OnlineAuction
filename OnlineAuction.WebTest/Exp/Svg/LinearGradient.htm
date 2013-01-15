@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script src="../../Html5/jQuerySVG/jquery.svg.min.js" type="text/javascript"></script>
+    <script language="javascript" type="text/javascript">
+        var gradient;
+        function AddColor() {
+            var sRed = 71, sGreen = 194, sBlue = 71;
+            var eRed = 255, eGreen = 0, eBlue = 180;
+            var startColor = sRed + "," + sGreen + "," + sBlue;
+            var endColor = eRed + "," + eGreen + "," + eBlue;
+
+            //            var account = $("#SgvFirst").find("linearGradient").length + 1;
+            //            var gradien = '<linearGradient id="orange_' + account + '" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(' + startColor + ');stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(' + endColor + ');stop-opacity:1"/></linearGradient>';
+            //            // $("#SgvFirst").find("text").attr("style", "fill:url(#orange_redTest)");
+            //            $("#SgvFirst").append(gradien);
+
+            //            alert("fill:url(#orange_" + account + ")");
+            //            // $("#SgvFirst").find("text").attr("style", "fill:url(#orange_" + account + ")");
+
+            // $("#SgvFirst").find("text").attr("style", "fill:url(#orange_3)");
+            var svgEle = $("#svgDemo").svg();
+            gradient=svgEle.svg("get").linearGradient("orange_4",[[0,"rgb(71,0,71)",1],[1,"rgb(255,0,180)",1]], "0%", "0%", "100%", "0%");
+            svgEle.svg("get").text(2, 60, "Svg Demo144", {
+                "font-size":24,
+                "style": "fill:url(#orange_4)"
+            });
+
+            var stops = $(gradient).find("stop");
+            stops.eq(0).css("stop-color", "rgb(255,0,0)");
+            stops.eq(1).css("stop-color", "rgb(255,255,0)"); 
+        }
+
+        function Color2() {
+            var test = $("#SgvFirst").find("text").attr("style");
+            if (test == "fill:url(#orange_red1)") {
+                $("#SgvFirst").find("text").attr("style", "fill:url(#orange_red)");
+            }
+            if (test == "fill:url(#orange_red)") {
+                $("#SgvFirst").find("text").attr("style", "fill:url(#orange_red1)");
+            }
+
+        }
+
+        function Color3() {
+            // $("#testdiv").find("svg").find("linearGradient").find("stop").eq(1).css("stop-color", "rgb(255,255,0)");
+            var $("#testdiv").find("svg").find("linearGradient").find("stop").eq(1);
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick="AddColor()">
+        Add Color</button>
+    <button onclick="Color2()">
+        Color2</button>
+
+         <button onclick="Color3()">
+        不要点击第二个按钮 然后但见第三个 看颜色是否改变</button>
+        <div id="svgDemo" style="width:400px;height:300px;"></div>
+    <div id="testdiv">
+        <svg id="SgvFirst" version="1.1" xmlns="http://www.w3.org/2000/svg"> 
+    <!--<g>-->
+   
+        <text  id="text1" font-size="32"  x="2" y="60" style="fill:url(#orange_red)">
+            Hello, World! will go for same express
+    </text> 
+     <linearGradient id="orange_red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(71,0,71);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(255,0,180);stop-opacity:1"/></linearGradient>
+     <linearGradient id="orange_red1" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(255,0,0);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(255,255,0);stop-opacity:1"/></linearGradient>
+    <!--</g>-->
+ </svg>
+    </div>
+    <!-- <svg id="SgvFirst2" version="1.1" xmlns="http://www.w3.org/2000/svg"> 
+    <g>
+    <text  id="text1" font-size="32"  x="2" y="60" style="fill:url(#orange_red)">
+            输入法不见了 %|>_<|% 
+    </text> 
+    <linearGradient id="orange_red" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" style="stop-color:rgb(71,194,71);stop-opacity:1"/><stop offset="100%" style="stop-color:rgb(255,0,180);stop-opacity:1"/></linearGradient>
+    </g>
+ </svg>-->
+</body>
+</html>

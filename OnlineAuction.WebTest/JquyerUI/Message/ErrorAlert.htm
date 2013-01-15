@@ -14,16 +14,18 @@
             margin-right: 5px;
         }
     </style>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            // $("#dialogTest").dialog({ buttons: [ { text: "Ok", click: function() { $( this ).dialog( "close" ) }] });
+            $( ".selector" ).dialog({ buttons: [ { text: "Ok", click: function() { $( this ).dialog( "close" ); } ] });
+        });
+    </script>
 </head>
 <body>
-    <div style="z-index: 200px; right: 5px; position: absolute; top: 15px; height: 27px;
-        width: 287px;" id="DivMessage">
-        <ul id="Uimessage">
-            <li>
-                <div>
-                    asfasd</div>
-            </li>
-        </ul>
+    <div id="dialogTest" class="selector" style="z-index: 200px; right: 5px; position: absolute; top: 15px;
+        height: 27px; width: 287px;"  >
+        kasdfsdlflsdk
     </div>
 </body>
 </html>

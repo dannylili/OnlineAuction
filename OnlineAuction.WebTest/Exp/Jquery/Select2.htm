@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <!--<script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>-->
+    <script src="../../Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script>
+        function GetSlefContent() {
+            alert();
+            alert($("#innderText").html());
+        }
+
+        //
+        $(function () {
+            $(".topToBottom,.leftToRigh").click(function () {
+                alert("We are here,");
+                if ($(this).hasClass("topToBottom")) {
+                    alert("topToBottom");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+ <div class="topToBottom">
+        点击我呀</div>
+    <div class="leftToRigh ">
+        点击我呀 二求货</div>
+
+
+    <div id="innderText" onclick="GetSlefContent()">
+        点击我</div>
+   
+</body>
+</html>

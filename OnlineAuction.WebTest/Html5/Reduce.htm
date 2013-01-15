@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script language="javascript" type="text/javascript"> 
+    function zoom(id, rate) {
+            //        var t = document.getElementById(id).style;
+            //        var w = Math.floor(parseInt(t.width) * rate);
+            //        var h = Math.floor(parseInt(t.height) * rate);
+            //        if (w > 20 && h > 20) {
+            //            t.width = w + "px";
+            //            t.height = h + "px";
+            //        }
+
+            //        var span1 = document.getElementById("imagTest");
+            //        var span1Width=span1.style.width;
+            //        var span1Height=span1.style.height;
+
+            //        span1.style.width = span1Width + 4 + "px";
+        //        span1.style.height = span1Height + 4 + "px";
+
+        var t = document.getElementById(id).style;
+        var w = Math.floor(parseInt(t.width) * rate);
+        var h = Math.floor(parseInt(t.height) * rate);
+       //  alert("t:"+t+"w"+w);
+        if (w > 20 && h > 20) {
+            t.width = w + "px";
+            t.height = h + "px";
+        }
+
+    } 
+    </script>
+</head>
+<body>
+<div style="float:left;">
+    <!--<input type=button onclick=zoom("odiv",1.25) value="放大" />
+    <input type=button onclick=zoom("odiv",0.8) value="缩小" />-->
+    <input type=button onclick=zoom("imagTest",1.25) value="放大" />
+    <input type=button onclick=zoom("imagTest",0.8) value="缩小" />
+
+     <input type=button onclick=zoom("odiv",1.25) value="放大画布" />
+    <input type=button onclick=zoom("odiv",0.8) value="缩小画布" />
+</div>
+
+<div id="odiv" style="width:500px;height:400px;border:2px solid gray; float:left;"> 
+    <div id="Span1" style="background-color:gray; border:1px outset green;">
+        点击我放大/缩小
+    </div>
+        <div style="background-color:Green">点击我放大/缩小   </div>
+    <img id="imagTest" style="width:17px; height:17px;" src="../Image/completion100.png" />
+    </div>
+
+</body>
+</html>
+
+
+

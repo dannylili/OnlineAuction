@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script language="javascript" type="text/javascript">
+
+        /// 操作选中元素的渐变色
+        function GradualCommon() {
+            // 根据ID去查询获取的元素，这样的话就可以动态取消 left to right 和top  to  bottom
+            current = Elements.Current.obj;
+
+            // 记录初始化属性
+            inearGradient = current.find("svg").find("linearGradient");
+            inearGradientStop = inearGradient.find("stop");
+
+            /// 渐变色从上到下
+            GradualCommon.prototype.leftToRight = function () {
+                inearGradient.attr("x1", "0%");
+                inearGradient.attr("y1", "0%");
+                inearGradient.attr("x2", "100%");
+                inearGradient.attr("y2", "0%");
+            }
+
+            /// 渐变色从左到右
+            GradualCommon.prototype.topToBottom = function () {
+                inearGradient.attr("x1", "0%");
+                inearGradient.attr("y1", "0%");
+                inearGradient.attr("x2", "0%");
+                inearGradient.attr("y2", "100%");
+            }
+
+            /// 改变渐变色
+            GradualCommon.prototype.changeColor = function (startColor, endColor) {
+                inearGradientStop.eq(0).css("stop-color", startColor);
+                inearGradientStop.eq(1).css("stop-color", endColor);
+            }
+
+            GradualCommon.prototype.startColor = inearGradientStop.eq(0).css("stop-color");
+            GradualCommon.prototype.endColor = inearGradientStop.eq(1).css("stop-color");
+            GradualCommon.prototype.x1 = inearGradient.attr("x1");
+            GradualCommon.prototype.x2 = inearGradient.attr("x2");
+            GradualCommon.prototype.y1 = inearGradient.attr("y1");
+            GradualCommon.prototype.y2 = inearGradient.attr("y2");
+        }
+
+        function TestGradualCommon() {
+            // =====================================将调色板转换到颜色选择页面 begin=====================================// 
+            $(".top_to_bottom,.left_to_right").click(function () {
+                gradualCommon = new GradualCommon();
+                if ($(this).hasClass("top_to_bottom")) {
+                    gradualCommon.topToBottom();
+                }
+                if ($(this).hasClass("left_to_right")) {
+                    gradualCommon.leftToRight();
+                }
+                gradualCommon.changeColor("rgb(255,0,0)", "rgb(0,255,0)");
+            });
+
+            $(".cancel").click(function () {
+                // 恢复选中svg的颜色值到初始值
+                var gradualCommon = new GradualCommon();
+                if (Elements.Current.svgInitialValue.direction == "h") {
+                    gradualCommon.leftToRight();
+                }
+                else if (Elements.Current.svgInitialValue.direction == "v") {
+                    gradualCommon.topToBottom();
+                }
+                gradualCommon.changeColor(Elements.Current.svgInitialValue.startColor, Elements.Current.svgInitialValue.endColor);
+                $(".gradient_color").hide();
+            });
+
+            $(".color_effects").click(function () {
+                $(".gradient_color").show();
+            });
+
+            $(".ok").click(function () {
+                var gradualCommon = new GradualCommon();
+                // 保存初始化属性
+                Elements.Current.svgInitialValue.startColor = gradualCommon.startColor;
+                Elements.Current.svgInitialValue.endColor = gradualCommon.endColor;
+                if (gradualCommon.x1 != gradualCommon.x2 && gradualCommon.y1 == gradualCommon.y2) {
+                    Elements.Current.svgInitialValue.direction = "h";
+                }
+                else if (gradualCommon.x1 == gradualCommon.x2 && gradualCommon.y1 != gradualCommon.y2) {
+                    Elements.Current.svgInitialValue.direction = "v";
+                }
+                $(".gradient_color").hide();
+            });
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

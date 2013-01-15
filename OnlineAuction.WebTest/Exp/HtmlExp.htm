@@ -1,0 +1,25 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            // $("input[class=ss]").attr("disabled", "disabled");
+            // $("div.inputs input[type=text]").attr("readonly","readonly");
+            // $("div.inputs input[type=text]").first().attr("disabled", "disabled");
+            $("#Text1").mouseout(function () {
+                if ($("#Text1").val() == "") {
+                    this.focus();
+                }
+
+
+            });
+        }); 
+    </script>
+    <title></title>
+</head>
+<body>
+    <input id="Button1" type="button" value="button" /><input id="Text1" class="ss" type="text" /><input
+        id="Text2" type="text" class="ss" />
+</body>
+</html>

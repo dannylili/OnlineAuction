@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script>
+        function Get() {
+
+        }
+
+    </script>
+    <style>
+        .clip_a
+        {
+            display: block;
+            width: 128px;
+            height: 128px;
+            border: 1px solid red;
+        }
+        .clip_a img
+        {
+            border: 0;
+            position: absolute; /* clip: rect(0 128px 128px 0); */
+        }
+        .clip_a:hover
+        {
+            border: 0;
+        }
+        .clip_a:hover img
+        {
+            margin-top: -128px; /* clip: rect(128px 128px 256px 0); */
+            clip: rect(50px auto 20px auto);
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: Gray; border: 1px solid red; width: 500px; height: 500px;">
+        <div style="background-color: Yellow; border: 1px solid green; width: 200px; height: 200px;">
+        </div>
+    </div>
+    <div>
+        <a href="javascript:" class="clip_a">
+            <!--<img src="../../Image/completion100.png" />-->
+            <img src="159.png" />
+        </a>
+    </div>
+    <button onclick="Get()">
+        Add</button>
+</body>
+</html>

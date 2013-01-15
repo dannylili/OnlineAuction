@@ -1,0 +1,90 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../../Scripts/jquery-1.5.1.js" type="text/javascript"></script>
+    <script src="../WebPageZoom/zoomooz-master/zoomooz-master/jquery.zoomooz.min.js"
+        type="text/javascript"></script>
+    <script type="text/javascript" language="javascript">
+
+        $(document).ready(function () {
+            $(".zoom").click(function (evt) {
+                // alert("evt.type:" + evt.type + "\n" + evt.srcElement.tagName);
+                evt.stopPropagation();
+                $(this).zoomTo();
+            });
+            $(window).click(function (evt) {
+                evt.stopPropagation();
+                $("body").zoomTo({targetsize:0.8,});
+            });
+            // $("body").zoomTo();
+            $("#container").zoomTo();
+        });
+
+        function ZoomBig() {
+            //$("#TestDiv").zoomTo();
+            //            $("#TestDiv").click(function (evt) { 
+            //                evt.stopPropagation(); 
+            //                $(this).zoomTo();
+            //            });
+        }
+
+    </script>
+    <style>
+        #container
+        {
+            width: 800px;
+            height: 500px;
+            margin: 0 auto;
+        }
+        
+        #outer
+        {
+            width: 400px;
+            height: 200px;
+            background: #aaa;
+            margin: 50px auto;
+            padding: 70px;
+        }
+        
+        #inner
+        {
+            width: 400px;
+            height: 200px;
+            background: #eee;
+            margin: 0 auto;
+            position: absolute;
+        }
+        #inner p
+        {
+            text-align: center;
+            font: 25px/200px Helvetica, sans-serif;
+        }
+        
+        #inner p a
+        {
+            color: #000;
+            text-decoration: none;
+        }
+        
+        #inner p a:hover
+        {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="outer" class="zoom">
+            <div id="inner" class="zoom">
+                <p>
+                    <a href="#">Click here to zoom</a></p>
+            </div>
+            <div id="TestDiv" class="zoom">
+                <img src="../../../Image/completion0.png" />
+            </div>
+        </div>
+    </div>
+    <!-- <button onclick="ZoomBig()">放大图片</button>-->
+</body>
+</html>

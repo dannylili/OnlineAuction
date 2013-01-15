@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Text Gradients http://net.tutsplus.com/tutorials/html-css-techniques/quick-tip-pure-css-text-gradients/
+    </title>
+    <style>
+        h1 a
+        {
+            text-decoration: solid;
+            background-color: red;
+            color: blue;
+            position: absolute; /* -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,.5)), to(rgba(0,0,0,1))); */ /* -webkit-mask-image: -webkit-gradient(linear, top, bottom, from(rgba(0,0,0,1)), color-stop(50%, rgba(0,0,0,.5)), to(rgba(0,0,0,1)));*/ /* -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */
+            -webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,255,0.2)), to(rgba(0,0,255,1)));
+        }
+        /* h1:after
+        {
+            content: 'Hello World';
+            color: #d6d6d6;
+            text-shadow: 0 1px 0 white;
+        }*/
+    </style>
+</head>
+<body>
+    <h1 style="background-color:Red">
+        <a href="#">文本上线的颜色不一样 </a>
+    </h1>
+</body>
+</html>

@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<script src="../Scripts/zoom.js" type="text/javascript"></script>
+<head>
+    <title></title>
+    <script>
+        //        function Test() {
+        //            var dd = event.target;
+        //            zoom.to({ element: event.target });
+        //        }
+
+        function Test() {
+            document.getElementById('#testDiv').addEventListener('click', function (event) {
+                // event.preventDefault();
+                zoom.to({ element: event.target });
+            });
+        }
+		 
+    </script>
+</head>
+<body style="">
+    <button onclick="Test()">
+        click</button>
+    <div id="testDiv">
+        我是内容呀 你来测测吧</div>
+</body>
+</html>

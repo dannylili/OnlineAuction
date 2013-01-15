@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="../WebPageZoom/zoomooz-master/zoomooz-master/jquery.zoomooz.js" type="text/javascript"></script> 
+    <script type="text/javascript" language="javascript">
+
+        $(document).ready(function () {
+            $.zoomooz.setup({ root: $("#div1") });
+            $("#item1").click(function (evt) {
+                evt.stopPropagation();
+                $("#item1").zoomTo();
+                //$("#item1").zoomTo({ targetsize: 0.5, duration: 600, root: null });
+
+            });
+            $("#btnSX").click(function (evt) {
+                evt.stopPropagation();
+                $("#item1").zoomTo();
+            });
+        });
+    </script>
+    <style type="text/css">
+        div#content
+        {
+            border: 1px solid green;
+            background-color: #eee;
+            margin-top: 15px;
+        }
+        div#content > div
+        {
+            float: left; /* resize: both; */
+            overflow: auto; /* resize*/
+            border: solid;
+        }
+        
+        div#content:first-child
+        {
+            padding-left: 15px;
+        }
+        
+        .zoomElement
+        {
+            width:100px;
+            height:100px;
+            border:1px solid green;
+            
+        }
+        
+       #root1 {
+	margin:0;
+    padding:0;
+    width:800px;
+	height:600px;
+	border:1px solid #ccc;
+	background-color: white;
+	overflow:hidden;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:1em;
+} 
+        
+#div1 {
+	margin:0;
+    padding:0;
+    width:800px;
+    height:600px;
+    position:relative;
+}
+
+
+#item1 {
+	background-color:#fcc;
+	position:absolute;
+	left:50px;
+	top:50px;
+	width:100px;
+	height:100px;
+	border:1px solid red;
+}
+        
+    </style>
+</head>
+<body>
+    <div id="container1">
+        <div id="content1">
+            <div>
+                <button id="btnFD">
+                    放大
+                </button>
+                <button id="btnSX">
+                    缩小
+                </button>
+                <button>
+                    面板放大
+                </button>
+                <button>
+                    面板缩小
+                </button>
+            </div>
+            <div style="width: 55px;">
+            </div>
+            <div id="root1" style="border: 1px solid black; ">
+                <div id="div1" style="border:1px solid red;">
+                    1
+                    <div id="item1" >
+                        <img src="../../../Image/completion0.png" style="resize: both; overflow: auto;" />
+                    </div>
+                    <div id="span1">
+                        <span>王永贵</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

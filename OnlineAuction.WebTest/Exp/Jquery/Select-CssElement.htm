@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <title></title>
+    <script type="text/javascript">
+
+        function GetSlefContent() {
+            alert($("innderText").html());
+        }
+
+        $(function () { 
+        
+            $("div.step_block").each(function (index, domElem) {
+                // alert(domElem.id + "==" + this.id);
+            });
+
+            $.each($("div"), function (index, domElem) {
+                // $(this)==Jqery对象
+                // this 为Dom元素本事
+
+                // alert($(this));
+                // alert(domElem);
+            });
+
+            // 查找带有自定义属性的元素 <input type="tett" data-path='path' />
+            $(":text[data-url]").each(function (index, domElem) {
+                $(this).addClass("InputCss");
+                $(this).bind("click", function () {
+                    var value = $(this).attr("data-url");
+                    $(this).val(value);
+                })
+            });
+
+            // 
+            $("input[type=submit]").each(function (index, domElem) {
+                $(this).addClass("Submit");
+
+            });
+
+            $("input[class=testCss]").each(function (index, domElem) {
+                // $(this).addClass("Submit");
+                $(this).css({ "border": "none", "margin-left": "10px", "color": "blue", "border-bottom": "1px solid red", "border-left": "1px dotted red", "border-right": "1px dotted red" });
+            });
+
+            //            $("<span class='spanClass' id='spanid1'>").click(function () {
+            //                $(this).html("click me");
+            //                $(this).css({ "border-bottom": "1px solid red" });
+            //            });
+            $("span.spanClass").click(function () {
+                var ObjtagName1 = $(this)[0].localName;
+                var ObjtagName2 = $(this)[0].get().tagName;
+                alert("你点击的元素类型是ObjtagName1" + ObjtagName1);
+                alert("你点击的元素类型是ObjtagName2" + ObjtagName2);
+                // 注意 ObjtagName1和ObjtagName2的区别是大小写的问题（localName是js自带的属性）
+            });
+
+        });
+
+        function GetTagName(obj) {
+            var ObjtagName = $(obj).get()[0].tagName;
+            alert("你点击的元素类型是" + ObjtagName);
+        }
+
+//        function AA() {
+
+//            $("#TestDiv[id^=AA]").css({"zoom",0.5,"border","1px solid green"});
+//            alert();
+//            $("#TestDiv *").each(function (i, n) {
+//                alert(1);
+//                alert($(this).get()[0].tagName);
+//            }); 
+//        } 
+        
+    </script>
+    <style type="text/css">
+        .InputCss
+        {
+            background-color: green;
+        }
+        
+        .Submit
+        {
+            background-color: Gray;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1" class="step_block">
+        <ul>
+            <li>love-1_1</li>
+            <li>love-1_2</li>
+        </ul>
+    </div>
+    <div id="div2">
+        love-2</div>
+    <div id="div3">
+        love-3</div>
+    <div id="div4">
+        <ul>
+            <li style="border-bottom-style: dotted">love-1_1</li>
+            <li>love-1_2</li>
+        </ul>
+    </div>
+    <span id="span1" class="step_block">inserst1</span>
+    <input type="text" id="numberCss" class="testCss" />
+    <input type="text" id="numberNum" />
+    <input type="text" id="numberCard" />
+    <input type="text" id="Text1" data-url="www.baidu.com" />
+    <input type="text" id="Text2" data-validation="valid" />
+    <input type="submit" id="Text3" data-validation="valid" />
+    <span class="spanClass" id="spanid1">点击我</span> 点击我
+    <img src="../../Image/completion50.png" onclick="GetTagName(this)" />
+    <div id="#TestDiv" style="background-color: Gray">
+        <span id="AA1">adfasdfasdfasdfasdfasdf</span>
+        <div id="AA1">
+            我是内部的Div元素</div>
+        <img src="../../Image/completion50.png" />
+    </div>
+    <button id="Button1" onclick="AA()">
+        取得TestDiv的内部元素</button>
+    <input type="button" onclick="AA()" />
+
+   
+</body>
+</html>

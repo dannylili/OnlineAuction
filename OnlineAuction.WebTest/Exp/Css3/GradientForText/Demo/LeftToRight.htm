@@ -1,0 +1,77 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>实现文本内容从左到右的渐变</title>
+    <style>
+        .box
+        {
+            border-top: 1px dashed #ccc;
+            border-bottom: 1px dashed #ccc;
+            height: 30px;
+            margin-top: 8px;
+        }
+        .box a
+        {
+            position: absolute;
+            white-space: nowrap;
+        }
+    </style>
+    <script src="../../../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+//        $(function () {
+//            $("input[id^=colorS]").blur(function () {
+//                if ($(this).val().length > 7) {
+//                    var newValue = $(this).val().substring(0, 7); // (startIndex，endIndex) 其内容是从 start 处到 stop-1 处的所有字符，其长度为 stop 减 start
+//                    var newValue2 = $(this).val().substr(0, 7); // (stratIndex,length)从第一位开始截取7位
+//                    $(this).val(newValue);
+//                }
+
+//            });
+//        });
+
+        function Start() {
+            var startColor = "#ff0000";
+            var sRed = 0, sGreen = 0, sBlue = 0;
+            var eRed = 255, eGreen = 255, eBlue = 0;
+            var font = $("#txtContent").val();
+            var boxObj = $("#box")[0];
+
+            boxObj.innerHTML = "<a href='#'>" + font + "</a>";
+            //得到对象的实际宽度，不包括外边框等 
+            var txtLength = boxObj.getElementsByTagName("a")[0].scrollWidth;
+            boxObj.innerHTML = "";
+            var offsetRed = (eRed - sRed) / txtLength;
+            var offsetGreen = (eGreen - sGreen) / txtLength;
+            var offsetBlue = (eBlue - sBlue) / txtLength;
+            for (i = 0; i <= txtLength; i++) {
+                var j = i + 1;
+                sRed = Math.round(sRed + offsetRed);
+                sGreen = Math.round(sGreen + offsetGreen);
+                sBlue = Math.round(sBlue + offsetBlue);
+                var iObj = document.createElement("A");
+                iObj.innerHTML = font;
+                iObj.style.clip = "rect(auto " + j + "px auto " + i + "px)";
+                iObj.style.color = "rgb(" + sRed + "," + sGreen + "," + sBlue + ")";
+                boxObj.appendChild(iObj);
+            }
+        } 
+
+    </script>
+</head>
+<body>
+    <div id="">
+        <div id="">
+            Start Color(hex)
+            <input id="colorS" type="text" value="#" onblur="" />
+            End Color(hex)
+            <input id="colorE" type="text" value="#" />
+            <input type="text" id="txtContent" value="wysnan.com" />
+        </div>
+        <div id="box" class="box">
+        </div>
+        <button onclick="Start()">
+            渐变了</button>
+    </div>
+</body>
+</html>
