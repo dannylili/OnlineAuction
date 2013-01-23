@@ -1,0 +1,65 @@
+[33mcommit 54badc9d3af0c1f49b053ed5d4a7fa4c5bfaa8b9[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Wed Jan 23 10:01:40 2013 +0800
+
+    fixed bug that do't delete seleted element style upon EE
+
+[33mcommit c9479088d28221c65527beeb1a653f145fb9fc24[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Tue Jan 22 16:16:07 2013 +0800
+
+    add fadeIn
+
+[33mcommit 6d6e2dc2e0267a0fdc109b0cd0098735d7e8f065[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Tue Jan 22 14:10:43 2013 +0800
+
+    delete no use code
+
+[33mcommit a0b3fc39e8fb542ddf4b52c3916978cbf4dea8a8[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Tue Jan 22 14:09:58 2013 +0800
+
+    delete stle of selected element on canva
+
+[33mcommit 9ba63ee42a99774c2c3d96b1dd378c64e66a0b12[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Tue Jan 22 11:36:30 2013 +0800
+
+    fixed the bug reback subpage to first step style change
+
+[33mcommit 9bd3b594ec9977041a1f28a8c1af7ff0d249e59c[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Mon Jan 21 18:24:16 2013 +0800
+
+    fixed the bug that sing color and graual color
+
+[33mcommit b7a5e85fc1623c6d59f53f66157573ec31abf55c[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Mon Jan 21 14:56:10 2013 +0800
+
+    add subpage raback function
+
+[33mcommit 5dbd7888971a73630320d100a91fc8fb1336d73a[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Mon Jan 21 11:30:12 2013 +0800
+
+    add part funciton that write donw navigate for sub page
+
+[33mcommit c36950b3610c9dbb5dcdce5fc5beabb673d451f1[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Mon Jan 21 10:02:16 2013 +0800
+
+    add verify image account
+
+[33mcommit 9d8aa52da76e50cfc0cab49fe69cc568ab19f074[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Sat Jan 19 18:40:48 2013 +0800
+
+    fixed the second and third image don't change gradul color remaning function that limit img account and go back
+
+[33mcommit 491ddded2282f073563fb9085f8a725671f8fb66[m
+Author: Yonggui Wang <ywang@promys.com>
+Date:   Sat Jan 19 17:53:41 2013 +0800
+
+    remaning function that reload third image then

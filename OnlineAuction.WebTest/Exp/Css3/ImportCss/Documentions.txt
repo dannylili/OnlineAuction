@@ -1,1 +1,6 @@
 ﻿http://www.cnblogs.com/radom/archive/2012/04/19/2457356.html
+
+
+http://css-tricks.com/get-value-of-css-rotation-through-javascript/
+var el = document.getElementById("i-am-rotated");
+var st = window.getComputedStyle(el, null);

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <script src="../../Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>
+    <title>不需要松开鼠标就连续触发一个事件</title>
+    <script type="text/javascript">
+
+        var set1;
+        function testAdd1() {
+            var value = $("#txt1").val();
+            $("#txt1").val(parseInt(value) + 1).css("color", "green");
+            set1 = setTimeout("testAdd1()", 500);
+        }
+
+        function testAdd1Stop() {
+            clearTimeout(set1);
+        }
+
+        //**********************************************************************//
+        //                                                                      //
+        //                                                                      //
+        //                                                                      //
+        //**********************************************************************//
+
+
+        var set2;
+        function NumberAdd() {
+            var num = $("#txtNum").val();
+            $("#txtNum").val(parseInt(num) + 1);
+            if (num > 10) $("#txtNum").css({ "color": "red", "border-bottom": "solid" })
+            set2 = setTimeout("NumberAdd()", 500);
+        }
+
+        function AddNumberEvnet() {
+            NumberAdd();
+            // 绑定一次性事件
+            $("#btnTest2").one("mouseup mouseleave ", function () {
+                // 当鼠标松开或者指针离开button时，则停止setInterval事件的触发
+                clearTimeout(set2);
+            });
+        }
+    
+    </script>
+</head>
+<body>
+    <input id="txt1" data-url="www.baidu.com" value="0" />
+    <input id="Text1" type="button" value="开始累加" onclick="testAdd1()" />
+    <input id="Button1" type="button" value="停止累加" onclick="testAdd1Stop()" />
+    <hr color="red" />
+    <input id="txtNum" value="0" />
+    <input id="btnTest2" type="button" value="按住我不用松开，数字自动增长" onclick="AddNumberEvnet()"
+        onmousedown="AddNumberEvnet()" />
+</body>
+</html>

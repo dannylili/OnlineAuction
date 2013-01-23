@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+        });
+
+        function GetEventTarget(evts) {
+
+            /// FF 下的事件
+            if (evts) {
+                alert($(evts.target).attr("id"));
+                alert("tagName=" + evts.target.tagName);
+            }
+            else {
+                /// 注意 需要注意FireFox下没有没有Event事件,只有通过传递事件来处理
+                var element = window.event.srcElement;
+                // alert(element.tagName);
+                alert($(element).attr("id"));
+                alert("tagName=" + element.tagName);
+            }
+        }
+
+
+        function Common() {
+
+        // FF 下的时间类型为event.target, IE下为window.event.srcElement
+            $("body").click(function (thisEvt) {
+                var currentSelect = Elements.Current.obj;
+
+                if (thisEvt) {
+                    if (currentSelect != null && thisEvt.target.tagName != undefined) {
+                        if (thisEvt.target.tagName.toLocaleLowerCase() == "body" || $(thisEvt.target).attr("id") == "canvas") {
+                            currentSelect.removeClass("selected");
+                        }
+                    }
+                }
+                else {
+                    var evt = window.event.srcElement;
+                    if (currentSelect != null && evt != undefined && evt != null && evt.tagName != undefined) {
+                        if (evt.tagName.toLocaleLowerCase() == "body" || $(evt).attr("id") == "canvas") {
+                            currentSelect.removeClass("selected");
+                        }
+                    }
+                }
+
+            });
+
+        }
+
+
+
+    </script>
+    <title></title>
+</head>
+<body onclick="GetEventTarget(event)">
+    <div id="divOut" style="background-color: Gray; border: 1px solid red; width: 500px;
+        height: 200px;">
+        点击A区域B区域家功能变色
+        <div id="divInner" style="background-color: green; border: 1px solid yellow; width: 200px;
+            height: 20px; margin-left: 50px">
+        </div>
+    </div>
+</body>
+</html>

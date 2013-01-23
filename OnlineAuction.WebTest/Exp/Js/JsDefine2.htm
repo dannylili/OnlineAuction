@@ -3,6 +3,29 @@
 <head>
     <script language="javascript" type="text/javascript">
 
+        /// 定义全局操作Element的类
+        var ElementModel = {
+            ElementArray: new Array(),
+
+            /// 添加一个元素
+            Add: function (element) {
+                ElementArray.push(element);
+            }
+        }
+
+        var Element = {
+
+            /// 产生新元素方法
+            New: function () {
+
+            },
+            Update: function () {
+
+            },
+            elementID: ""
+        }
+
+
         /// 操作选中元素的渐变色
         function GradualCommon() {
             // 根据ID去查询获取的元素，这样的话就可以动态取消 left to right 和top  to  bottom

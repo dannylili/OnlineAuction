@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+
+        function History() {
+            var id = 0;
+            var url = "";
+            var step = "1";
+            var type = "industy";
+
+            var TestValue = "xxx";
+
+            // 
+            History.prototype.stepTest = 1;
+
+            /// 为每个对象赋值，如果该对象的TestValue没有定义或赋值，则调用prototype.TestValue的值，这就是prototype的功能
+            History.prototype.TestValue = "defaultTestValue";
+        }
+
+        /// 全局变量 
+        var HistoryLink = {
+            NewArray: new Array()
+        }
+
+        function Add() {
+
+            /// 如果刚new的对象没有给step赋值，则该对象的setp为undefine,而通过prototype定义的对象将对任何一个新生对象都是默认值的
+            var history = new History();
+            history.id = HistoryLink.NewArray.length + 1;
+            history.url = $("#txt1").val();
+            HistoryLink.NewArray.push(history);
+        }
+
+        function Test() {
+            $.each(HistoryLink.NewArray, function (index, element) {
+                console.log(element.id);
+                console.log(element.url);
+                console.log(element.step);
+                console.log(element.type); 
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <input id="txt1" type="text" />
+    <input id="Button1" type="button" value="Add" onclick="Add()" />
+    <input id="Button2" type="button" value="Test" onclick="Test()" />
+</body>
+</html>

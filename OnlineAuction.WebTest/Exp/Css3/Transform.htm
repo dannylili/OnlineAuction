@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>http://css-tricks.com/get-value-of-css-rotation-through-javascript/ </title>
+    <script>
+        function Test() {
+            var el = document.getElementById("i-am-rotated");
+
+            var st = window.getComputedStyle(el, null);
+
+            var tr = st.getPropertyValue("-webkit-transform") ||
+         st.getPropertyValue("-moz-transform") ||
+         st.getPropertyValue("-ms-transform") ||
+         st.getPropertyValue("-o-transform") ||
+         st.getPropertyValue("transform") ||
+         "Either no transform set, or browser doesn't do getComputedStyle";
+        }
+    </script>
+    <style type="text/css">
+        #i-am-rotated
+        {
+            -webkit-transform: rotate(30deg);
+            -moz-transform: rotate(30deg);
+            -ms-transform: rotate(30deg);
+            -o-transform: rotate(30deg);
+        }
+    </style>
+</head>
+<body>
+    <div id="i-am-rotated">
+        text</div>
+    <button onclick="Test()">
+        click me</button>
+</body>
+</html>

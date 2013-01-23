@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <title>svg联系地址 http://www.xul.fr/en-xml-svg.htmlhttp://www.cnblogs.com/raymond19840709/archive/2007/03/24/686288.html
+    </title>
+    <style>
+        .divSvg
+        {
+            -webkit-transform: rotate(30 20,40) scale(1);
+            -moz-transform: rotate(30 20,40) scale(1);
+            -o-transform: rotate(30 20,40) scale(1);
+            transform: rotate(30 20,40) scale(1);
+            border: 1px solid green;
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+        }
+        
+        #transformedObject
+        {
+            width: 220px;
+            height: 70px;
+            -moz-transform: rotate(15deg) translateX(230px) scale(1.5);
+            -o-transform: rotate(15deg) translateX(230px) scale(1.5);
+            -webkit-transform: rotate(15deg) translateX(230px) scale(1.5);
+            transform: rotate(15deg) translateX(230px) scale(1.5);
+        }
+        
+        #trObject
+        {
+            width: 220px;
+            height: 70px;
+            -moz-transform: rotate(15deg) translateX(230px) scale(1.5);
+            -o-transform: rotate(15deg) translateX(230px) scale(1.5);
+            -webkit-transform: rotate(15deg) translateX(230px) scale(1.5);
+            transform: rotate(15deg) translateX(230px) scale(1.5);
+        }
+        
+    </style>
+    <script type="text/javascript">
+        function Test() {
+            alert();
+            $("#divSvg").css({ "-webkit-transform": "rotate(30 20,40) scale(2.0)", "-moz-transform": "rotate(30 20,40) scale(2.0)", "-o-transform": "rotate(30 20,40) scale(2.0)", "transform": "rotate(30 20,40) scale(1)" });
+        }
+
+        function Test2() {
+            // $('#transformedObject').css('transform', 'translate(50px, 30px) scale(2,.5)');
+            $('#transformedObject').css('transform', 'scale(2.0)');
+        }
+    </script>
+</head>
+<body>
+    <button onclick="Test()">
+        Zoom</button>
+    <div id="divSvg" class="divSvg">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text x="5" y="50">
+                             Hello, World! will go for same express 我的内容我自己做
+                        </text>
+        </svg>
+    </div>
+    <div class="divSvg">
+        我的内容我自己做
+    </div>
+    <div id="transformedObject" style="background-color: Red">
+        12222222222222222222
+    </div>
+    <button onclick="Test2()">
+        Zoom</button>
+    <hr />
+    <table>
+        <tr>
+            <td>
+            </td>
+        </tr>
+    </table>
+    <div id="trObject">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <text x="5" y="50">
+                             Hello, World! will go for same express 
+                        </text>
+        </svg>
+    </div>
+</body>
+</html>

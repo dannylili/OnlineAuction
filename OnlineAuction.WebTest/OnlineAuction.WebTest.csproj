@@ -114,14 +114,13 @@
     <Content Include="Exp\Css3\ImportCss\Zoom.htm" />
     <Content Include="Exp\Css3\ImportCss\Resise.htm" />
     <Content Include="Exp\Css3\ImportCss\Scale.htm" />
-    <Content Include="Exp\Css3\GradientFont\FontGradient .htm" />
-    <Content Include="Exp\Css3\GradientFont\Test-12.htm" />
     <Content Include="Exp\Css3\GradientFont\TopBottom.htm" />
     <Content Include="Exp\Css3\GradientForText\Test3.htm" />
-    <Content Include="Exp\Css3\GradientFont\Test4.htm" />
     <Content Include="Exp\Css3\MouseAreaSelectElement.htm" />
+    <Content Include="Exp\Css3\Transform.htm" />
     <Content Include="Exp\DOM\Json\JsonExp.htm" />
     <Content Include="Exp\HtmlExp.htm" />
+    <Content Include="Exp\Jquery\Select3.htm" />
     <Content Include="Exp\Jquery\Each.htm" />
     <Content Include="Exp\Jquery\JqueryToolTip\jquery.tooltip.css" />
     <Content Include="Exp\Jquery\JqueryToolTip\jquery.tooltip.js" />
@@ -449,8 +448,17 @@
     <Content Include="Exp\Jquery\tipTipv13\jquery.tipTip.minified.js" />
     <Content Include="Exp\Jquery\tipTipv13\tipTip.css" />
     <Content Include="Exp\Jquery\tipTipv13\ToolTip.htm" />
+    <Content Include="Exp\Js\Array.htm" />
+    <Content Include="Exp\Js\ContinueEvent.html" />
     <Content Include="Exp\Js\DefineClass.htm" />
+    <Content Include="Exp\Js\Eval.htm" />
+    <Content Include="Exp\Js\Event.htm" />
     <Content Include="Exp\Js\JsDefine2.htm" />
+    <Content Include="Exp\Js\JsDefine3.htm" />
+    <Content Include="Exp\Js\SetTimeOut.htm" />
+    <Content Include="Exp\Svg\svgLinearGradient.htm" />
+    <Content Include="Exp\Svg\SvgText.htm" />
+    <Content Include="Exp\Svg\Gammer.htm" />
     <Content Include="Exp\Svg\PathAddColor.htm" />
     <Content Include="Exp\Svg\FootMarkSolution\autoChangeFillColor.htm" />
     <Content Include="Exp\Svg\FootMarkSolution\checkout.html" />
@@ -482,6 +490,8 @@
     <Content Include="Exp\Svg\FootMarkSolution\text.html" />
     <Content Include="Exp\Svg\LinearGradient.htm" />
     <Content Include="Exp\Svg\SvgFile.htm" />
+    <Content Include="Exp\Svg\svgTextTransform.htm" />
+    <Content Include="Exp\Svg\SvgViewBox.htm" />
     <Content Include="Exp\Svg\Test.htm" />
     <Content Include="Html5\Canvas Reduce.htm" />
     <Content Include="Html5\Exp\AutoCreateTextSvg.htm" />
@@ -617,6 +627,13 @@
     <Compile Include="Exp\Css3\WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Exp\Js\ContinueEvent.aspx.cs">
+      <DependentUpon>ContinueEvent.html</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Exp\Js\ContinueEvent.aspx.designer.cs">
+      <DependentUpon>ContinueEvent.html</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -648,6 +665,7 @@
     <Folder Include="Content\Blue\" />
     <Folder Include="Exp\CShare\Image\" />
     <Folder Include="Exp\CShare\NewLog\" />
+    <Folder Include="Exp\Css3\s\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Account\Web.config" />
@@ -667,7 +685,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>50923</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

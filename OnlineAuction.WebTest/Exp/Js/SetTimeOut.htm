@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../../Scripts/jquery-1.8.3.js" type="text/javascript"></script>
+    <script type="text/javascript">
+
+        function test() {
+            $("#txt123").addClass("Cred");
+            setInterval();
+            // setTimeout("deleteTest()", 1000);
+            setTimeout("deleteTest()", 1000);
+
+           //  setInterval("deleteTest2()", 1000);
+        }
+
+        function deleteTest() {
+            alert("1000毫秒后我自动将样式删除掉");
+            $("#txt123").removeClass();
+        }
+
+        function deleteTest2() {
+            alert("当出发onfocus后，每隔1000毫秒后我自动将样式删除掉");
+            $("#txt123").removeClass();
+        }
+
+    </script>
+    <style>
+        .Cred
+        {
+            background-color: Green;
+        }
+    </style>
+</head>
+<body>
+    <input id="txt123" value="test" onfocus="test()" />
+    asdfasdfds
+</body>
+</html>
